@@ -1,11 +1,11 @@
 public abstract class Kunde {
-    private Konto[] konto;
+    private List<Konto> konto = new ArrayList<>();
 
     // Jeder Kunde hat min. ein Konto.
     // Da Konto vor Kunde nicht existieren kann,
     // wird jeder Kunde mit neuem Konto initialisiert.
     Kunde() {
-        konto[0] = new Konto(this);
+        this.konto.add(new Konto(this));
     }
 
 }
