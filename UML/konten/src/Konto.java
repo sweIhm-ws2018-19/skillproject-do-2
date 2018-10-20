@@ -12,7 +12,7 @@ public class Konto {
         return ...
     }
 
-    public einzahlen(GeldBetrag eing.betrag) {
+    public einzahlen(GeldBetrag eingbetrag) {
         return ...
     }
 }
