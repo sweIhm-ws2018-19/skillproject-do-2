@@ -1,0 +1,73 @@
+public class Adresse {
+    private String strasse;
+    private int hausnummer;
+    private String plz;
+    private String ort;
+
+    Adresse(String strasse, int hausnummer, String plz, String ort) {
+        this.strasse = strasse;
+        this.hausnummer = hausnummer;
+        this.plz = plz;
+        this.ort = ort;
+    }
+}
+
+
+public class Geschaeftskunde extends Kunde {
+    private String firmenname;
+    private Adresse domizilAdresse;
+
+    Geschaeftskunde(String firmenname, Adresse domizilAdresse) {
+        super();
+        this.firmenname = firmenname;
+        this.domizilAdresse = domizilAdresse;
+    }
+}
+
+
+public class Konto {
+    private String bezeichnung;
+    private List<Kunde> zeichnungsberechtigter = new ArrayList<>();
+
+    // Konten haben min. einen Kunden,
+    // Kunde kann aber schon exisiteren.
+    Konto(Kunde zeichnungsberechtigter) {
+        this.zeichnungsberechtigter.add(zeichnungsberechtigter);
+    }
+
+    public GeldBetrag saldo() {
+        return ...
+    }
+
+    public einzahlen(GeldBetrag eingbetrag) {
+        return ...
+    }
+}
+
+
+public abstract class Kunde {
+    private List<Konto> konto = new ArrayList<>();
+
+    // Jeder Kunde hat min. ein Konto.
+    // Da Konto vor Kunde nicht existieren kann,
+    // wird jeder Kunde mit neuem Konto initialisiert.
+    Kunde() {
+        this.konto.add(new Konto(this));
+    }
+
+}
+
+
+public class Privatkunde extends Kunde {
+    private String vorname;
+    private String nachname;
+    private Adresse postAdresse;
+
+    Privatkunde(String vorname, String nachname, Adresse postAdresse) {
+        super();
+        this.vorname = vorname;
+        this.nachname = nachname;
+        this.postAdresse = postAdresse;
+    }
+}
+
