@@ -1,21 +1,24 @@
 package main.java.barkeeper;
 
 import java.io.BufferedReader;
-import java.io.FileWriter;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class DrinkConverter {
 
     List<Drink> drinks = new ArrayList<>();
 
     public void convert() throws IOException {
-        try (
-            InputStreamReader isr = new InputStreamReader(
-                DrinkConverter.class.getResourceAsStream("resources/initialDrinkList.txt"));
-            BufferedReader br = new BufferedReader(isr)) {
+        try (InputStreamReader isr = new InputStreamReader(
+                new FileInputStream("src/main/resources/initialDrinkList.txt"), StandardCharsets.UTF_8);
+                BufferedReader br = new BufferedReader(isr)) {
             String tmp = br.readLine();
 
             while (tmp != null && tmp.equals("--Next--")) {
@@ -54,8 +57,15 @@ public class DrinkConverter {
     }
 
     public void toJSON() throws IOException {
-        try(FileWriter fw = new FileWriter("resources/initialDrinkListAsJSON.txt")){
-            // todo
+        File file = new File("src/main/resources/initialDrinkList.json");
+        ObjectMapper om = new ObjectMapper();
+
+        for (Drink drink : drinks) {
+            List<Ingredient> ingredients = drink.getIngredients();
+            for (Ingredient ingredient : ingredients) {
+                om.writeValue(file, ingredient);
+            }
+            om.writeValue(file, drink);
         }
     }
 
@@ -76,7 +86,8 @@ public class DrinkConverter {
     public static void main(String[] args) throws IOException {
         DrinkConverter dc = new DrinkConverter();
         dc.convert();
-        System.out.println(dc.toString());
+        dc.toJSON();
+//        System.out.println(dc.toString());
     }
 
 }
