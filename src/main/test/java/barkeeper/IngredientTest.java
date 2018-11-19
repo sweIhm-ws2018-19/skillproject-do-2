@@ -1,4 +1,4 @@
-package main.java.barkeeper;
+package main.test.java.barkeeper;
 
 import static org.junit.Assert.*;
 
