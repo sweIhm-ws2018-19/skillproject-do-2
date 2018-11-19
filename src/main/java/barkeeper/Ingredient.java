@@ -1,4 +1,4 @@
-package barkeeper;
+package main.java.barkeeper;
 
 /**
  * Class represents an ingredient of a drink.

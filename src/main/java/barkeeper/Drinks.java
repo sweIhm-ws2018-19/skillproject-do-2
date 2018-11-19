@@ -1,4 +1,4 @@
-package barkeeper;
+package main.java.barkeeper;
 
 public class Drinks {
 

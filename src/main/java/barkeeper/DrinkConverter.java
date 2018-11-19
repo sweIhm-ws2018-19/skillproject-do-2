@@ -1,4 +1,4 @@
-package barkeeper;
+package main.java.barkeeper;
 
 import java.io.BufferedReader;
 import java.io.FileWriter;
