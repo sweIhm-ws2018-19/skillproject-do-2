@@ -7,33 +7,30 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.MapType;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 
 public class DrinkConverter {
 
-    List<Drink> drinks = new ArrayList<>();
+    Map<String, Drink> drinks = new HashMap<>();
 
     public void convert() throws IOException {
-        try (InputStreamReader isr = new InputStreamReader(
+        try (
+            InputStreamReader isr = new InputStreamReader(
                 new FileInputStream("src/main/resources/initialDrinkList.txt"), StandardCharsets.UTF_8);
-                BufferedReader br = new BufferedReader(isr)) {
+            BufferedReader br = new BufferedReader(isr)) {
             String tmp = br.readLine();
 
             while (tmp != null && tmp.equals("--Next--")) {
                 String drinkName = br.readLine();
                 String flavour = br.readLine();
                 String daytime = br.readLine();
-                boolean containsAlcohol;
-
-                tmp = br.readLine();
-
-                if (tmp.contains("true")) {
-                    containsAlcohol = true;
-                } else {
-                    containsAlcohol = false;
-                }
+                String containsAlcohol = br.readLine();
 
                 List<Ingredient> ingredients = new ArrayList<>();
 
@@ -51,7 +48,7 @@ public class DrinkConverter {
                 }
 
                 Drink drink = new Drink(drinkName, flavour, daytime, containsAlcohol, ingredients);
-                drinks.add(drink);
+                drinks.put(drinkName, drink);
             }
         }
     }
@@ -60,28 +57,24 @@ public class DrinkConverter {
         File file = new File("src/main/resources/initialDrinkList.json");
         ObjectMapper om = new ObjectMapper();
 
-        om.writeValue(file, drinks);
-
-//        for (Drink drink : drinks) {
-//            om.writeValue(file, drink);
-//        }
+        om.writerWithDefaultPrettyPrinter().writeValue(file, drinks);
     }
 
     public void fromJSON() throws IOException {
         File file = new File("src/main/resources/initialDrinkList.json");
         ObjectMapper om = new ObjectMapper();
+        TypeFactory typeFactory = om.getTypeFactory();
+        MapType mapType = typeFactory.constructMapType(HashMap.class, String.class, Drink.class);
 
-        List<Drink> drinksTemp;
-        = om.readValue(file, Drink.class);
-        Drink d
-        
-        
+        Map<String, Drink> drinksTemp = om.readValue(file, mapType);
+        System.out.println(drinksTemp.toString());
+
     }
 
     @Override
     public String toString() {
         String tmp = "";
-        for (Drink drink : drinks) {
+        for (Drink drink : drinks.values()) {
             tmp += drink.toString() + "\n";
             for (Ingredient ingredient : drink.getIngredients()) {
                 tmp += ingredient.toString() + " # ";
@@ -95,8 +88,9 @@ public class DrinkConverter {
     public static void main(String[] args) throws IOException {
         DrinkConverter dc = new DrinkConverter();
         dc.convert();
-        System.out.println(dc.toString());
+//        System.out.println(dc.toString());
         dc.toJSON();
+        dc.fromJSON();
     }
 
 }

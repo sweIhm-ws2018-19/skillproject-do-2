@@ -1,1 +1,49 @@
-[{"name":"Kaba","flavor":"SWEET","daytime":"MORNING","ingredients":[{"name":"Kakaopulver","amount":"2 Löffel"},{"name":"Milch","amount":"1 Tasse"}]},{"name":"Kaffee","flavor":"BITTER","daytime":"MORNING","ingredients":[{"name":"Kaffeepulver","amount":"Pro Tasse ein halber Löffel"},{"name":"Wasser","amount":"Pro Tasse ca. 200 ml"}]},{"name":"Cola","flavor":"SWEET","daytime":"NOON","ingredients":[]},{"name":"Fanta","flavor":"SWEET","daytime":"NOON","ingredients":[]},{"name":"Bier","flavor":"BITTER","daytime":"EVENING","ingredients":[]}]
+{
+  "Cola" : {
+    "name" : "Cola",
+    "flavor" : "SWEET",
+    "daytime" : "NOON",
+    "containsAlcohol" : false,
+    "ingredients" : [ ]
+  },
+  "Kaffee" : {
+    "name" : "Kaffee",
+    "flavor" : "BITTER",
+    "daytime" : "MORNING",
+    "containsAlcohol" : false,
+    "ingredients" : [ {
+      "name" : "Kaffeepulver",
+      "amount" : "Pro Tasse ein halber Löffel"
+    }, {
+      "name" : "Wasser",
+      "amount" : "Pro Tasse ca. 200 ml"
+    } ]
+  },
+  "Kaba" : {
+    "name" : "Kaba",
+    "flavor" : "SWEET",
+    "daytime" : "MORNING",
+    "containsAlcohol" : false,
+    "ingredients" : [ {
+      "name" : "Kakaopulver",
+      "amount" : "2 Löffel"
+    }, {
+      "name" : "Milch",
+      "amount" : "1 Tasse"
+    } ]
+  },
+  "Fanta" : {
+    "name" : "Fanta",
+    "flavor" : "SWEET",
+    "daytime" : "NOON",
+    "containsAlcohol" : false,
+    "ingredients" : [ ]
+  },
+  "Bier" : {
+    "name" : "Bier",
+    "flavor" : "BITTER",
+    "daytime" : "EVENING",
+    "containsAlcohol" : true,
+    "ingredients" : [ ]
+  }
+}

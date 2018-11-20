@@ -1,5 +1,8 @@
 package main.java.barkeeper;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Class represents an ingredient of a drink.
  * 
@@ -13,12 +16,11 @@ public class Ingredient {
     /**
      * Constructor of an ingredient.
      * 
-     * @param name
-     *            name of the ingredient
-     * @param amount
-     *            the needed amount of the ingredient
+     * @param name   name of the ingredient
+     * @param amount the needed amount of the ingredient
      */
-    public Ingredient(String name, String amount) {
+    @JsonCreator
+    public Ingredient(@JsonProperty("name") String name, @JsonProperty("amount") String amount) {
         this.name = name;
         this.amount = amount;
     }
@@ -40,7 +42,7 @@ public class Ingredient {
     public String getAmount() {
         return amount;
     }
-    
+
     @Override
     public String toString() {
         return "ingredient: " + name + "; amount: " + amount;

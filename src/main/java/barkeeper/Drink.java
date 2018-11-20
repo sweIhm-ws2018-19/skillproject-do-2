@@ -2,6 +2,9 @@ package main.java.barkeeper;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Drink {
     private final String name;
     private final Flavor flavor;
@@ -12,48 +15,75 @@ public class Drink {
     /**
      * Constructor of drink.
      * 
-     * @param name
-     *            name of the drink
-     * @param flavor
-     *            flavor of the drink as String
-     * @param daytime
-     *            daytime of the drink as String
-     * @param containsAlcohol
-     *            true if the drink contains alcohol, false if not
-     * @param ingredient
-     *            list of the ingredients of a drink
+     * @param name            name of the drink
+     * @param flavor          flavor of the drink as String
+     * @param daytime         daytime of the drink as String
+     * @param containsAlcohol true if the drink contains alcohol, false if not
+     * @param ingredient      list of the ingredients of a drink
      */
-    public Drink(String name, String flavor, String daytime, boolean containsAlcohol,
-            List<Ingredient> ingredient) {
+    @JsonCreator
+    public Drink(@JsonProperty("name") String name, @JsonProperty("flavor") String flavor,
+        @JsonProperty("daytime") String daytime, @JsonProperty("containsAlcohol") String containsAlcohol,
+        @JsonProperty("ingredients") List<Ingredient> ingredients) {
         this.name = name;
         this.flavor = findFlavor(flavor);
         this.daytime = findDaytime(daytime);
-        this.containsAlcohol = containsAlcohol;
-        this.ingredients = ingredient;
+        this.containsAlcohol = findContainsAlcohol(containsAlcohol);
+        this.ingredients = ingredients;
+    }
+//
+//    public Drink(String name, Flavor flavor, Daytime daytime, boolean containsAlcohol, List<Ingredient> ingredients) {
+//        this.name = name;
+//        this.flavor = flavor;
+//        this.daytime = daytime;
+//        this.containsAlcohol = containsAlcohol;
+//        this.ingredients = ingredients;
+//    }
+
+    /**
+     * Method gets information if drink contains alcohol as string and converts it
+     * to boolean.
+     * 
+     * @param flavor as string
+     * @return flavor as enum.
+     */
+    private boolean findContainsAlcohol(String containsAlcohol) {
+        boolean tmp;
+        switch (containsAlcohol.toLowerCase()) {
+        case "true":
+            tmp = true;
+            break;
+        case "false":
+            tmp = false;
+            break;
+        default:
+            throw new IllegalArgumentException(
+                "\"" + containsAlcohol + "\"" + "is not a valid boolean. Valid booleans are \"false\" or \"true\"");
+        }
+        return tmp;
     }
 
     /**
      * Method gets a flavor as string and converts it to Flavor(enum).
      * 
-     * @param flavor
-     *            as string
+     * @param flavor as string
      * @return flavor as enum.
      */
     private Flavor findFlavor(String flavor) {
         Flavor tmp;
-        switch (flavor) {
-        case "sweet":
+        switch (flavor.toUpperCase()) {
+        case "SWEET":
             tmp = Flavor.SWEET;
             break;
-        case "sour":
+        case "SOUR":
             tmp = Flavor.SOUR;
             break;
-        case "bitter":
+        case "BITTER":
             tmp = Flavor.BITTER;
             break;
         default:
-            throw new IllegalArgumentException("\"" + flavor + "\""
-                    + "is not a valid flavour. Valid flavour are \"sweet\", \"sour\" or \"bitter\"");
+            throw new IllegalArgumentException(
+                "\"" + flavor + "\"" + "is not a valid flavour. Valid flavour are \"SWEET\", \"SOUR\" or \"BITTER\"");
         }
         return tmp;
     }
@@ -61,25 +91,24 @@ public class Drink {
     /**
      * Method gets a daytime as string and converts it to Daytime(enum).
      * 
-     * @param daytime
-     *            as string
+     * @param daytime as string
      * @return daytime as enum.
      */
     private Daytime findDaytime(String daytime) {
         Daytime tmp;
-        switch (daytime) {
-        case "morning":
+        switch (daytime.toUpperCase()) {
+        case "MORNING":
             tmp = Daytime.MORNING;
             break;
-        case "noon":
+        case "NOON":
             tmp = Daytime.NOON;
             break;
-        case "evening":
+        case "EVENING":
             tmp = Daytime.EVENING;
             break;
         default:
             throw new IllegalArgumentException("\"" + daytime + "\""
-                    + "is not a valid daytime. Valid daytimes are \"morning\", \"noon\" or \"evening\"");
+                + "is not a valid daytime. Valid daytimes are \"MORNING\", \"NOON\" or \"EVENING\"");
         }
         return tmp;
     }
@@ -108,7 +137,7 @@ public class Drink {
     /**
      * @return the containsAlcohol
      */
-    public boolean containsAlcohol() {
+    public boolean getContainsAlcohol() {
         return containsAlcohol;
     }
 
@@ -118,15 +147,15 @@ public class Drink {
     public List<Ingredient> getIngredients() {
         return ingredients;
     }
-    
+
     public String listIngredients() {
         if (ingredients.size() == 0) {
             return "Fuer" + name + "sind leider keine Zutaten gespeichert.";
         }
-        if(ingredients.size() == 1) {
+        if (ingredients.size() == 1) {
             return name + "enth�lt" + ingredients.get(0).getAmount() + ingredients.get(0).getName();
         }
-        
+
         String listOfIngredients = name + "enthaelt folgende Zutaten: ";
         for (int i = 0; i < ingredients.size() - 1; i++) {
             listOfIngredients += ingredients.get(i).getAmount() + ingredients.get(i).getName() + ",";
@@ -134,10 +163,10 @@ public class Drink {
         listOfIngredients += "und " + ingredients.get(ingredients.size() - 1) + ".";
         return listOfIngredients;
     }
-    
+
     @Override
     public String toString() {
-        return "drinkName: " + name + "; falvor: " + flavor.getFlavor() + "; daytime: " + daytime.getDaytime() + "; containsAlcohol: " + containsAlcohol;
+        return "drinkName: " + name + "; falvor: " + flavor.getFlavor() + "; daytime: " + daytime.getDaytime()
+            + "; containsAlcohol: " + containsAlcohol;
     }
-    
 }
