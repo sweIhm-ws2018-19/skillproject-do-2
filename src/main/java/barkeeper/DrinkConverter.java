@@ -41,7 +41,7 @@ public class DrinkConverter {
 
                 if (tmp != null && tmp.equals("--Ingredients--")) {
                     tmp = br.readLine();
-                    while (!tmp.equals("--Next--")) {
+                    while (tmp != null && !tmp.equals("--Next--")) {
                         String name = tmp;
                         String amount = br.readLine();
                         Ingredient ingredient = new Ingredient(name, amount);
@@ -60,13 +60,22 @@ public class DrinkConverter {
         File file = new File("src/main/resources/initialDrinkList.json");
         ObjectMapper om = new ObjectMapper();
 
-        for (Drink drink : drinks) {
-            List<Ingredient> ingredients = drink.getIngredients();
-            for (Ingredient ingredient : ingredients) {
-                om.writeValue(file, ingredient);
-            }
-            om.writeValue(file, drink);
-        }
+        om.writeValue(file, drinks);
+
+//        for (Drink drink : drinks) {
+//            om.writeValue(file, drink);
+//        }
+    }
+
+    public void fromJSON() throws IOException {
+        File file = new File("src/main/resources/initialDrinkList.json");
+        ObjectMapper om = new ObjectMapper();
+
+        List<Drink> drinksTemp;
+        = om.readValue(file, Drink.class);
+        Drink d
+        
+        
     }
 
     @Override
@@ -86,8 +95,8 @@ public class DrinkConverter {
     public static void main(String[] args) throws IOException {
         DrinkConverter dc = new DrinkConverter();
         dc.convert();
+        System.out.println(dc.toString());
         dc.toJSON();
-//        System.out.println(dc.toString());
     }
 
 }
