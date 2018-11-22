@@ -1,13 +1,58 @@
 --Next--
-Kaba
+Cola
+sweet
+noon
+false
+--Next--
+Eistee
+sweet
+noon
+false
+--Next--
+Energy-Drink
+sweet
+evening
+false
+--Next--
+Apfelschorle
+sweet
+noon
+false
+--Next--
+Orangenlimonade
+sweet
+noon
+false
+--Next--
+Zitronenlimonade
+sweet
+noon
+false
+--Next--
+Bitter Lemon
+bitter
+noon
+false
+--Next--
+Tonic Water
+bitter
+noon
+false
+--Next--
+Ginger Ale
+bitter
+noon
+false
+--Next--
+Cola Mix
+sweet
+noon
+false
+--Next--
+Tee
 sweet
 morning
 false
---Ingredients--
-Kakaopulver
-2 Löffel
-Milch
-1 Tasse
 --Next--
 Kaffee
 bitter
@@ -15,19 +60,198 @@ morning
 false
 --Ingredients--
 Kaffeepulver
-Pro Tasse ein halber Löffel
+1 Kaffeelöffel
 Wasser
-Pro Tasse ca. 200 ml
+250 Milliliter
 --Next--
-Cola
+Traubenschorle
 sweet
-noon
+morning
 false
 --Next--
-Fanta
-sweet
-noon
+Johannisbeerschorle
+sour
+morning
 false
+--Next--
+Rote Schorle
+sweet
+morning
+false
+--Next--
+Plain Vanilla
+sweet
+evening
+false
+--Ingredients--
+granini Kirsche
+5 Zentiliter
+granini Mango
+4 Zentiliter
+granini Ananas
+3 Zentiliter
+granini Lime Juice
+2 Zentiliter
+Vanillesirup
+1 Zentiliter
+--Next--
+Swimmingpool
+sweet
+evening
+true
+--Ingredients--
+granini Ananassaft
+14 Zentiliter
+Vodka
+2 Zentiliter
+Rum weiß
+2 Zentiliter
+Blue Curaçao
+2 Zentiliter
+Kokosnusscreme
+3 Zentiliter
+Sahne
+4 Zentiliter
+--Next--
+Chocolada
+sweet
+evening
+true
+--Ingredients--
+granini Ananassaft
+6 Zentiliter
+granini Orangensaft
+2 Zentiliter
+Sahne
+2 Zentiliter
+Monin Chocolat - weiss
+2 Zentiliter
+Cointreau
+2 Zentiliter
+St. Etienne Rhum Agricole Eleve Sous Bois
+4 Zentiliter
+--Next--
+Tequila Sunrise
+sweet
+evening
+true
+--Ingredients--
+granini Zitrone
+1 Zentiliter
+Grenadinesirup
+2 Zentiliter
+Tequila
+4 Zentiliter
+Orangensaft
+so viel, wie noch in das Glas passt
+--Next--
+Sweet Holly
+sweet
+evening
+true
+--Ingredients--
+granini Erdbeere
+8 Zentiliter
+granini Ananas
+6 Zentiliter
+granini Mango
+4 Zentiliter
+Monin Holunderblüte
+1 Zentiliter
+Rum Gold
+3 Zentiliter
+--Next--
+Sweet Baya
+sweet
+evening
+true
+--Ingredients--
+granini schwarze Johannisbeere
+4 Zentiliter
+granini Pfirsich
+3 Zentiliter
+granini Mango
+4 Zentiliter
+granini Orange
+4 Zentiliter
+granini Lemon Squash
+3 Zentiliter
+Rum braun
+4 Zentiliter
+--Next--
+Mango Colada
+sweet
+evening
+true
+--Ingredients--
+granini Mango
+12 Zentiliter
+Rum weiß
+4 Zentiliter
+Kokossirup
+2 Zentiliter
+Flüssige Sahne
+4 Zentiliter
+--Next--
+Sex on the Beach
+sweet
+evening
+true
+--Ingredients--
+granini Orange
+4 Zentiliter
+granini Pfirsich
+3 Zentiliter
+granini Ananas
+3 Zentiliter
+granini Cranberry
+3 Zentiliter
+Wodka
+4 Zentiliter
+--Next--
+Planter's Punch
+sweet
+evening
+true
+--Ingredients--
+granini Orange
+6 Zentiliter
+granini Ananas
+3 Zentiliter
+granini Zitrone
+2 Zentiliter
+Grenadinesirup
+1 Zentiliter
+Rum braun
+5 Zentiliter
+--Next--
+Piña Colada
+sweet
+evening
+true
+--Ingredients--
+granini Ananas
+12 Zentiliter
+Flüssige Sahne
+5 Zentiliter
+Kokossirup
+2 Zentiliter
+Rum weiß
+4 Zentiliter
+--Next--
+Heiße Schokolade
+sweet
+morning
+false
+--Ingredients--
+Geschmolzene Schokolade
+50 Gramm
+Milch
+0,5 Liter
+Zimt
+0,25 Teelöffel
+Kardamom
+1 Messerspitze
 --Next--
 Bier
 bitter
