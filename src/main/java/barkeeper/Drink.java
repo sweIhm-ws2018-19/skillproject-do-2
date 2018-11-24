@@ -31,7 +31,7 @@ public class Drink {
         this.containsAlcohol = findContainsAlcohol(containsAlcohol);
         this.ingredients = ingredients;
     }
-//
+
 //    public Drink(String name, Flavor flavor, Daytime daytime, boolean containsAlcohol, List<Ingredient> ingredients) {
 //        this.name = name;
 //        this.flavor = flavor;
@@ -150,17 +150,18 @@ public class Drink {
 
     public String listIngredients() {
         if (ingredients.size() == 0) {
-            return "Fuer" + name + "sind leider keine Zutaten gespeichert.";
+            return "Fuer " + name + " sind leider keine Zutaten gespeichert.";
         }
         if (ingredients.size() == 1) {
-            return name + "enth�lt" + ingredients.get(0).getAmount() + ingredients.get(0).getName();
+            return name + " enthaelt " + ingredients.get(0).getAmount() + " " + ingredients.get(0).getName();
         }
+        String listOfIngredients = name + " enthaelt folgende Zutaten: ";
+        for (int i = 0; i < ingredients.size() - 2; i++) {
+            listOfIngredients += ingredients.get(i).getAmount() + " " + ingredients.get(i).getName() + ", ";
+        }
+        listOfIngredients += ingredients.get(ingredients.size() - 2).getAmount()+ " " + ingredients.get(ingredients.size() - 2).getName() +
+            " und " + ingredients.get(ingredients.size() - 1).getAmount() + " " + ingredients.get(ingredients.size() - 1).getName() + ".";
 
-        String listOfIngredients = name + "enthaelt folgende Zutaten: ";
-        for (int i = 0; i < ingredients.size() - 1; i++) {
-            listOfIngredients += ingredients.get(i).getAmount() + ingredients.get(i).getName() + ",";
-        }
-        listOfIngredients += "und " + ingredients.get(ingredients.size() - 1) + ".";
         return listOfIngredients;
     }
 
