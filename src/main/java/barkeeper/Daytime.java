@@ -2,7 +2,7 @@ package main.java.barkeeper;
 
 public enum Daytime {
 
-    MORNING("morning"), NOON("noon"), EVENING("eveing");
+    MORNING("morning"), NOON("noon"), EVENING("evening");
 
     private final String daytime;
 
