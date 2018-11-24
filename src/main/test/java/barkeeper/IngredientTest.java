@@ -1,14 +1,25 @@
-package main.test.java.barkeeper;
+package barkeeper;
 
 import static org.junit.Assert.*;
-
+import org.junit.Assert;
 import org.junit.Test;
 
 public class IngredientTest {
+    Ingredient test = new Ingredient("Cola", "100 Milliliter");
 
     @Test
-    public void test() {
-        fail("Not yet implemented");
+    public void getNameTest() {
+        Assert.assertEquals("Cola", test.getName());
     }
 
+    @Test
+    public void getAmountTest() {
+        Assert.assertEquals("100 Milliliter", test.getAmount());
+
+    }
+
+    @Test
+    public void toStringTest() {
+        Assert.assertEquals("ingredient: Cola; amount: 100 Milliliter", test.toString());
+    }
 }
