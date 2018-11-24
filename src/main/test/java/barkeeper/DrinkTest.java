@@ -1,5 +1,5 @@
 
-package barkeeper;
+package main.test.java.barkeeper;
 
 import static org.junit.Assert.*;
 import java.util.List;
