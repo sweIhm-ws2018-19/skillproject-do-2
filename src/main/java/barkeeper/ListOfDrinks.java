@@ -26,11 +26,9 @@ public class ListOfDrinks {
      * @param initializeList Imports an initial list of drinks if true.
      * @throws IOException Exception if any problems occur while reading the file.
      */
-    public ListOfDrinks(boolean initializeList) throws IOException {
-        if (initializeList) {
+    public ListOfDrinks(boolean initializeListFromResources) throws IOException {
+        if (initializeListFromResources) {
             drinks = getInitialListFromJson();
-        } else {
-            this.drinks = new HashMap<>();
         }
     }
 
