@@ -9,6 +9,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.MapType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 
+/**
+ * Class represents a list of drinks.
+ * 
+ * @author Felix Haala
+ *
+ */
 public class ListOfDrinks {
 
     private final Map<String, Drink> drinks;
@@ -16,6 +22,7 @@ public class ListOfDrinks {
 
     /**
      * Ctor for ListOfDrinks.
+     * 
      * @param initializeList Imports an initial list of drinks if true.
      * @throws IOException Exception if any problems occur while reading the file.
      */
