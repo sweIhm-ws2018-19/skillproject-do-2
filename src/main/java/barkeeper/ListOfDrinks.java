@@ -47,7 +47,7 @@ public class ListOfDrinks {
         return initialDrinkList;
     }
 
-    public Drink getDrinByName(String drinkName) {
+    public Drink getDrinkByName(String drinkName) {
         return drinks.get(drinkName);
     }
 
