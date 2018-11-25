@@ -13,3 +13,13 @@ addons:
 script:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Pdev sonar:sonar
   - mvn org.apache.maven.plugins:maven-assembly-plugin:2.6:assembly -DdescriptorId=jar-with-dependencies package
+
+deploy:
+    provider: lambda
+    function_name: "simpleBarkeeper"
+    region: "us-east-1"
+    role: "arn:aws:iam::0123456789012:role/lambda_basic_execution"
+    runtime: "nodejs4.3"
+    handler_name: "handler"
+    access_key_id: "ASIARQ46J2YVRDNYOHXX"
+    secret_access_key: "2XmrL8QsDtaVw5QcXvfihaV50+CzQAcH/0v+bp3l"
