@@ -15,7 +15,7 @@ public class ListOfDrinks {
     private final Map<String, Drink> drinks = new HashMap<>();
     private Drink favourite;
 
-    public void getInitialListfromJSON() throws IOException {
+    public void setInitialListfromJson() throws IOException {
         File file = new File("src/main/resources/initialDrinkList.json");
         ObjectMapper om = new ObjectMapper();
         TypeFactory typeFactory = om.getTypeFactory();
