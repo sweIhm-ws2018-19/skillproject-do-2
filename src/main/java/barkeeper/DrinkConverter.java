@@ -60,16 +60,16 @@ public class DrinkConverter {
         om.writerWithDefaultPrettyPrinter().writeValue(file, drinks);
     }
 
-    public void fromJSON() throws IOException {
-        File file = new File("src/main/resources/initialDrinkList.json");
-        ObjectMapper om = new ObjectMapper();
-        TypeFactory typeFactory = om.getTypeFactory();
-        MapType mapType = typeFactory.constructMapType(HashMap.class, String.class, Drink.class);
-
-        Map<String, Drink> drinksTemp = om.readValue(file, mapType);
-        System.out.println(drinksTemp.toString());
-
-    }
+//    public void fromJSON() throws IOException {
+//        File file = new File("src/main/resources/initialDrinkList.json");
+//        ObjectMapper om = new ObjectMapper();
+//        TypeFactory typeFactory = om.getTypeFactory();
+//        MapType mapType = typeFactory.constructMapType(HashMap.class, String.class, Drink.class);
+//
+//        Map<String, Drink> drinksTemp = om.readValue(file, mapType);
+//        System.out.println(drinksTemp.toString());
+//
+//    }
 
     @Override
     public String toString() {
@@ -85,12 +85,12 @@ public class DrinkConverter {
         return tmp;
     }
 
-    public static void main(String[] args) throws IOException {
-        DrinkConverter dc = new DrinkConverter();
-        dc.convert();
-//        System.out.println(dc.toString());
-        dc.toJSON();
-//        dc.fromJSON();
-    }
+//    public static void main(String[] args) throws IOException {
+//        DrinkConverter dc = new DrinkConverter();
+//        dc.convert();
+////        System.out.println(dc.toString());
+//        dc.toJSON();
+////        dc.fromJSON();
+//    }
 
 }
