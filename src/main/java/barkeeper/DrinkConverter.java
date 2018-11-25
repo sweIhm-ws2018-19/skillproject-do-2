@@ -15,15 +15,29 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.MapType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 
+/**
+ * Class represents a converter for drinks. It is not part of the final product.
+ * This tool is just a helper to produce an initial map of drinks. It reads a
+ * text file and knows the tags "--Next--" and "--Ingredients--". If those words
+ * occur in the text file, a new drink or a list of ingredients will be
+ * generated. A text file will contain only one information per line.
+ * 
+ * @author Felix Haala
+ *
+ */
 public class DrinkConverter {
 
     Map<String, Drink> drinks = new HashMap<>();
 
+    /**
+     * Converts the initialDrinkList.txt from the resources to a Map<String, Drink>.
+     * 
+     * @throws IOException Exception if any problems occur while reading the file.
+     */
     public void convert() throws IOException {
-        try (
-            InputStreamReader isr = new InputStreamReader(
+        try (InputStreamReader isr = new InputStreamReader(
                 new FileInputStream("src/main/resources/initialDrinkList.txt"), StandardCharsets.UTF_8);
-            BufferedReader br = new BufferedReader(isr)) {
+                BufferedReader br = new BufferedReader(isr)) {
             String tmp = br.readLine();
 
             while (tmp != null && tmp.equals("--Next--")) {
@@ -53,6 +67,12 @@ public class DrinkConverter {
         }
     }
 
+    /**
+     * Converts the included map of drinks to a initialDrinkList.json file in the
+     * resources folder.
+     * 
+     * @throws IOException Exception if any problems occur while writing the file.
+     */
     public void toJSON() throws IOException {
         File file = new File("src/main/resources/initialDrinkList.json");
         ObjectMapper om = new ObjectMapper();
@@ -60,17 +80,25 @@ public class DrinkConverter {
         om.writerWithDefaultPrettyPrinter().writeValue(file, drinks);
     }
 
-//    public void fromJSON() throws IOException {
-//        File file = new File("src/main/resources/initialDrinkList.json");
-//        ObjectMapper om = new ObjectMapper();
-//        TypeFactory typeFactory = om.getTypeFactory();
-//        MapType mapType = typeFactory.constructMapType(HashMap.class, String.class, Drink.class);
-//
-//        Map<String, Drink> drinksTemp = om.readValue(file, mapType);
-//        System.out.println(drinksTemp.toString());
-//
-//    }
+    /**
+     * Imports the the initialDrinkList file from the resources.
+     * 
+     * @throws IOException Exception if any problems occur while reading the file.
+     */
+    public void fromJSON() throws IOException {
+        File file = new File("src/main/resources/initialDrinkList.json");
+        ObjectMapper om = new ObjectMapper();
+        TypeFactory typeFactory = om.getTypeFactory();
+        MapType mapType = typeFactory.constructMapType(HashMap.class, String.class, Drink.class);
 
+        Map<String, Drink> drinksTemp = om.readValue(file, mapType);
+        System.out.println(drinksTemp.toString());
+
+    }
+
+    /**
+     * Generates a string representation of the drinks in the classes map of drinks.
+     */
     @Override
     public String toString() {
         String tmp = "";
