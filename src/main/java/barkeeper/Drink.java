@@ -155,7 +155,7 @@ public class Drink {
         if (ingredients.size() == 1) {
             return name + " enthaelt " + ingredients.get(0).getAmount() + " " + ingredients.get(0).getName();
         }
-        String listOfIngredients = name + " enthaelt folgende Zutaten: ";
+        String listOfIngredients = name + " enthält folgende Zutaten: ";
         for (int i = 0; i < ingredients.size() - 2; i++) {
             listOfIngredients += ingredients.get(i).getAmount() + " " + ingredients.get(i).getName() + ", ";
         }

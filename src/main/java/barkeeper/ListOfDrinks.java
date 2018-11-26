@@ -23,10 +23,8 @@ public class ListOfDrinks {
     /**
      * Ctor for ListOfDrinks with preset drinks.
      * 
-     * @param initializeList
-     *            Imports an initial list of drinks if true.
-     * @throws IOException
-     *             Exception if any problems occur while reading the file.
+     * @param initializeList Imports an initial list of drinks if true.
+     * @throws IOException Exception if any problems occur while reading the file.
      */
 
     /**
@@ -41,8 +39,7 @@ public class ListOfDrinks {
     /**
      * Gets the the initialDrinkList from the resources.
      * 
-     * @throws IOException
-     *             Exception if any problems occur while reading the file.
+     * @throws IOException Exception if any problems occur while reading the file.
      */
     public Map<String, Drink> getInitialListFromJson() throws IOException {
         File file = new File("src/main/resources/initialDrinkList.json");
@@ -69,9 +66,25 @@ public class ListOfDrinks {
     public String listIngredients(String drink) {
         if (drinks.containsKey(drink)) {
             return drinks.get(drink).listIngredients();
-  
+
         }
         return "Der von Ihnen genannt Drink ist mir leider nicht bekannt.";
+    }
+
+    /**
+     * Setter for a favorite drink.
+     * @param drink The drink which will be the new favorite.
+     */
+    public void setFavorite(Drink drink) {
+        favorite = drink;
+    }
+
+    /**
+     * Getter for the favorite drink.
+     * @return The recent favorite drink.
+     */
+    public Drink getFavorite() {
+        return favorite;
     }
 
     // public List<String> getIngredientsOf(String drink) {
