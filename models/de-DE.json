@@ -1,24 +1,27 @@
 {
-  "interactionModel": {
-    "languageModel": {
-      "invocationName": "simple barkeeper",
-      "intents": [
-        {
-          "name": "CancelIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": []
-        },
-        {
-          "name": "StopIntent",
-          "samples": [
-          "Schliesse Barkeeper",
-          "Stopp die App",
-          "Beende Anwendung",
-          "Ich will doch keinen Drink"]
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "simple barkeeper",
+            "intents": [
+                {
+                    "name": "CancelIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "StopIntent",
+                    "slots": [],
+                    "samples": [
+                        "Beende Anwendung",
+                        "Ich will doch keinen Drink"
+                    ]
+                }
+            ],
+            "types": []
         }
-   }
-  }
+    }
 }
