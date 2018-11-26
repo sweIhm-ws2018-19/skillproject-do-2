@@ -47,8 +47,7 @@ public class ListOfDrinks {
         TypeFactory typeFactory = om.getTypeFactory();
         MapType mapType = typeFactory.constructMapType(HashMap.class, String.class, Drink.class);
 
-        Map<String, Drink> initialDrinkList = om.readValue(file, mapType);
-        return initialDrinkList;
+        return om.readValue(file, mapType);
     }
 
     public Drink getDrinkByName(String drinkName) {
@@ -86,41 +85,5 @@ public class ListOfDrinks {
     public Drink getFavorite() {
         return favorite;
     }
-
-    // public List<String> getIngredientsOf(String drink) {
-    //
-    // }
-    //
-    // public Drink getRandomDrink(Flavor flavor, boolean containsAlcohol) {
-    //
-    // }
-    //
-    // public Drink getRandomDrink(Ingredient ingredient, boolean containsAlcohol) {
-    //
-    // }
-    //
-    // public Drink getRandomDrink(boolean containsAlcohol) {
-    //
-    // }
-    //
-    // public boolean addDrink(String name) {
-    //
-    // }
-    //
-    // public boolean addIngredient(String name, Ingredient ingredient) {
-    //
-    // }
-    //
-    // public void setFlavour(String name, Flavor flavor) {
-    //
-    // }
-    //
-    // public void setDaytime(String name, Daytime daytime) {
-    //
-    // }
-    //
-    // public String help() {
-    //
-    // }
 
 }

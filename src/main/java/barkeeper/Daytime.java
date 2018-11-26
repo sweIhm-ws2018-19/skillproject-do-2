@@ -4,14 +4,14 @@ public enum Daytime {
 
     MORNING("morning"), NOON("noon"), EVENING("evening");
 
-    private final String daytime;
+    private final String daytimeName;
 
-    Daytime(String daytime) {
-        this.daytime = daytime;
+    Daytime(String daytimeName) {
+        this.daytimeName = daytimeName;
     }
 
-    public String getDaytime() {
-        return daytime;
+    public String getDaytimeName() {
+        return daytimeName;
     }
 
 }
