@@ -45,7 +45,9 @@ public class Ingredient {
 
     @Override
     public String toString() {
-        return "ingredient: " + name + "; amount: " + amount;
+        StringBuilder sb = new StringBuilder();
+        sb.append("ingredient: ").append(name).append("; amount: ").append(amount);
+        return sb.toString();
     }
 
 }

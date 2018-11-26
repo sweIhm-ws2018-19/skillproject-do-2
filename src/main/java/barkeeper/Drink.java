@@ -57,8 +57,10 @@ public class Drink {
             tmp = false;
             break;
         default:
-            throw new IllegalArgumentException(
-                    "\"" + containsAlcohol + "\"" + "is not a valid boolean. Valid booleans are \"false\" or \"true\"");
+            StringBuilder sb = new StringBuilder();
+            sb.append("\"").append(containsAlcohol).append("\"")
+                    .append("is not a valid boolean. Valid booleans are \"false\" or \"true\"");
+            throw new IllegalArgumentException(sb.toString());
         }
         return tmp;
     }
@@ -82,8 +84,10 @@ public class Drink {
             tmp = Flavor.BITTER;
             break;
         default:
-            throw new IllegalArgumentException("\"" + flavor + "\""
-                    + "is not a valid flavour. Valid flavour are \"SWEET\", \"SOUR\" or \"BITTER\"");
+            StringBuilder sb = new StringBuilder();
+            sb.append("\"").append(flavor).append("\"")
+                    .append("is not a valid flavour. Valid flavour are \"SWEET\", \"SOUR\" or \"BITTER\"");
+            throw new IllegalArgumentException(sb.toString());
         }
         return tmp;
     }
@@ -107,8 +111,10 @@ public class Drink {
             tmp = Daytime.EVENING;
             break;
         default:
-            throw new IllegalArgumentException("\"" + daytime + "\""
-                    + "is not a valid daytime. Valid daytimes are \"MORNING\", \"NOON\" or \"EVENING\"");
+            StringBuilder sb = new StringBuilder();
+            sb.append("\"").append(daytime).append("\"")
+                    .append("is not a valid daytime. Valid daytimes are \"MORNING\", \"NOON\" or \"EVENING\"");
+            throw new IllegalArgumentException(sb.toString());
         }
         return tmp;
     }
@@ -149,27 +155,36 @@ public class Drink {
     }
 
     public String listIngredients() {
+        StringBuilder sb = new StringBuilder();
+
         if (ingredients.isEmpty()) {
-            return "Fuer " + name + " sind leider keine Zutaten gespeichert.";
+            sb.append("Fuer ").append(name).append(" sind leider keine Zutaten gespeichert.");
+            return sb.toString();
         }
         if (ingredients.size() == 1) {
-            return name + " enthaelt " + ingredients.get(0).getAmount() + " " + ingredients.get(0).getName();
+            sb.append(name).append(" enthaelt ").append(ingredients.get(0).getAmount()).append(" ")
+                    .append(ingredients.get(0).getName());
+            return sb.toString();
         }
-        String listOfIngredients = name + " enthält folgende Zutaten: ";
-        for (int i = 0; i < ingredients.size() - 2; i++) {
-            listOfIngredients += ingredients.get(i).getAmount() + " " + ingredients.get(i).getName() + ", ";
-        }
-        listOfIngredients += ingredients.get(ingredients.size() - 2).getAmount() + " "
-                + ingredients.get(ingredients.size() - 2).getName() + " und "
-                + ingredients.get(ingredients.size() - 1).getAmount() + " "
-                + ingredients.get(ingredients.size() - 1).getName() + ".";
+        sb.append(name).append(" enthält folgende Zutaten: ");
 
-        return listOfIngredients;
+        for (int i = 0; i < ingredients.size() - 2; i++) {
+            sb.append(ingredients.get(i).getAmount()).append(" ").append(ingredients.get(i).getName()).append(", ");
+        }
+
+        sb.append(ingredients.get(ingredients.size() - 2).getAmount()).append(" ")
+                .append(ingredients.get(ingredients.size() - 2).getName()).append(" und ")
+                .append(ingredients.get(ingredients.size() - 1).getAmount()).append(" ")
+                .append(ingredients.get(ingredients.size() - 1).getName()).append(".");
+
+        return sb.toString();
     }
 
     @Override
     public String toString() {
-        return "drinkName: " + name + "; falvor: " + flavor.getFlavorName() + "; daytime: " + daytime.getDaytimeName()
-                + "; containsAlcohol: " + containsAlcohol;
+        StringBuilder sb = new StringBuilder();
+        sb.append("drinkName: ").append(name).append("; falvor: ").append(flavor.getFlavorName()).append("; daytime: ")
+                .append(daytime.getDaytimeName()).append("; containsAlcohol: ").append(containsAlcohol);
+        return sb.toString();
     }
 }
