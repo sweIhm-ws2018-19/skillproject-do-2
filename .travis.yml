@@ -21,5 +21,5 @@ deploy:
     role: "arn:aws:iam::0123456789012:role/lambda_basic_execution"
     runtime: "nodejs4.3"
     handler_name: "handler"
-    access_key_id: "ASIARQ46J2YVRDNYOHXX"
-    secret_access_key: "2XmrL8QsDtaVw5QcXvfihaV50+CzQAcH/0v+bp3l"
+    access_key_id: "ASIARQ46J2YV62J62JPG"
+    secret_access_key: "HmhSBKJH/TXgji8pK+0RsqFz0t7xhczr9TENuqNQ"
