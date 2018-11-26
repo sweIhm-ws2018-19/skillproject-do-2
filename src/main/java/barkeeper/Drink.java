@@ -32,13 +32,13 @@ public class Drink {
         this.ingredients = ingredients;
     }
 
-//    public Drink(String name, Flavor flavor, Daytime daytime, boolean containsAlcohol, List<Ingredient> ingredients) {
-//        this.name = name;
-//        this.flavor = flavor;
-//        this.daytime = daytime;
-//        this.containsAlcohol = containsAlcohol;
-//        this.ingredients = ingredients;
-//    }
+    public Drink(String name, Flavor flavor, Daytime daytime, boolean containsAlcohol, List<Ingredient> ingredients) {
+        this.name = name;
+        this.flavor = flavor;
+        this.daytime = daytime;
+        this.containsAlcohol = containsAlcohol;
+        this.ingredients = ingredients;
+    }
 
     /**
      * Method gets information if drink contains alcohol as string and converts it
