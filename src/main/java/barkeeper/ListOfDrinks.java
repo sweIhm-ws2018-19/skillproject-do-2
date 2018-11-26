@@ -21,15 +21,18 @@ public class ListOfDrinks {
     private Drink favorite;
 
     /**
-     * Ctor for ListOfDrinks.
+     * Ctor for ListOfDrinks with preset drinks.
      * 
      * @param initializeList Imports an initial list of drinks if true.
      * @throws IOException Exception if any problems occur while reading the file.
      */
-    public ListOfDrinks(boolean initializeListFromResources) throws IOException {
-        if (initializeListFromResources) {
-            drinks = getInitialListFromJson();
-        }
+    
+    /**
+     * Ctor for ListOfDrinks with preset drinks.
+     * @throws IOException
+     */
+    public ListOfDrinks() throws IOException {
+        drinks = getInitialListFromJson();
     }
 
     /**
