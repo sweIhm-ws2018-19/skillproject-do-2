@@ -80,11 +80,11 @@ public class DrinkTest {
         ingredients.add(cola);
         Assert.assertEquals("Test enthaelt 100 Milliliter Cola", drink.listIngredients());
         ingredients.add(fanta);
-        Assert.assertEquals("Test enthaelt folgende Zutaten: 100 Milliliter Cola und 200 Milliliter Fanta.",
+        Assert.assertEquals("Test enthält folgende Zutaten: 100 Milliliter Cola und 200 Milliliter Fanta.",
                 drink.listIngredients());
         ingredients.add(sprite);
         Assert.assertEquals(
-                "Test enthaelt folgende Zutaten: 100 Milliliter Cola, 200 Milliliter Fanta und 300 Milliliter Sprite.",
+                "Test enthält folgende Zutaten: 100 Milliliter Cola, 200 Milliliter Fanta und 300 Milliliter Sprite.",
                 drink.listIngredients());
     }
 
