@@ -169,7 +169,7 @@ public class Drink {
 
     @Override
     public String toString() {
-        return "drinkName: " + name + "; falvor: " + flavor.getflavorName() + "; daytime: " + daytime.getDaytimeName()
+        return "drinkName: " + name + "; falvor: " + flavor.getFlavorName() + "; daytime: " + daytime.getDaytimeName()
                 + "; containsAlcohol: " + containsAlcohol;
     }
 }

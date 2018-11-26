@@ -9,7 +9,7 @@ public enum Flavor {
         this.flavorName = flavorName;
     }
 
-    public String getflavorName() {
+    public String getFlavorName() {
         return flavorName;
     }
     
