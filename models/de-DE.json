@@ -4,7 +4,7 @@
             "invocationName": "simple barkeeper",
             "intents": [
                 {
-                    "name": "CancelIntent",
+                    "name": "AMAZON.CancelIntent",
                     "slots": [],
                     "samples": []
                 },
@@ -13,13 +13,26 @@
                     "samples": []
                 },
                 {
-                    "name": "StopIntent",
+                	"name": "AMAZON.ResumeIntent"
+                	"samples":[]
+                },
+                {
+                	"name": "AMAZON.PauseIntent",
+                	"samples": []
+                	
+                },
+                {
+                	"name": "AMAZON.FallbackIntent",
+                	"samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
                     "slots": [],
                     "samples": [
                         "Beende Anwendung",
                         "Ich will doch keinen Drink"
                     ]
-                }
+                }                
             ],
             "types": []
         }
