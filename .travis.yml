@@ -11,7 +11,7 @@ addons:
        organization: "sweihmws2018-19"
 
 script:
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Pdev sonar:sonar
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
   - mvn org.apache.maven.plugins:maven-assembly-plugin:2.6:assembly -DdescriptorId=jar-with-dependencies package
 
 deploy:
@@ -21,5 +21,4 @@ deploy:
     role: "arn:aws:iam::0123456789012:role/lambda_basic_execution"
     runtime: "nodejs4.3"
     handler_name: "handler"
-    access_key_id: "ASIARQ46J2YVRRJKZCFO"
-    secret_access_key: "sIdafYsr1hHcu8tfg0zTXZVAle287qSXrDR+bE18"
+    
