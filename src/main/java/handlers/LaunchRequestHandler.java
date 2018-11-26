@@ -5,6 +5,7 @@ import static com.amazon.ask.request.Predicates.requestType;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 import com.amazon.ask.attributes.AttributesManager;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
@@ -15,6 +16,8 @@ import com.amazon.ask.model.Response;
 import main.java.barkeeper.ListOfDrinks;
 
 public class LaunchRequestHandler implements RequestHandler {
+
+    private final static Logger LOGGER = Logger.getGlobal();
 
     @Override
     public boolean canHandle(HandlerInput input) {
@@ -31,11 +34,10 @@ public class LaunchRequestHandler implements RequestHandler {
         if (!persistentAttributes.containsKey("firstStart")) {
             try {
                 persistentAttributes.put("drinkList", new ListOfDrinks());
-                persistentAttributes.put("firstStart", false);
             } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                throw new RuntimeException("Could not initialize drinkList. Is initialDrinkList.txt in resources folder? Is it properly formated Json?");
             }
+            persistentAttributes.put("firstStart", false);
         }
 
         return input.getResponseBuilder().withSimpleCard("Willkommen", welcome).withSpeech(welcome)
