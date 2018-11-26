@@ -1,11 +1,11 @@
-package main.test.java.barkeeper;
+package test.java.barkeeper;
 
-import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class FlavorTest {
+import main.java.barkeeper.Flavor;
 
+public class FlavorTest {
 
     @Test
     public void getDaytime() {

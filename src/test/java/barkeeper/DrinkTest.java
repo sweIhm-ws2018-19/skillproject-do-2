@@ -1,32 +1,35 @@
 
-package main.test.java.barkeeper;
+package test.java.barkeeper;
 
-import static org.junit.Assert.*;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-public class DrinkTest {
+import main.java.barkeeper.Daytime;
+import main.java.barkeeper.Drink;
+import main.java.barkeeper.Flavor;
+import main.java.barkeeper.Ingredient;
 
+public class DrinkTest {
 
     @Test
     public void getNameTest() {
         List<Ingredient> ingredients = new ArrayList<>();
         Flavor flavor = Flavor.SWEET;
         Daytime daytime = Daytime.MORNING;
-        Drink drink = new Drink("Test", flavor, daytime, true , ingredients);
+        Drink drink = new Drink("Test", flavor, daytime, true, ingredients);
         Assert.assertEquals("Test", drink.getName());
     }
 
     @Test
     public void getFlavorTest() {
-            List<Ingredient> ingredients = new ArrayList<>();
-            Flavor flavor = Flavor.SWEET;
-            Daytime daytime = Daytime.MORNING;
-            Drink drink = new Drink("Test", flavor, daytime, true , ingredients);
-            Assert.assertEquals(Flavor.SWEET, drink.getFlavor());
+        List<Ingredient> ingredients = new ArrayList<>();
+        Flavor flavor = Flavor.SWEET;
+        Daytime daytime = Daytime.MORNING;
+        Drink drink = new Drink("Test", flavor, daytime, true, ingredients);
+        Assert.assertEquals(Flavor.SWEET, drink.getFlavor());
 
     }
 
@@ -35,7 +38,7 @@ public class DrinkTest {
         List<Ingredient> ingredients = new ArrayList<>();
         Flavor flavor = Flavor.SWEET;
         Daytime daytime = Daytime.MORNING;
-        Drink drink = new Drink("Test", flavor, daytime, true , ingredients);
+        Drink drink = new Drink("Test", flavor, daytime, true, ingredients);
         Assert.assertEquals(Daytime.MORNING, drink.getDaytime());
 
     }
@@ -45,7 +48,7 @@ public class DrinkTest {
         List<Ingredient> ingredients = new ArrayList<>();
         Flavor flavor = Flavor.SWEET;
         Daytime daytime = Daytime.MORNING;
-        Drink drink = new Drink("Test", flavor, daytime, true , ingredients);
+        Drink drink = new Drink("Test", flavor, daytime, true, ingredients);
         Assert.assertTrue(drink.getContainsAlcohol());
     }
 
@@ -56,7 +59,7 @@ public class DrinkTest {
         ingredients.add(cola);
         Flavor flavor = Flavor.SWEET;
         Daytime daytime = Daytime.MORNING;
-        Drink drink = new Drink("Test", flavor, daytime, true , ingredients);
+        Drink drink = new Drink("Test", flavor, daytime, true, ingredients);
 
         List<Ingredient> test = new ArrayList<>();
         test.add(cola);
@@ -72,14 +75,17 @@ public class DrinkTest {
         Ingredient sprite = new Ingredient("Sprite", "300 Milliliter");
         Flavor flavor = Flavor.SWEET;
         Daytime daytime = Daytime.MORNING;
-        Drink drink = new Drink("Test", flavor, daytime, true , ingredients);
+        Drink drink = new Drink("Test", flavor, daytime, true, ingredients);
         Assert.assertEquals("Fuer Test sind leider keine Zutaten gespeichert.", drink.listIngredients());
         ingredients.add(cola);
         Assert.assertEquals("Test enthaelt 100 Milliliter Cola", drink.listIngredients());
         ingredients.add(fanta);
-        Assert.assertEquals("Test enthaelt folgende Zutaten: 100 Milliliter Cola und 200 Milliliter Fanta.", drink.listIngredients());
+        Assert.assertEquals("Test enthaelt folgende Zutaten: 100 Milliliter Cola und 200 Milliliter Fanta.",
+                drink.listIngredients());
         ingredients.add(sprite);
-        Assert.assertEquals("Test enthaelt folgende Zutaten: 100 Milliliter Cola, 200 Milliliter Fanta und 300 Milliliter Sprite.", drink.listIngredients());
+        Assert.assertEquals(
+                "Test enthaelt folgende Zutaten: 100 Milliliter Cola, 200 Milliliter Fanta und 300 Milliliter Sprite.",
+                drink.listIngredients());
     }
 
     @Test
@@ -87,7 +93,7 @@ public class DrinkTest {
         List<Ingredient> ingredients = new ArrayList<>();
         Flavor flavor = Flavor.SWEET;
         Daytime daytime = Daytime.MORNING;
-        Drink drink = new Drink("Test", flavor, daytime, true , ingredients);
+        Drink drink = new Drink("Test", flavor, daytime, true, ingredients);
         Assert.assertEquals("drinkName: Test; falvor: süß; daytime: morning; containsAlcohol: true", drink.toString());
 
     }

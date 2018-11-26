@@ -11,18 +11,18 @@ import com.amazon.ask.model.Response;
 
 public class LaunchRequestHandler implements RequestHandler {
 
-	@Override
-	public boolean canHandle(HandlerInput input) {
-		return input.matches(requestType(LaunchRequest.class));
-	}
+    @Override
+    public boolean canHandle(HandlerInput input) {
+        return input.matches(requestType(LaunchRequest.class));
+    }
 
-	@Override
-	public Optional<Response> handle(HandlerInput input) {
-		String welcome = "Hallo. Wie kann ich dir behilflich sein?";
-		String repromptMessage = "Falls du Hilfe brauchst, sag einfach 'Hilf mir'";
+    @Override
+    public Optional<Response> handle(HandlerInput input) {
+        String welcome = "Hallo. Wie kann ich dir behilflich sein?";
+        String repromptMessage = "Falls du Hilfe brauchst, sag einfach 'Hilf mir'";
 
-		return input.getResponseBuilder().withSimpleCard("Willkommen", welcome).withSpeech(welcome)
-				.withReprompt(repromptMessage).build();
-	}
+        return input.getResponseBuilder().withSimpleCard("Willkommen", welcome).withSpeech(welcome)
+                .withReprompt(repromptMessage).build();
+    }
 
 }

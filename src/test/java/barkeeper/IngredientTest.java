@@ -1,8 +1,9 @@
-package main.test.java.barkeeper;
+package test.java.barkeeper;
 
-import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
+
+import main.java.barkeeper.Ingredient;
 
 public class IngredientTest {
     Ingredient test = new Ingredient("Cola", "100 Milliliter");

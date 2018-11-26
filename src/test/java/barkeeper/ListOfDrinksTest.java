@@ -1,8 +1,6 @@
-package main.test.java.barkeeper;
+package test.java.barkeeper;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
+import junit.Test.*;
 
 public class ListOfDrinksTest {
 
