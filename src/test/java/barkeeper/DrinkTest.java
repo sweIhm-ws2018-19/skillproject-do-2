@@ -95,6 +95,42 @@ public class DrinkTest {
         Daytime daytime = Daytime.MORNING;
         Drink drink = new Drink("Test", flavor, daytime, true, ingredients);
         Assert.assertEquals("drinkName: Test; falvor: süß; daytime: morning; containsAlcohol: true", drink.toString());
-
+    }
+    
+    
+    @Test
+    public void testStingConstructor() {
+        List<Ingredient> ingredients = new ArrayList<>();
+        Drink drink = new Drink("Test", "sweet", "morning", "true", ingredients);
+        Assert.assertEquals(Flavor.SWEET, drink.getFlavor());
+        Assert.assertEquals(Daytime.MORNING, drink.getDaytime());
+        Assert.assertTrue(drink.getContainsAlcohol());
+        drink = new Drink("Test", "sour", "noon", "false", ingredients);
+        Assert.assertEquals(Flavor.SOUR, drink.getFlavor());
+        Assert.assertEquals(Daytime.NOON, drink.getDaytime());
+        Assert.assertFalse(drink.getContainsAlcohol());
+        drink = new Drink("Test", "BiTtER", "EveNing", "false", ingredients);
+        Assert.assertEquals(Flavor.BITTER, drink.getFlavor());
+        Assert.assertEquals(Daytime.EVENING, drink.getDaytime());
+        Assert.assertFalse(drink.getContainsAlcohol());
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void testFindFlavor() {
+        List<Ingredient> ingredients = new ArrayList<>();
+        Drink drink = new Drink("Test", "flavor", "morning", "true", ingredients);
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void testFindDaytime() {
+        List<Ingredient> ingredients = new ArrayList<>();
+        Drink drink = new Drink("Test", "sweet", "daytime", "true", ingredients);
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void testFindContainsAlcohol() {
+        List<Ingredient> ingredients = new ArrayList<>();
+        Drink drink = new Drink("Test", "sweet", "morning", "containsAlcohol", ingredients);
+    
     }
 }
