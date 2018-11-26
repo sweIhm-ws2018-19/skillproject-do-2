@@ -12,9 +12,9 @@ public class FlavorTest {
         Flavor sweet = Flavor.SWEET;
         Flavor sour = Flavor.SOUR;
         Flavor bitter = Flavor.BITTER;
-        Assert.assertEquals("süß", sweet.getFlavor());
-        Assert.assertEquals("sauer", sour.getFlavor());
-        Assert.assertEquals("bitter", bitter.getFlavor());
+        Assert.assertEquals("süß", sweet.getFlavorName());
+        Assert.assertEquals("sauer", sour.getFlavorName());
+        Assert.assertEquals("bitter", bitter.getFlavorName());
 
     }
 }

@@ -23,10 +23,8 @@ public class ListOfDrinks {
     /**
      * Ctor for ListOfDrinks with preset drinks.
      * 
-     * @param initializeList
-     *            Imports an initial list of drinks if true.
-     * @throws IOException
-     *             Exception if any problems occur while reading the file.
+     * @param initializeList Imports an initial list of drinks if true.
+     * @throws IOException Exception if any problems occur while reading the file.
      */
 
     /**
@@ -41,8 +39,7 @@ public class ListOfDrinks {
     /**
      * Gets the the initialDrinkList from the resources.
      * 
-     * @throws IOException
-     *             Exception if any problems occur while reading the file.
+     * @throws IOException Exception if any problems occur while reading the file.
      */
     public Map<String, Drink> getInitialListFromJson() throws IOException {
         File file = new File("src/main/resources/initialDrinkList.json");
@@ -50,8 +47,7 @@ public class ListOfDrinks {
         TypeFactory typeFactory = om.getTypeFactory();
         MapType mapType = typeFactory.constructMapType(HashMap.class, String.class, Drink.class);
 
-        Map<String, Drink> initialDrinkList = om.readValue(file, mapType);
-        return initialDrinkList;
+        return om.readValue(file, mapType);
     }
 
     public Drink getDrinkByName(String drinkName) {
@@ -69,45 +65,25 @@ public class ListOfDrinks {
     public String listIngredients(String drink) {
         if (drinks.containsKey(drink)) {
             return drinks.get(drink).listIngredients();
-  
+
         }
         return "Der von Ihnen genannt Drink ist mir leider nicht bekannt.";
     }
 
-    // public List<String> getIngredientsOf(String drink) {
-    //
-    // }
-    //
-    // public Drink getRandomDrink(Flavor flavor, boolean containsAlcohol) {
-    //
-    // }
-    //
-    // public Drink getRandomDrink(Ingredient ingredient, boolean containsAlcohol) {
-    //
-    // }
-    //
-    // public Drink getRandomDrink(boolean containsAlcohol) {
-    //
-    // }
-    //
-    // public boolean addDrink(String name) {
-    //
-    // }
-    //
-    // public boolean addIngredient(String name, Ingredient ingredient) {
-    //
-    // }
-    //
-    // public void setFlavour(String name, Flavor flavor) {
-    //
-    // }
-    //
-    // public void setDaytime(String name, Daytime daytime) {
-    //
-    // }
-    //
-    // public String help() {
-    //
-    // }
+    /**
+     * Setter for a favorite drink.
+     * @param drink The drink which will be the new favorite.
+     */
+    public void setFavorite(Drink drink) {
+        favorite = drink;
+    }
+
+    /**
+     * Getter for the favorite drink.
+     * @return The recent favorite drink.
+     */
+    public Drink getFavorite() {
+        return favorite;
+    }
 
 }

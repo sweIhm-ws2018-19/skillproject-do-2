@@ -23,8 +23,8 @@ public class Drink {
      */
     @JsonCreator
     public Drink(@JsonProperty("name") String name, @JsonProperty("flavor") String flavor,
-        @JsonProperty("daytime") String daytime, @JsonProperty("containsAlcohol") String containsAlcohol,
-        @JsonProperty("ingredients") List<Ingredient> ingredients) {
+            @JsonProperty("daytime") String daytime, @JsonProperty("containsAlcohol") String containsAlcohol,
+            @JsonProperty("ingredients") List<Ingredient> ingredients) {
         this.name = name;
         this.flavor = findFlavor(flavor);
         this.daytime = findDaytime(daytime);
@@ -58,7 +58,7 @@ public class Drink {
             break;
         default:
             throw new IllegalArgumentException(
-                "\"" + containsAlcohol + "\"" + "is not a valid boolean. Valid booleans are \"false\" or \"true\"");
+                    "\"" + containsAlcohol + "\"" + "is not a valid boolean. Valid booleans are \"false\" or \"true\"");
         }
         return tmp;
     }
@@ -82,8 +82,8 @@ public class Drink {
             tmp = Flavor.BITTER;
             break;
         default:
-            throw new IllegalArgumentException(
-                "\"" + flavor + "\"" + "is not a valid flavour. Valid flavour are \"SWEET\", \"SOUR\" or \"BITTER\"");
+            throw new IllegalArgumentException("\"" + flavor + "\""
+                    + "is not a valid flavour. Valid flavour are \"SWEET\", \"SOUR\" or \"BITTER\"");
         }
         return tmp;
     }
@@ -108,7 +108,7 @@ public class Drink {
             break;
         default:
             throw new IllegalArgumentException("\"" + daytime + "\""
-                + "is not a valid daytime. Valid daytimes are \"MORNING\", \"NOON\" or \"EVENING\"");
+                    + "is not a valid daytime. Valid daytimes are \"MORNING\", \"NOON\" or \"EVENING\"");
         }
         return tmp;
     }
@@ -149,25 +149,27 @@ public class Drink {
     }
 
     public String listIngredients() {
-        if (ingredients.size() == 0) {
+        if (ingredients.isEmpty()) {
             return "Fuer " + name + " sind leider keine Zutaten gespeichert.";
         }
         if (ingredients.size() == 1) {
             return name + " enthaelt " + ingredients.get(0).getAmount() + " " + ingredients.get(0).getName();
         }
-        String listOfIngredients = name + " enthaelt folgende Zutaten: ";
+        String listOfIngredients = name + " enthält folgende Zutaten: ";
         for (int i = 0; i < ingredients.size() - 2; i++) {
             listOfIngredients += ingredients.get(i).getAmount() + " " + ingredients.get(i).getName() + ", ";
         }
-        listOfIngredients += ingredients.get(ingredients.size() - 2).getAmount()+ " " + ingredients.get(ingredients.size() - 2).getName() +
-            " und " + ingredients.get(ingredients.size() - 1).getAmount() + " " + ingredients.get(ingredients.size() - 1).getName() + ".";
+        listOfIngredients += ingredients.get(ingredients.size() - 2).getAmount() + " "
+                + ingredients.get(ingredients.size() - 2).getName() + " und "
+                + ingredients.get(ingredients.size() - 1).getAmount() + " "
+                + ingredients.get(ingredients.size() - 1).getName() + ".";
 
         return listOfIngredients;
     }
 
     @Override
     public String toString() {
-        return "drinkName: " + name + "; falvor: " + flavor.getFlavor() + "; daytime: " + daytime.getDaytime()
-            + "; containsAlcohol: " + containsAlcohol;
+        return "drinkName: " + name + "; falvor: " + flavor.getFlavorName() + "; daytime: " + daytime.getDaytimeName()
+                + "; containsAlcohol: " + containsAlcohol;
     }
 }

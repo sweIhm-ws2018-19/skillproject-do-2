@@ -12,8 +12,8 @@ public class DaytimeTest {
         Daytime morning = Daytime.MORNING;
         Daytime noon = Daytime.NOON;
         Daytime evening = Daytime.EVENING;
-        Assert.assertEquals("morning", morning.getDaytime());
-        Assert.assertEquals("noon", noon.getDaytime());
-        Assert.assertEquals("evening", evening.getDaytime());
+        Assert.assertEquals("morning", morning.getDaytimeName());
+        Assert.assertEquals("noon", noon.getDaytimeName());
+        Assert.assertEquals("evening", evening.getDaytimeName());
     }
 }

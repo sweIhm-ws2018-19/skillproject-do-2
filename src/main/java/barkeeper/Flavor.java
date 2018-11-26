@@ -3,14 +3,14 @@ package main.java.barkeeper;
 public enum Flavor {
     SWEET("süß"), SOUR("sauer"), BITTER("bitter");
 
-    private final String flavor;
+    private final String flavorName;
 
-    private Flavor(String flavor) {
-        this.flavor = flavor;
+    private Flavor(String flavorName) {
+        this.flavorName = flavorName;
     }
 
-    public String getFlavor() {
-        return flavor;
+    public String getFlavorName() {
+        return flavorName;
     }
     
 }

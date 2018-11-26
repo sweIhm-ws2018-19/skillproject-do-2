@@ -9,7 +9,7 @@
   "Johannisbeerschorle" : {
     "name" : "Johannisbeerschorle",
     "flavor" : "SOUR",
-    "daytime" : "MORNING",
+    "daytime" : "NOON",
     "containsAlcohol" : false,
     "ingredients" : [ ]
   },
@@ -38,7 +38,7 @@
   "Traubenschorle" : {
     "name" : "Traubenschorle",
     "flavor" : "SWEET",
-    "daytime" : "MORNING",
+    "daytime" : "NOON",
     "containsAlcohol" : false,
     "ingredients" : [ ]
   },
@@ -352,7 +352,7 @@
   "Rote Schorle" : {
     "name" : "Rote Schorle",
     "flavor" : "SWEET",
-    "daytime" : "MORNING",
+    "daytime" : "NOON",
     "containsAlcohol" : false,
     "ingredients" : [ ]
   }
