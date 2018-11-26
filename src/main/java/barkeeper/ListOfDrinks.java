@@ -23,12 +23,15 @@ public class ListOfDrinks {
     /**
      * Ctor for ListOfDrinks with preset drinks.
      * 
-     * @param initializeList Imports an initial list of drinks if true.
-     * @throws IOException Exception if any problems occur while reading the file.
+     * @param initializeList
+     *            Imports an initial list of drinks if true.
+     * @throws IOException
+     *             Exception if any problems occur while reading the file.
      */
-    
+
     /**
      * Ctor for ListOfDrinks with preset drinks.
+     * 
      * @throws IOException
      */
     public ListOfDrinks() throws IOException {
@@ -38,7 +41,8 @@ public class ListOfDrinks {
     /**
      * Gets the the initialDrinkList from the resources.
      * 
-     * @throws IOException Exception if any problems occur while reading the file.
+     * @throws IOException
+     *             Exception if any problems occur while reading the file.
      */
     public Map<String, Drink> getInitialListFromJson() throws IOException {
         File file = new File("src/main/resources/initialDrinkList.json");
@@ -54,40 +58,56 @@ public class ListOfDrinks {
         return drinks.get(drinkName);
     }
 
-//    public List<String> getIngredientsOf(String drink) {
-//        
-//    }
-//
-//    public Drink getRandomDrink(Flavor flavor, boolean containsAlcohol) {
-//
-//    }
-//    
-//    public Drink getRandomDrink(Ingredient ingredient, boolean containsAlcohol) {
-//        
-//    }
-//    
-//    public Drink getRandomDrink(boolean containsAlcohol) {
-//        
-//    }
-//    
-//    public boolean addDrink(String name) {
-//        
-//    }
-//    
-//    public boolean addIngredient(String name, Ingredient ingredient) {
-//        
-//    }
-//    
-//    public void setFlavour(String name, Flavor flavor) {
-//        
-//    }
-//    
-//    public void setDaytime(String name, Daytime daytime) {
-//        
-//    }
-//    
-//    public String help() {
-//        
-//    }
+    /**
+     * Gets the given drink if it exists and returns a string of a listing of
+     * ingredients for Alexa. Or a string that tells the user that the the drink
+     * doesn't exist.
+     * 
+     * @param drink
+     * @return String for Alexa
+     */
+    public String listIngredients(String drink) {
+        if (drinks.containsKey(drink)) {
+            return drinks.get(drink).listIngredients();
+  
+        }
+        return "Der von Ihnen genannt Drink ist mir leider nicht bekannt.";
+    }
+
+    // public List<String> getIngredientsOf(String drink) {
+    //
+    // }
+    //
+    // public Drink getRandomDrink(Flavor flavor, boolean containsAlcohol) {
+    //
+    // }
+    //
+    // public Drink getRandomDrink(Ingredient ingredient, boolean containsAlcohol) {
+    //
+    // }
+    //
+    // public Drink getRandomDrink(boolean containsAlcohol) {
+    //
+    // }
+    //
+    // public boolean addDrink(String name) {
+    //
+    // }
+    //
+    // public boolean addIngredient(String name, Ingredient ingredient) {
+    //
+    // }
+    //
+    // public void setFlavour(String name, Flavor flavor) {
+    //
+    // }
+    //
+    // public void setDaytime(String name, Daytime daytime) {
+    //
+    // }
+    //
+    // public String help() {
+    //
+    // }
 
 }
