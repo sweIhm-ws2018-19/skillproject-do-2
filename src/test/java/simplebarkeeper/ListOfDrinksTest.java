@@ -1,14 +1,14 @@
-package simpleBarkeeper;
+package simplebarkeeper;
 
 import java.io.IOException;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import simpleBarkeeper.Daytime;
-import simpleBarkeeper.Drink;
-import simpleBarkeeper.Flavor;
-import simpleBarkeeper.ListOfDrinks;
+import simplebarkeeper.Daytime;
+import simplebarkeeper.Drink;
+import simplebarkeeper.Flavor;
+import simplebarkeeper.ListOfDrinks;
 
 public class ListOfDrinksTest {
 

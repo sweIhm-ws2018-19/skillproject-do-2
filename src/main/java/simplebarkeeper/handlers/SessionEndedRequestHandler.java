@@ -1,4 +1,4 @@
-package simpleBarkeeper.handlers;
+package simplebarkeeper.handlers;
 
 import static com.amazon.ask.request.Predicates.requestType;
 

@@ -1,4 +1,4 @@
-package simpleBarkeeper;
+package simplebarkeeper;
 
 import java.util.List;
 

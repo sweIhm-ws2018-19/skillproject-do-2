@@ -1,9 +1,9 @@
-package simpleBarkeeper;
+package simplebarkeeper;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import simpleBarkeeper.Daytime;
+import simplebarkeeper.Daytime;
 
 public class DaytimeTest {
 

@@ -1,16 +1,11 @@
 
-package simpleBarkeeper;
+package simplebarkeeper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import simpleBarkeeper.Daytime;
-import simpleBarkeeper.Drink;
-import simpleBarkeeper.Flavor;
-import simpleBarkeeper.Ingredient;
 
 public class DrinkTest {
 
@@ -118,19 +113,19 @@ public class DrinkTest {
     @Test(expected = IllegalArgumentException.class)
     public void testFindFlavor() {
         List<Ingredient> ingredients = new ArrayList<>();
-        Drink drink = new Drink("Test", "flavor", "morning", "true", ingredients);
+        new Drink("Test", "flavor", "morning", "true", ingredients);
     }
     
     @Test(expected = IllegalArgumentException.class)
     public void testFindDaytime() {
         List<Ingredient> ingredients = new ArrayList<>();
-        Drink drink = new Drink("Test", "sweet", "daytime", "true", ingredients);
+        new Drink("Test", "sweet", "daytime", "true", ingredients);
     }
     
     @Test(expected = IllegalArgumentException.class)
     public void testFindContainsAlcohol() {
         List<Ingredient> ingredients = new ArrayList<>();
-        Drink drink = new Drink("Test", "sweet", "morning", "containsAlcohol", ingredients);
+        new Drink("Test", "sweet", "morning", "containsAlcohol", ingredients);
     
     }
 }

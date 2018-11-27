@@ -1,9 +1,9 @@
-package simpleBarkeeper;
+package simplebarkeeper;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import simpleBarkeeper.Ingredient;
+import simplebarkeeper.Ingredient;
 
 public class IngredientTest {
     Ingredient test = new Ingredient("Cola", "100 Milliliter");

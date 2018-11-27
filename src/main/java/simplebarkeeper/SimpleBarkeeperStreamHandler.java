@@ -1,15 +1,15 @@
-package simpleBarkeeper;
+package simplebarkeeper;
 
 import com.amazon.ask.Skill;
 import com.amazon.ask.SkillStreamHandler;
 import com.amazon.ask.Skills;
 
-import simpleBarkeeper.handlers.CancelandStopIntentHandler;
-import simpleBarkeeper.handlers.FallbackIntentHandler;
-import simpleBarkeeper.handlers.HelpIntentHandler;
-import simpleBarkeeper.handlers.LaunchRequestHandler;
-import simpleBarkeeper.handlers.ListIngredientsIntentHandler;
-import simpleBarkeeper.handlers.SessionEndedRequestHandler;
+import simplebarkeeper.handlers.CancelandStopIntentHandler;
+import simplebarkeeper.handlers.FallbackIntentHandler;
+import simplebarkeeper.handlers.HelpIntentHandler;
+import simplebarkeeper.handlers.LaunchRequestHandler;
+import simplebarkeeper.handlers.ListIngredientsIntentHandler;
+import simplebarkeeper.handlers.SessionEndedRequestHandler;
 
 public class SimpleBarkeeperStreamHandler extends SkillStreamHandler {
 

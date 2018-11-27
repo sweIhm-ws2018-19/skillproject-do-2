@@ -1,4 +1,4 @@
-package simpleBarkeeper.handlers;
+package simplebarkeeper.handlers;
 
 import static com.amazon.ask.request.Predicates.requestType;
 
@@ -11,7 +11,7 @@ import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
 
-import simpleBarkeeper.ListOfDrinks;
+import simplebarkeeper.ListOfDrinks;
 
 public class LaunchRequestHandler implements RequestHandler {
 

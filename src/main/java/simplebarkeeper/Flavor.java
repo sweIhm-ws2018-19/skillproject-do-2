@@ -1,4 +1,4 @@
-package simpleBarkeeper;
+package simplebarkeeper;
 
 /**
  * Enum which represents Flavors.
