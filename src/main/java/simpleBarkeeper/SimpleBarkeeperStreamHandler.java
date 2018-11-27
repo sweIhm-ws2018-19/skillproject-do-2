@@ -25,9 +25,9 @@ public class SimpleBarkeeperStreamHandler extends SkillStreamHandler {
                 new HelpIntentHandler(),
                 new SessionEndedRequestHandler(),
                 new ListIngredientsIntentHandler())
-                //.withTableName("simpleBarkeeperData")
-                //.withAutoCreateTable(true)
-                //.withSkillId("amzn1.ask.skill.98d0b6dc-53e9-47fb-b7eb-f9b1379cc5c0")
+                .withTableName("simpleBarkeeperData")
+                .withAutoCreateTable(true)
+                .withSkillId("amzn1.ask.skill.ea7c7457-8321-4b3c-bf43-9a5d0069cd90")
                 .build();
 
     }
