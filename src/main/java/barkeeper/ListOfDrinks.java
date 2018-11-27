@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.logging.impl.Log4JLogger;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.MapType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
@@ -16,6 +18,8 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
  *
  */
 public class ListOfDrinks {
+
+    private final static Log4JLogger LOGGER = new Log4JLogger("Logger");
 
     private final Map<String, Drink> drinks;
     private Drink favorite;
@@ -32,7 +36,7 @@ public class ListOfDrinks {
      * 
      * @throws IOException
      */
-    public ListOfDrinks() throws IOException {
+    public ListOfDrinks() {
         drinks = getInitialListFromJson();
     }
 
@@ -41,15 +45,29 @@ public class ListOfDrinks {
      * 
      * @throws IOException Exception if any problems occur while reading the file.
      */
-    public Map<String, Drink> getInitialListFromJson() throws IOException {
+    public Map<String, Drink> getInitialListFromJson() {
         File file = new File("src/main/resources/initialDrinkList.json");
         ObjectMapper om = new ObjectMapper();
         TypeFactory typeFactory = om.getTypeFactory();
         MapType mapType = typeFactory.constructMapType(HashMap.class, String.class, Drink.class);
 
-        return om.readValue(file, mapType);
+        Map<String, Drink> initialDrinkList = new HashMap<String, Drink>();
+
+        try {
+            initialDrinkList = om.readValue(file, mapType);
+        } catch (IOException e) {
+            LOGGER.fatal("initialDrinkList.json not found or wrong format. Empty list returned.", e);
+        }
+
+        return initialDrinkList;
     }
 
+    /**
+     * Gets a drink by it's name.
+     * 
+     * @param drinkName The name of the drink.
+     * @return The requested drink.
+     */
     public Drink getDrinkByName(String drinkName) {
         return drinks.get(drinkName);
     }
@@ -72,6 +90,7 @@ public class ListOfDrinks {
 
     /**
      * Setter for a favorite drink.
+     * 
      * @param drink The drink which will be the new favorite.
      */
     public void setFavorite(Drink drink) {
@@ -80,6 +99,7 @@ public class ListOfDrinks {
 
     /**
      * Getter for the favorite drink.
+     * 
      * @return The recent favorite drink.
      */
     public Drink getFavorite() {
