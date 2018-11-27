@@ -22,6 +22,7 @@ public class HelpIntentHandler implements RequestHandler{
 		String outputText = "Hier steht Hilfe";
 		return input.getResponseBuilder()
 				.withSpeech(outputText)
+				.withShouldEndSession(false)
 				.build();
 	}
 
