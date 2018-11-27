@@ -3,8 +3,6 @@ package test.java.barkeeper;
 import org.junit.Assert;
 import org.junit.Test;
 
-import main.java.barkeeper.Flavor;
-
 public class FlavorTest {
 
     @Test

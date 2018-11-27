@@ -116,20 +116,20 @@ public class Drink {
     private Daytime findDaytime(String daytime) {
         Daytime tmp;
         switch (daytime.toUpperCase()) {
-                case "MORNING":
-                    tmp = Daytime.MORNING;
-                    break;
-                 case "NOON":
-                     tmp = Daytime.NOON;
-                     break;
-                 case "EVENING":
-                     tmp = Daytime.EVENING;
-                     break;
-                 default:
-                     StringBuilder sb = new StringBuilder();
-                     sb.append("\"").append(daytime).append("\"")
+        case "MORNING":
+            tmp = Daytime.MORNING;
+            break;
+        case "NOON":
+            tmp = Daytime.NOON;
+            break;
+        case "EVENING":
+            tmp = Daytime.EVENING;
+            break;
+        default:
+            StringBuilder sb = new StringBuilder();
+            sb.append("\"").append(daytime).append("\"")
                     .append("is not a valid daytime. Valid daytimes are \"MORNING\", \"NOON\" or \"EVENING\"");
-                     throw new IllegalArgumentException(sb.toString());
+            throw new IllegalArgumentException(sb.toString());
         }
         return tmp;
     }

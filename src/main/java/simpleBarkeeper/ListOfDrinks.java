@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.logging.impl.Log4JLogger;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.MapType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
@@ -19,22 +17,12 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
  */
 public class ListOfDrinks {
 
-    private static final Log4JLogger LOGGER = new Log4JLogger("Logger");
-
     private final Map<String, Drink> drinks;
     private Drink favorite;
 
     /**
      * Ctor for ListOfDrinks with preset drinks.
      * 
-     * @param initializeList Imports an initial list of drinks if true.
-     * @throws IOException Exception if any problems occur while reading the file.
-     */
-
-    /**
-     * Ctor for ListOfDrinks with preset drinks.
-     * 
-     * @throws IOException
      */
     public ListOfDrinks() {
         drinks = getInitialListFromJson();
@@ -52,12 +40,12 @@ public class ListOfDrinks {
         TypeFactory typeFactory = om.getTypeFactory();
         MapType mapType = typeFactory.constructMapType(HashMap.class, String.class, Drink.class);
 
-        Map<String, Drink> initialDrinkList = new HashMap<>();
+        Map<String, Drink> initialDrinkList;
 
         try {
             initialDrinkList = om.readValue(file, mapType);
         } catch (IOException e) {
-            LOGGER.fatal("initialDrinkList.json not found or wrong format. Empty list returned.", e);
+            initialDrinkList = new HashMap<>();
         }
 
         return initialDrinkList;

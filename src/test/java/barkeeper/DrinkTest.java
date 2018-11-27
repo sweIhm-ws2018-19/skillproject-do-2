@@ -7,11 +7,6 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-import main.java.barkeeper.Daytime;
-import main.java.barkeeper.Drink;
-import main.java.barkeeper.Flavor;
-import main.java.barkeeper.Ingredient;
-
 public class DrinkTest {
 
     @Test

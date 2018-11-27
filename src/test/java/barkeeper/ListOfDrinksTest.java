@@ -5,11 +5,6 @@ import java.io.IOException;
 import org.junit.Assert;
 import org.junit.Test;
 
-import main.java.barkeeper.Daytime;
-import main.java.barkeeper.Drink;
-import main.java.barkeeper.Flavor;
-import main.java.barkeeper.ListOfDrinks;
-
 public class ListOfDrinksTest {
 
     @Test
