@@ -76,9 +76,9 @@ public class DrinkTest {
         Flavor flavor = Flavor.SWEET;
         Daytime daytime = Daytime.MORNING;
         Drink drink = new Drink("Test", flavor, daytime, true, ingredients);
-        Assert.assertEquals("Fuer Test sind leider keine Zutaten gespeichert.", drink.listIngredients());
+        Assert.assertEquals("Für Test sind leider keine Zutaten gespeichert.", drink.listIngredients());
         ingredients.add(cola);
-        Assert.assertEquals("Test enthaelt 100 Milliliter Cola", drink.listIngredients());
+        Assert.assertEquals("Test enthält 100 Milliliter Cola", drink.listIngredients());
         ingredients.add(fanta);
         Assert.assertEquals("Test enthält folgende Zutaten: 100 Milliliter Cola und 200 Milliliter Fanta.",
                 drink.listIngredients());

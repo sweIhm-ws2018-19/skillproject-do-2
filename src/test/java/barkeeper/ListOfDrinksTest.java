@@ -46,7 +46,7 @@ public class ListOfDrinksTest {
     @Test
     public void listIngredientsButNoIngredientsTest() throws IOException {
         ListOfDrinks drinkList = new ListOfDrinks();
-        Assert.assertEquals("Fuer Cola sind leider keine Zutaten gespeichert.", drinkList.listIngredients("Cola"));
+        Assert.assertEquals("Für Cola sind leider keine Zutaten gespeichert.", drinkList.listIngredients("Cola"));
     }
 
     @Test
