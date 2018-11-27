@@ -24,15 +24,15 @@ public class LaunchRequestHandler implements RequestHandler {
     public Optional<Response> handle(HandlerInput input) {
         String welcome = "Hallo. Wie kann ich dir behilflich sein?";
         String repromptMessage = "Falls du Hilfe brauchst, sag einfach 'Hilf mir'";
-        AttributesManager attributesManager = input.getAttributesManager();
-        Map<String, Object> persistentAttributes = attributesManager.getPersistentAttributes();
-
-        if (!persistentAttributes.containsKey("firstStart")) {
-            persistentAttributes.put("drinkList", new ListOfDrinks());
-            persistentAttributes.put("firstStart", false);
-            attributesManager.setPersistentAttributes(persistentAttributes);
-            attributesManager.savePersistentAttributes();
-        }
+//        AttributesManager attributesManager = input.getAttributesManager();
+//        Map<String, Object> persistentAttributes = attributesManager.getPersistentAttributes();
+//
+//        if (!persistentAttributes.containsKey("firstStart")) {
+//            persistentAttributes.put("drinkList", "Hans");
+//            persistentAttributes.put("firstStart", false);
+//            attributesManager.setPersistentAttributes(persistentAttributes);
+//            attributesManager.savePersistentAttributes();
+//        }
 
         return input.getResponseBuilder()
         		.withSimpleCard("Willkommen", welcome)

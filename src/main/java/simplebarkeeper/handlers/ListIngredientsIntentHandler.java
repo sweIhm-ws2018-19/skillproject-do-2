@@ -8,7 +8,11 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
-public class ListIngredientsIntentHandler implements RequestHandler{
+import simplebarkeeper.ListOfDrinks;
+
+public class ListIngredientsIntentHandler implements RequestHandler {
+    public static final String DRINK_KEY = "DRINK";
+    public static final String DRINK_SLOT = "Drink";
 
     @Override
     public boolean canHandle(HandlerInput input) {
@@ -17,16 +21,11 @@ public class ListIngredientsIntentHandler implements RequestHandler{
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-//        Request request = input.getRequestEnvelope().getRequest();
-//        IntentRequest intentRequest = (IntentRequest) request;
-//        Intent intent = intentRequest.getIntent();
-//        Map<String, Slot> slots = intent.getSlots();
-//        Slot favoriteColorSlot = slots.get("Drink");
-//        String drink = drink = favoriteColorSlot.getValue();
-        
-        
-        return input.getResponseBuilder().withSpeech("Beehren sie uns bald wieder!")
-                .withSimpleCard("Bar geschlossen!", "Beehren sie uns bald wieder!").build();
+        ListOfDrinks drinkList = new ListOfDrinks();
+        String request = (String) input.getAttributesManager().getSessionAttributes().get(DRINK_KEY);
+        String speechText = drinkList.getDrinkByName(request).listIngredients();
+
+        return input.getResponseBuilder().withSpeech(speechText).build();
     }
 
 }
