@@ -19,7 +19,7 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
  */
 public class ListOfDrinks {
 
-    private final static Log4JLogger LOGGER = new Log4JLogger("Logger");
+    private static final Log4JLogger LOGGER = new Log4JLogger("Logger");
 
     private final Map<String, Drink> drinks;
     private Drink favorite;
@@ -43,7 +43,8 @@ public class ListOfDrinks {
     /**
      * Gets the the initialDrinkList from the resources.
      * 
-     * @throws IOException Exception if any problems occur while reading the file.
+     * @return The initialDrinkList from the repository. Empty list if file not
+     *         present.
      */
     public Map<String, Drink> getInitialListFromJson() {
         File file = new File("src/main/resources/initialDrinkList.json");
@@ -51,7 +52,7 @@ public class ListOfDrinks {
         TypeFactory typeFactory = om.getTypeFactory();
         MapType mapType = typeFactory.constructMapType(HashMap.class, String.class, Drink.class);
 
-        Map<String, Drink> initialDrinkList = new HashMap<String, Drink>();
+        Map<String, Drink> initialDrinkList = new HashMap<>();
 
         try {
             initialDrinkList = om.readValue(file, mapType);
@@ -77,7 +78,7 @@ public class ListOfDrinks {
      * ingredients for Alexa. Or a string that tells the user that the the drink
      * doesn't exist.
      * 
-     * @param drink
+     * @param drink The ingredients of this drink will be listed.
      * @return String for Alexa
      */
     public String listIngredients(String drink) {

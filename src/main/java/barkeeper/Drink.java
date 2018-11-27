@@ -5,6 +5,12 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Class which represents a drink.
+ * 
+ * @author Alexander Heinritzi
+ *
+ */
 public class Drink {
     private final String name;
     private final Flavor flavor;
@@ -13,13 +19,13 @@ public class Drink {
     private final List<Ingredient> ingredients;
 
     /**
-     * Constructor of drink.
+     * Ctor of drink. Parameters as string for JsonCreator.
      * 
      * @param name            name of the drink
      * @param flavor          flavor of the drink as String
      * @param daytime         daytime of the drink as String
      * @param containsAlcohol true if the drink contains alcohol, false if not
-     * @param ingredient      list of the ingredients of a drink
+     * @param ingredients     list of the ingredients of a drink
      */
     @JsonCreator
     public Drink(@JsonProperty("name") String name, @JsonProperty("flavor") String flavor,
@@ -32,6 +38,15 @@ public class Drink {
         this.ingredients = ingredients;
     }
 
+    /**
+     * Ctor of drink.
+     * 
+     * @param name            name of the drink
+     * @param flavor          flavor of the drink as String
+     * @param daytime         daytime of the drink as String
+     * @param containsAlcohol true if the drink contains alcohol, false if not
+     * @param ingredients     list of the ingredients of a drink
+     */
     public Drink(String name, Flavor flavor, Daytime daytime, boolean containsAlcohol, List<Ingredient> ingredients) {
         this.name = name;
         this.flavor = flavor;
@@ -44,8 +59,8 @@ public class Drink {
      * Method gets information if drink contains alcohol as string and converts it
      * to boolean.
      * 
-     * @param flavor as string
-     * @return flavor as enum.
+     * @param containsAlcohol True if drink contains alcohol.
+     * @return Boolean representation of the string true/false.
      */
     private boolean findContainsAlcohol(String containsAlcohol) {
         boolean tmp;
@@ -154,6 +169,11 @@ public class Drink {
         return ingredients;
     }
 
+    /**
+     * Gets a string representation for Alexa of the ingredients of a drink.
+     * 
+     * @return The string for Alexa with the ingredients of a drink.
+     */
     public String listIngredients() {
         StringBuilder sb = new StringBuilder();
 
