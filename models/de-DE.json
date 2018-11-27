@@ -34,10 +34,10 @@
             			}
           			],
           			"samples": [
-            			"Welche Zutaten enth‰lt ein {Drink}",
-            			"Welche Zutaten enth‰lt eine {Drink}",
-            			"Was ist in einem {Drink},
-            			"Was ist in einer {Drink}
+            			"Welche Zutaten enth√§lt ein {Drink}",
+            			"Welche Zutaten enth√§lt eine {Drink}",
+            			"Was ist in einem {Drink}",
+            			"Was ist in einer {Drink}"
          		 	]
 				},
                 {
@@ -75,7 +75,7 @@
 						},
 						{
               				"name": {
-                			"value": "Heiﬂe Schokolade"
+                			"value": "Hei√üe Schokolade"
              			 	}
 						},
 						{
@@ -95,7 +95,7 @@
 						},
 						{
               				"name": {
-                			"value": "PiÒa Colada"
+                			"value": "Pi√±a Colada"
               				}
 						},
 						{
