@@ -116,20 +116,20 @@ public class Drink {
     private Daytime findDaytime(String daytime) {
         Daytime tmp;
         switch (daytime.toUpperCase()) {
-        case "MORNING":
-            tmp = Daytime.MORNING;
-            break;
-        case "NOON":
-            tmp = Daytime.NOON;
-            break;
-        case "EVENING":
-            tmp = Daytime.EVENING;
-            break;
-        default:
-            StringBuilder sb = new StringBuilder();
-            sb.append("\"").append(daytime).append("\"")
+                case "MORNING":
+                    tmp = Daytime.MORNING;
+                    break;
+                 case "NOON":
+                     tmp = Daytime.NOON;
+                     break;
+                 case "EVENING":
+                     tmp = Daytime.EVENING;
+                     break;
+                 default:
+                     StringBuilder sb = new StringBuilder();
+                     sb.append("\"").append(daytime).append("\"")
                     .append("is not a valid daytime. Valid daytimes are \"MORNING\", \"NOON\" or \"EVENING\"");
-            throw new IllegalArgumentException(sb.toString());
+                     throw new IllegalArgumentException(sb.toString());
         }
         return tmp;
     }
@@ -178,11 +178,11 @@ public class Drink {
         StringBuilder sb = new StringBuilder();
 
         if (ingredients.isEmpty()) {
-            sb.append("Fuer ").append(name).append(" sind leider keine Zutaten gespeichert.");
+            sb.append("Für ").append(name).append(" sind leider keine Zutaten gespeichert.");
             return sb.toString();
         }
         if (ingredients.size() == 1) {
-            sb.append(name).append(" enthaelt ").append(ingredients.get(0).getAmount()).append(" ")
+            sb.append(name).append(" enthält ").append(ingredients.get(0).getAmount()).append(" ")
                     .append(ingredients.get(0).getName());
             return sb.toString();
         }

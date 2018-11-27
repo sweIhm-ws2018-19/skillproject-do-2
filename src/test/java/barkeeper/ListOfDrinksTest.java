@@ -46,13 +46,13 @@ public class ListOfDrinksTest {
     @Test
     public void listIngredientsButNoIngredientsTest() throws IOException {
         ListOfDrinks drinkList = new ListOfDrinks();
-        Assert.assertEquals("Fuer Cola sind leider keine Zutaten gespeichert.", drinkList.listIngredients("Cola"));
+        Assert.assertEquals("Für Cola sind leider keine Zutaten gespeichert.", drinkList.listIngredients("Cola"));
     }
 
     @Test
     public void listIngredientsWithTwoIngrediencesTest() throws IOException {
         ListOfDrinks drinkList = new ListOfDrinks();
-        Assert.assertEquals("Kaffee enthÃ¤lt folgende Zutaten: 1 KaffeelÃ¶ffel Kaffeepulver und 250 Milliliter Wasser.",
+        Assert.assertEquals("Kaffee enthält folgende Zutaten: 1 Kaffeelöffel Kaffeepulver und 250 Milliliter Wasser.",
                 drinkList.listIngredients("Kaffee"));
     }
 
@@ -60,7 +60,7 @@ public class ListOfDrinksTest {
     public void listIngredientsWithMoreThanTwoIngrediencesTest() throws IOException {
         ListOfDrinks drinkList = new ListOfDrinks();
         Assert.assertEquals(
-                "Swimmingpool enthÃ¤lt folgende Zutaten: 14 Zentiliter granini Ananassaft, 2 Zentiliter Vodka, 2 Zentiliter Rum weiÃŸ, 2 Zentiliter Blue CuraÃ§ao, 3 Zentiliter Kokosnusscreme und 4 Zentiliter Sahne.",
+                "Swimmingpool enthält folgende Zutaten: 14 Zentiliter granini Ananassaft, 2 Zentiliter Vodka, 2 Zentiliter Rum weiß, 2 Zentiliter Blue Curaçao, 3 Zentiliter Kokosnusscreme und 4 Zentiliter Sahne.",
                 drinkList.listIngredients("Swimmingpool"));
     }
 
