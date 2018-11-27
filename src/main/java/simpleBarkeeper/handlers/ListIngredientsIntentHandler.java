@@ -6,7 +6,6 @@ import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
-import com.amazon.ask.model.Request;
 import com.amazon.ask.model.Response;
 
 public class ListIngredientsIntentHandler implements RequestHandler{
