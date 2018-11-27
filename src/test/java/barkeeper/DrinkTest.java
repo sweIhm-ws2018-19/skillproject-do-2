@@ -1,11 +1,16 @@
 
-package test.java.barkeeper;
+package barkeeper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import simpleBarkeeper.Daytime;
+import simpleBarkeeper.Drink;
+import simpleBarkeeper.Flavor;
+import simpleBarkeeper.Ingredient;
 
 public class DrinkTest {
 

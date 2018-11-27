@@ -1,4 +1,4 @@
-package main.java.barkeeper;
+package simpleBarkeeper;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

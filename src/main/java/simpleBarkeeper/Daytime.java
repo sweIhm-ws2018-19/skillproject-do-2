@@ -1,4 +1,4 @@
-package main.java.barkeeper;
+package simpleBarkeeper;
 
 /**
  * Enum which represents Daytimes.
