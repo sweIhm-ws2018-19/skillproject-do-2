@@ -2,6 +2,7 @@ package simplebarkeeper;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,7 +36,10 @@ public class ListOfDrinks {
      *         present.
      */
     public Map<String, Drink> getInitialListFromJson() {
-        File file = new File("src/main/resources/initialDrinkList.json");
+        URL url = this.getClass().getResource("/initialDrinkList.json");
+        String pathWithoutPercents = url.getFile().replace("%20", " ");
+        File file = new File(pathWithoutPercents);
+
         ObjectMapper om = new ObjectMapper();
         TypeFactory typeFactory = om.getTypeFactory();
         MapType mapType = typeFactory.constructMapType(HashMap.class, String.class, Drink.class);
@@ -74,7 +78,7 @@ public class ListOfDrinks {
             return drinks.get(drink).listIngredients();
 
         }
-        return "Der von Ihnen genannt Drink ist mir leider nicht bekannt.";
+        return "Der von Ihnen genannte Drink ist mir leider nicht bekannt.";
     }
 
     /**

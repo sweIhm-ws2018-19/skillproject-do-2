@@ -26,7 +26,7 @@
                 	"samples": []
                 },
                 {
-          			"name": "ListIngredientsIsIntent",
+          			"name": "ListIngredientsIntent",
           			"slots": [
             			{
               			"name": "Drink",
@@ -55,127 +55,127 @@
           		"values": [
             			{
               				"name": {
-                			"value": "Ginger Ale"
+                			"value": "ginger ale"
               				}
             			},
             			{
               				"name": {
-                			"value": "Johannisbeerschorle"
+                			"value": "johannisbeerschorle"
               				}
 						},
 						{
               				"name": {
-                			"value": "Sex on the beach"
+                			"value": "sex on the beach"
               				}
 						},
 						{
               				"name": {
-                			"value": "Traubenschorle"
+                			"value": "traubenschorle"
               				}
 						},
 						{
               				"name": {
-                			"value": "Heiße Schokolade"
+                			"value": "heiße schokolade"
              			 	}
 						},
 						{
               				"name": {
-              	  			"value": "Bier"
+              	  			"value": "bier"
               				}
 						},
 						{
               				"name": {
-                			"value": "Energy-Drink"
+                			"value": "energy-drink"
               				}
 						},
 						{
               				"name": {
-                			"value": "Swimmingpool"
+                			"value": "swimmingpool"
               				}
 						},
 						{
               				"name": {
-                			"value": "Piña Colada"
+                			"value": "piña colada"
               				}
 						},
 						{
               				"name": {
-                			"value": "Sweet Holy"
+                			"value": "sweet holy"
               				}
 						},
 						{
               				"name": {
-                			"value": "Chocolada"
+                			"value": "chocolada"
               				}
 						},
 						{
               				"name": {
-                			"value": "Zitronenlimonade"
+                			"value": "zitronenlimonade"
               				}
 						},
 						{
               				"name": {
-                			"value": "Cola"
+                			"value": "cola"
               				}
 						},
 						{
               				"name": {
-                			"value": "Apfel"
+                			"value": "apfel"
               				}
 						},
 						{
               				"name": {
-                			"value": "Orangenlimonade"
+                			"value": "arangenlimonade"
               				}
 						},
 						{
               				"name": {
-               			 	"value": "Tonic Water"
+               			 	"value": "tonic water"
              				}
 						},
 						{
               				"name": {
-                			"value": "Sweet Baya"
+                			"value": "sweet baya"
               				}
 						},
 						{
               				"name": {
-                			"value": "Cola Mix"
+                			"value": "cola mix"
               				}
 						},
 						{
               				"name": {
-                			"value": "Tequila Sunrise"
+                			"value": "tequila sunrise"
               				}
 						},
 						{
               				"name": {
-                			"value": "Plain Vanilla"
+                			"value": "plain vanilla"
               				}
 						},
 						{
               				"name": {
-                			"value": "Tee"
+                			"value": "tee"
               				}
 						},
 						{
               				"name": {
-                			"value": "Panter's Punch"
+                			"value": "panter's punch"
               				}
 						},
 						{
               				"name": {
-                			"value": "Eistee"
+                			"value": "eistee"
               				}
 						},
 						{
               				"name": {
-                			"value": "Bitter Lemon"
+                			"value": "bitter lemon"
               				}
 						},
 						{
               				"name": {
-                			"value": "Rote Schorle"
+                			"value": "rote schorle"
               				}
 						}
             		]

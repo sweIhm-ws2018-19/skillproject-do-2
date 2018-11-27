@@ -1,20 +1,20 @@
 {
-  "Ginger Ale" : {
-    "name" : "Ginger Ale",
+  "ginger Ale" : {
+    "name" : "ginger ale",
     "flavor" : "BITTER",
     "daytime" : "NOON",
     "containsAlcohol" : false,
     "ingredients" : [ ]
   },
-  "Johannisbeerschorle" : {
-    "name" : "Johannisbeerschorle",
+  "johannisbeerschorle" : {
+    "name" : "johannisbeerschorle",
     "flavor" : "SOUR",
     "daytime" : "NOON",
     "containsAlcohol" : false,
     "ingredients" : [ ]
   },
-  "Sex on the Beach" : {
-    "name" : "Sex on the Beach",
+  "sex on the beach" : {
+    "name" : "sex on the beach",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
@@ -35,15 +35,15 @@
       "amount" : "4 Zentiliter"
     } ]
   },
-  "Traubenschorle" : {
-    "name" : "Traubenschorle",
+  "traubenschorle" : {
+    "name" : "traubenschorle",
     "flavor" : "SWEET",
     "daytime" : "NOON",
     "containsAlcohol" : false,
     "ingredients" : [ ]
   },
-  "Mango Colada" : {
-    "name" : "Mango Colada",
+  "mango colada" : {
+    "name" : "mango colada",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
@@ -61,8 +61,8 @@
       "amount" : "4 Zentiliter"
     } ]
   },
-  "Heiße Schokolade" : {
-    "name" : "Heiße Schokolade",
+  "heiße schokolade" : {
+    "name" : "heiße schokolade",
     "flavor" : "SWEET",
     "daytime" : "MORNING",
     "containsAlcohol" : false,
@@ -80,22 +80,22 @@
       "amount" : "1 Messerspitze"
     } ]
   },
-  "Bier" : {
-    "name" : "Bier",
+  "bier" : {
+    "name" : "bier",
     "flavor" : "BITTER",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
     "ingredients" : [ ]
   },
-  "Energy-Drink" : {
-    "name" : "Energy-Drink",
+  "energy-drink" : {
+    "name" : "energy-drink",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : false,
     "ingredients" : [ ]
   },
-  "Kaffee" : {
-    "name" : "Kaffee",
+  "kaffee" : {
+    "name" : "kaffee",
     "flavor" : "BITTER",
     "daytime" : "MORNING",
     "containsAlcohol" : false,
@@ -107,8 +107,8 @@
       "amount" : "250 Milliliter"
     } ]
   },
-  "Swimmingpool" : {
-    "name" : "Swimmingpool",
+  "swimmingpool" : {
+    "name" : "swimmingpool",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
@@ -132,8 +132,8 @@
       "amount" : "4 Zentiliter"
     } ]
   },
-  "Piña Colada" : {
-    "name" : "Piña Colada",
+  "piña colada" : {
+    "name" : "piña colada",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
@@ -151,8 +151,8 @@
       "amount" : "4 Zentiliter"
     } ]
   },
-  "Sweet Holly" : {
-    "name" : "Sweet Holly",
+  "sweet holly" : {
+    "name" : "sweet holly",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
@@ -173,8 +173,8 @@
       "amount" : "3 Zentiliter"
     } ]
   },
-  "Chocolada" : {
-    "name" : "Chocolada",
+  "chocolada" : {
+    "name" : "chocolada",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
@@ -198,43 +198,43 @@
       "amount" : "4 Zentiliter"
     } ]
   },
-  "Zitronenlimonade" : {
-    "name" : "Zitronenlimonade",
+  "zitronenlimonade" : {
+    "name" : "zitronenlimonade",
     "flavor" : "SWEET",
     "daytime" : "NOON",
     "containsAlcohol" : false,
     "ingredients" : [ ]
   },
-  "Cola" : {
-    "name" : "Cola",
+  "cola" : {
+    "name" : "cola",
     "flavor" : "SWEET",
     "daytime" : "NOON",
     "containsAlcohol" : false,
     "ingredients" : [ ]
   },
-  "Apfelschorle" : {
-    "name" : "Apfelschorle",
+  "apfelschorle" : {
+    "name" : "apfelschorle",
     "flavor" : "SWEET",
     "daytime" : "NOON",
     "containsAlcohol" : false,
     "ingredients" : [ ]
   },
-  "Orangenlimonade" : {
-    "name" : "Orangenlimonade",
+  "orangenlimonade" : {
+    "name" : "orangenlimonade",
     "flavor" : "SWEET",
     "daytime" : "NOON",
     "containsAlcohol" : false,
     "ingredients" : [ ]
   },
-  "Tonic Water" : {
-    "name" : "Tonic Water",
+  "tonic water" : {
+    "name" : "tonic water",
     "flavor" : "BITTER",
     "daytime" : "NOON",
     "containsAlcohol" : false,
     "ingredients" : [ ]
   },
-  "Sweet Baya" : {
-    "name" : "Sweet Baya",
+  "sweet baya" : {
+    "name" : "sweet baya",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
@@ -258,15 +258,15 @@
       "amount" : "4 Zentiliter"
     } ]
   },
-  "Cola Mix" : {
-    "name" : "Cola Mix",
+  "cola mix" : {
+    "name" : "cola mix",
     "flavor" : "SWEET",
     "daytime" : "NOON",
     "containsAlcohol" : false,
     "ingredients" : [ ]
   },
-  "Tequila Sunrise" : {
-    "name" : "Tequila Sunrise",
+  "tequila sunrise" : {
+    "name" : "tequila sunrise",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
@@ -284,8 +284,8 @@
       "amount" : "so viel, wie noch in das Glas passt"
     } ]
   },
-  "Plain Vanilla" : {
-    "name" : "Plain Vanilla",
+  "plain vanilla" : {
+    "name" : "plain vanilla",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : false,
@@ -306,14 +306,14 @@
       "amount" : "1 Zentiliter"
     } ]
   },
-  "Tee" : {
-    "name" : "Tee",
+  "tee" : {
+    "name" : "tee",
     "flavor" : "SWEET",
     "daytime" : "MORNING",
     "containsAlcohol" : false,
     "ingredients" : [ ]
   },
-  "Planter's Punch" : {
+  "planter's punch" : {
     "name" : "Planter's Punch",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
@@ -335,22 +335,22 @@
       "amount" : "5 Zentiliter"
     } ]
   },
-  "Eistee" : {
-    "name" : "Eistee",
+  "eistee" : {
+    "name" : "eistee",
     "flavor" : "SWEET",
     "daytime" : "NOON",
     "containsAlcohol" : false,
     "ingredients" : [ ]
   },
-  "Bitter Lemon" : {
-    "name" : "Bitter Lemon",
+  "bitter lemon" : {
+    "name" : "bitter lemon",
     "flavor" : "BITTER",
     "daytime" : "NOON",
     "containsAlcohol" : false,
     "ingredients" : [ ]
   },
-  "Rote Schorle" : {
-    "name" : "Rote Schorle",
+  "rote schorle" : {
+    "name" : "rote schorle",
     "flavor" : "SWEET",
     "daytime" : "NOON",
     "containsAlcohol" : false,
