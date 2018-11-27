@@ -1,4 +1,4 @@
-package barkeeper;
+package simpleBarkeeper;
 
 import org.junit.Assert;
 import org.junit.Test;

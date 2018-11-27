@@ -1,5 +1,5 @@
 
-package barkeeper;
+package simpleBarkeeper;
 
 import java.util.ArrayList;
 import java.util.List;

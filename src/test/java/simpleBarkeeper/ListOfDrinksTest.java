@@ -1,4 +1,4 @@
-package barkeeper;
+package simpleBarkeeper;
 
 import java.io.IOException;
 
