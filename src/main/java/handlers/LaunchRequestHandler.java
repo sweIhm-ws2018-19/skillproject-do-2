@@ -2,7 +2,6 @@ package main.java.handlers;
 
 import static com.amazon.ask.request.Predicates.requestType;
 
-import java.io.IOException;
 import java.util.Map;
 import java.util.Optional;
 
@@ -29,11 +28,7 @@ public class LaunchRequestHandler implements RequestHandler {
         Map<String, Object> persistentAttributes = attributesManager.getPersistentAttributes();
 
         if (!persistentAttributes.containsKey("firstStart")) {
-            try {
-                persistentAttributes.put("drinkList", new ListOfDrinks());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            persistentAttributes.put("drinkList", new ListOfDrinks());
             persistentAttributes.put("firstStart", false);
         }
 
