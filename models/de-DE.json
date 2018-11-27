@@ -26,6 +26,21 @@
                 	"samples": []
                 },
                 {
+          			"name": "ListIngredientsIsIntent",
+          			"slots": [
+            			{
+              			"name": "Drink",
+              			"type": "LIST_OF_DRINKS"
+            			}
+          			],
+          			"samples": [
+            			"Welche Zutaten enthält ein {Drink}",
+            			"Welche Zutaten enthält eine {Drink}",
+            			"Was ist in einem {Drink},
+            			"Was ist in einer {Drink}
+         		 	]
+				},
+                {
                     "name": "AMAZON.StopIntent",
                     "slots": [],
                     "samples": [
@@ -34,7 +49,138 @@
                     ]
                 }                
             ],
-            "types": []
+            "types": [
+            {
+          	"name": "LIST_OF_DRINKS",
+          		"values": [
+            			{
+              				"name": {
+                			"value": "Ginger Ale"
+              				}
+            			},
+            			{
+              				"name": {
+                			"value": "Johannisbeerschorle"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Sex on the beach"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Traubenschorle"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Heiße Schokolade"
+             			 	}
+						},
+						{
+              				"name": {
+              	  			"value": "Bier"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Energy-Drink"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Swimmingpool"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Piña Colada"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Sweet Holy"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Chocolada"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Zitronenlimonade"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Cola"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Apfel"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Orangenlimonade"
+              				}
+						},
+						{
+              				"name": {
+               			 	"value": "Tonic Water"
+             				}
+						},
+						{
+              				"name": {
+                			"value": "Sweet Baya"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Cola Mix"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Tequila Sunrise"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Plain Vanilla"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Tee"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Panter's Punch"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Eistee"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Bitter Lemon"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "Rote Schorle"
+              				}
+						}
+            		]
+            	}
+            ]
         }
-    }
+	}
 }
