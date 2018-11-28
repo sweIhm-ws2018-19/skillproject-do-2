@@ -1,14 +1,11 @@
 package simplebarkeeper;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import simplebarkeeper.Daytime;
-import simplebarkeeper.Drink;
-import simplebarkeeper.Flavor;
-import simplebarkeeper.ListOfDrinks;
 
 public class ListOfDrinksTest {
 
@@ -20,6 +17,20 @@ public class ListOfDrinksTest {
         Assert.assertEquals(Daytime.NOON, drinkList.getDrinkByName("rote schorle").getDaytime());
         Assert.assertFalse(drinkList.getDrinkByName("rote schorle").getContainsAlcohol());
         Assert.assertTrue(drinkList.getDrinkByName("rote schorle").getIngredients().isEmpty());
+    }
+
+    @Test
+    public void cTorWithoutInitialListInResourcesTest() throws IOException {
+        URL url = this.getClass().getResource("/initialDrinkList.json");
+        String pathWithoutPercents = url.getFile().replace("%20", " ");
+        File file = new File(pathWithoutPercents);
+
+        file.setReadable(false);
+        ListOfDrinks drinkList = new ListOfDrinks();
+
+        Assert.assertEquals(0, drinkList.getSize());
+
+        file.setReadable(true);
     }
 
     @Test

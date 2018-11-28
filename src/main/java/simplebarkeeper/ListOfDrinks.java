@@ -98,5 +98,13 @@ public class ListOfDrinks {
     public Drink getFavorite() {
         return favorite;
     }
+    
+    /**
+     * Returns how many drinks are in this list.
+     * @return Number of drinks in this list.
+     */
+    public int getSize() {
+        return drinks.size();
+    }
 
 }
