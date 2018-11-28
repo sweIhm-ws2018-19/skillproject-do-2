@@ -8,7 +8,12 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
-
+/**
+* Handler for the HelpIntent. It gives the user a bunch of information he might need
+* if needed.
+* @author Robin Grellner
+*
+*/
 public class HelpIntentHandler implements RequestHandler{
 
 	@Override
@@ -16,7 +21,12 @@ public class HelpIntentHandler implements RequestHandler{
 		
 		return input.matches(intentName("AMAZON.HelpIntent"));
 	}
-
+	
+	 /**
+	 * {@inheritDoc}}
+	 * Method that implements the logic on how the HelpIntent has to be 
+	 * handled. Here, it simply returns a TextOutput.
+	 */
 	@Override
 	public Optional<Response> handle(HandlerInput input) {
 		String outputText = "Hier steht Hilfe";
