@@ -51,7 +51,7 @@ public class ListIngredientsIntentHandler implements RequestHandler {
         ListOfDrinks drinkList = new ListOfDrinks();
         String speechText = drinkList.listIngredients(requestedDrink);
 
-        return input.getResponseBuilder().withSpeech(speechText).build();
+        return input.getResponseBuilder().withSpeech(speechText).withShouldEndSession(false).build();
     }
 
 }

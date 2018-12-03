@@ -25,14 +25,12 @@ public class LaunchRequestHandler implements RequestHandler {
     /**
      * {@inheritDoc}}
      * The Method handles everything that needs to happen at the Launch of the Skill
-     * and welcomes the user. 
-     * (Also: the code in comments is to be implemented, and is, in theory, working code. Permission-wise there
-     * are still problems, but that is to be fixed in one of the next sprints).
+     * and welcomes the user.
      */
     @Override
     public Optional<Response> handle(HandlerInput input) {
         String welcome = "Hallo. Wie kann ich dir behilflich sein?";
-        String repromptMessage = "Falls du Hilfe brauchst, sag einfach 'Hilf mir'";
+        String repromptMessage = "Falls du Hilfe brauchst, sag einfach: hilf mir";
 
         return input.getResponseBuilder()
         		.withSimpleCard("Willkommen", welcome)

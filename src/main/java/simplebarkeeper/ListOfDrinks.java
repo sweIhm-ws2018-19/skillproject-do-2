@@ -17,16 +17,26 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
  *
  */
 public class ListOfDrinks {
+    private final static String PATH = "/initialDrinkList.json";
 
     private final Map<String, Drink> drinks;
     private Drink favorite;
 
     /**
-     * Ctor for ListOfDrinks with preset drinks.
+     * Ctor for ListOfDrinks with drinks from resources.
      * 
      */
     public ListOfDrinks() {
-        drinks = getInitialListFromJson();
+        drinks = getListFromJson();
+    }
+    
+    public boolean removeDrink(String drinkName) {
+        drinks.remove(drinkName);
+        return drinks.containsKey(drinkName);
+    }
+    
+    public boolean containsDrink(String drinkName) {
+        return drinks.containsKey(drinkName);
     }
 
     /**
@@ -35,8 +45,8 @@ public class ListOfDrinks {
      * @return The initialDrinkList from the repository. Empty list if file not
      *         present.
      */
-    public Map<String, Drink> getInitialListFromJson() {
-        URL url = this.getClass().getResource("/initialDrinkList.json");
+    public Map<String, Drink> getListFromJson() {
+        URL url = this.getClass().getResource(PATH);
         String pathWithoutPercents = url.getFile().replace("%20", " ");
         File file = new File(pathWithoutPercents);
 
@@ -49,10 +59,29 @@ public class ListOfDrinks {
         try {
             initialDrinkList = om.readValue(file, mapType);
         } catch (IOException e) {
+            e.printStackTrace();
             initialDrinkList = new HashMap<>();
         }
 
         return initialDrinkList;
+    }
+
+    /**
+     * Saves the included map of drinks to a file in the resources folder.
+     */
+    public void saveListAsJson() {
+        URL url = this.getClass().getResource(PATH);
+        String pathWithoutPercents = url.getFile().replace("%20", " ");
+        File file = new File(pathWithoutPercents);
+
+        ObjectMapper om = new ObjectMapper();
+
+        try {
+            om.writerWithDefaultPrettyPrinter().writeValue(file, drinks);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -98,9 +127,10 @@ public class ListOfDrinks {
     public Drink getFavorite() {
         return favorite;
     }
-    
+
     /**
      * Returns how many drinks are in this list.
+     * 
      * @return Number of drinks in this list.
      */
     public int getSize() {
