@@ -35,18 +35,9 @@ public class RemoveDrinkIntentHandler implements RequestHandler {
         String requestedDrink = requestedDrinkSlot.getValue();
 
         ListOfDrinks drinkList = new ListOfDrinks();
-        
-        StringBuilder sb = new StringBuilder();
-        
-        if(!drinkList.containsDrink(requestedDrink)) {
-            sb.append(requestedDrink).append(" ist leider nicht vorhanden");
-        } else {
-        drinkList.removeDrink(requestedDrink);
-        sb.append(requestedDrink).append("wurde entfernt");
+        String speechText = drinkList.removeDrink(requestedDrink);
         drinkList.saveListAsJson();
-        }
         
-        String speechText = sb.toString();
         return input.getResponseBuilder().withSpeech(speechText).withShouldEndSession(false).build();
     }
 

@@ -25,6 +25,10 @@
                 	"name": "AMAZON.FallbackIntent",
                 	"samples": []
                 },
+                 {
+                	"name": "RemoveDrinkIntent",
+                	"samples": []
+                },
                 {
           			"name": "ListIngredientsIntent",
           			"slots": [

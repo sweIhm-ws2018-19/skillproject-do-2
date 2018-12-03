@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,9 +13,7 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
 
 /**
  * Class represents a list of drinks.
- * 
  * @author Felix Haala
- *
  */
 public class ListOfDrinks {
     private final static String PATH = "/initialDrinkList.json";
@@ -24,24 +23,38 @@ public class ListOfDrinks {
 
     /**
      * Ctor for ListOfDrinks with drinks from resources.
-     * 
      */
     public ListOfDrinks() {
         drinks = getListFromJson();
     }
-    
-    public boolean removeDrink(String drinkName) {
-        drinks.remove(drinkName);
-        return drinks.containsKey(drinkName);
+
+    public String removeDrink(String drinkName) {
+        StringBuilder sb = new StringBuilder();
+
+        if (!drinks.containsKey(drinkName)) {
+            sb.append(drinkName).append(" ist leider nicht vorhanden");
+        } else {
+            drinks.remove(drinkName);
+            sb.append(drinkName).append("wurde entfernt");
+        }
+
+        return sb.toString();
     }
-    
-    public boolean containsDrink(String drinkName) {
-        return drinks.containsKey(drinkName);
+
+    public String addAndReplaceDrink(String name, String flavor, String daytime, String containsAlcohol,
+        List<Ingredient> ingredients) {
+        StringBuilder sb = new StringBuilder();
+
+        Drink drink = new Drink(name, flavor, daytime, containsAlcohol, ingredients);
+        drinks.put(name, drink);
+
+        return sb.append(name).append("wurde gespeichert").toString();
+    }
+
     }
 
     /**
      * Gets the the initialDrinkList from the resources.
-     * 
      * @return The initialDrinkList from the repository. Empty list if file not
      *         present.
      */
@@ -86,9 +99,8 @@ public class ListOfDrinks {
 
     /**
      * Gets a drink by it's name.
-     * 
-     * @param drinkName The name of the drink.
-     * @return The requested drink.
+     * @param  drinkName The name of the drink.
+     * @return           The requested drink.
      */
     public Drink getDrinkByName(String drinkName) {
         return drinks.get(drinkName);
@@ -98,9 +110,8 @@ public class ListOfDrinks {
      * Gets the given drink if it exists and returns a string of a listing of
      * ingredients for Alexa. Or a string that tells the user that the the drink
      * doesn't exist.
-     * 
-     * @param drink The ingredients of this drink will be listed.
-     * @return String for Alexa
+     * @param  drink The ingredients of this drink will be listed.
+     * @return       String for Alexa
      */
     public String listIngredients(String drink) {
         if (drinks.containsKey(drink)) {
@@ -112,7 +123,6 @@ public class ListOfDrinks {
 
     /**
      * Setter for a favorite drink.
-     * 
      * @param drink The drink which will be the new favorite.
      */
     public void setFavorite(Drink drink) {
@@ -121,7 +131,6 @@ public class ListOfDrinks {
 
     /**
      * Getter for the favorite drink.
-     * 
      * @return The recent favorite drink.
      */
     public Drink getFavorite() {
@@ -130,7 +139,6 @@ public class ListOfDrinks {
 
     /**
      * Returns how many drinks are in this list.
-     * 
      * @return Number of drinks in this list.
      */
     public int getSize() {

@@ -16,14 +16,12 @@ import com.amazon.ask.model.Slot;
 import simplebarkeeper.ListOfDrinks;
 
 /**
- * Handler for the ListIngredientsIntent. Here you receive a 
- * Drink from the slots, and giving it to a ListOfDrinks.
- * The output is a String, that lists the Ingredients of the given Drink.
+ * Handler for the ListIngredientsIntent. Here you receive a Drink from the
+ * slots, and giving it to a ListOfDrinks. The output is a String, that lists
+ * the Ingredients of the given Drink.
  * @author Robin Grellner, Felix Haala, Alex Heinritzi
- *
  */
 public class ListIngredientsIntentHandler implements RequestHandler {
-    public static final String DRINK_KEY = "DRINK";
     public static final String DRINK_SLOT = "Drink";
 
     @Override
@@ -32,11 +30,9 @@ public class ListIngredientsIntentHandler implements RequestHandler {
     }
 
     /**
-     * {@inheritDoc}
-     * Method that handles how the Intent is handled. 
-     * It receives a Request, containing the Name of a Drink
-     * and returns the Ingredients the specified Drink consists
-     * of.
+     * {@inheritDoc} Method that handles how the Intent is handled. It receives a
+     * Request, containing the Name of a Drink and returns the Ingredients the
+     * specified Drink consists of.
      */
     @Override
     public Optional<Response> handle(HandlerInput input) {

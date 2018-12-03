@@ -2,56 +2,56 @@ package simplebarkeeper.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 import com.amazon.ask.attributes.AttributesManager;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
-import com.amazon.ask.model.Intent;
-import com.amazon.ask.model.IntentRequest;
-import com.amazon.ask.model.Request;
 import com.amazon.ask.model.Response;
-import com.amazon.ask.model.Slot;
 
+import simplebarkeeper.Ingredient;
 import simplebarkeeper.ListOfDrinks;
 
-public class RemoveDrinkIntentHandler implements RequestHandler {
-    public static final String DRINK_KEY = "DRINK";
-    public static final String DRINK_SLOT = "Drink";
+public class AddDrinkIntentHandler implements RequestHandler {
+    public static final String NAME_KEY = "NEW_DRINK_NAME";
+    public static final String FLAVOUR_KEY = "NEW_DRINK_FLAVOUR";
+    public static final String DAYTIME_KEY = "NEW_DRINK_DAYTIME";
+    public static final String CONTAINS_ALCOHOL_KEY = "NEW_DRINK_CONTAINS_ALCOHOL";
+    public static final String INGREDIENTS_KEY = "NEW_DRINK_INGREDIENTS";
 
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("RemoveDrinkIntentHandler"));
+        return input.matches(intentName("AddDrinkIntentHandler"));
     }
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        Request request = input.getRequestEnvelope().getRequest();
-        IntentRequest intentRequest = (IntentRequest) request;
-        Intent intent = intentRequest.getIntent();
-        Map<String, Slot> slots = intent.getSlots();
-
-        Slot requestedDrinkSlot = slots.get(DRINK_SLOT);
-        String requestedDrink = requestedDrinkSlot.getValue();
-
         ListOfDrinks drinkList = new ListOfDrinks();
-        
-        StringBuilder sb = new StringBuilder();
-        
-        if(drinkList.containsDrink(requestedDrink)) {
-            sb.append(requestedDrink).append(" ist leider schon vorhanden");
-        } else {
-            AttributesManager attributesManager = input.getAttributesManager();
-            Map<String, Object> sessionAttributes = attributesManager.getSessionAttributes();
-            sessionAttributes.put("name", requestedDrink);
-            attributesManager.setSessionAttributes(sessionAttributes);
-            
-        sb.append(requestedDrink).append("Name wurde angelegt");
-        drinkList.saveListAsJson();
-        }
-        
-        String speechText = sb.toString();
+
+        AttributesManager attributesManager = input.getAttributesManager();
+        Map<String, Object> sessionAttributes = attributesManager.getSessionAttributes();
+
+        String newDrinkName = (String) sessionAttributes.get(NAME_KEY);
+        String newDrinkFlavour = (String) sessionAttributes.get(FLAVOUR_KEY);
+        String newDrinkDaytime = (String) sessionAttributes.get(DAYTIME_KEY);
+        String newDrinkContainsAlcohol = (String) sessionAttributes.get(CONTAINS_ALCOHOL_KEY);
+
+        @SuppressWarnings("unchecked")
+        List<Ingredient> newDrinkIngredients = (List<Ingredient>) sessionAttributes.get(INGREDIENTS_KEY);
+
+        String speechText = drinkList.addAndReplaceDrink(newDrinkName, newDrinkFlavour, newDrinkDaytime,
+            newDrinkContainsAlcohol, newDrinkIngredients).toString();
+
+        sessionAttributes.remove(NAME_KEY);
+        sessionAttributes.remove(FLAVOUR_KEY);
+        sessionAttributes.remove(DAYTIME_KEY);
+        sessionAttributes.remove(CONTAINS_ALCOHOL_KEY);
+        sessionAttributes.remove(INGREDIENTS_KEY);
+
+        attributesManager.setSessionAttributes(sessionAttributes);
+
         return input.getResponseBuilder().withSpeech(speechText).withShouldEndSession(false).build();
     }
 
