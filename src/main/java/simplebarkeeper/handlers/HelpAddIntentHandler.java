@@ -2,6 +2,7 @@ package simplebarkeeper.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
+import java.util.Map;
 import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
@@ -15,11 +16,11 @@ import com.amazon.ask.model.Response;
  * @author Xaver Siodlazek
  *
  */
-public class HelpRequestIntentHandler implements RequestHandler {
+public class HelpAddIntentHandler implements RequestHandler {
 
 	@Override
 	public boolean canHandle(HandlerInput input) {
-		return input.matches(intentName("HelpRequestIntent"));
+		return input.matches(intentName("HelpAddIntent"));
 	}
 
 	/**
@@ -29,7 +30,7 @@ public class HelpRequestIntentHandler implements RequestHandler {
 	@Override
 	public Optional<Response> handle(HandlerInput input) {
 		StringBuilder outputText = new StringBuilder();
-		outputText.append("Beispiel Zutaten");
+		outputText.append("Beispiel Add");
 		return input.getResponseBuilder().withSpeech(outputText.toString()).withShouldEndSession(false).build();
 	}
 

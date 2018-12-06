@@ -15,11 +15,11 @@ import com.amazon.ask.model.Response;
  * @author Xaver Siodlazek
  *
  */
-public class HelpRequestIntentHandler implements RequestHandler {
+public class HelpDeleteIntentHandler implements RequestHandler {
 
 	@Override
 	public boolean canHandle(HandlerInput input) {
-		return input.matches(intentName("HelpRequestIntent"));
+		return input.matches(intentName("HelpDeleteIntent"));
 	}
 
 	/**
@@ -29,7 +29,7 @@ public class HelpRequestIntentHandler implements RequestHandler {
 	@Override
 	public Optional<Response> handle(HandlerInput input) {
 		StringBuilder outputText = new StringBuilder();
-		outputText.append("Beispiel Zutaten");
+		outputText.append("Beispiel Delete");
 		return input.getResponseBuilder().withSpeech(outputText.toString()).withShouldEndSession(false).build();
 	}
 
