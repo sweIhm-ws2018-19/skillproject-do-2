@@ -50,7 +50,9 @@ public class ListOfDrinks {
 
         return sb.append(name).append("wurde gespeichert").toString();
     }
-
+    
+    public boolean contains(String drinkName) {
+        return drinks.containsKey(drinkName);
     }
 
     /**

@@ -2,7 +2,6 @@ package simplebarkeeper.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -11,46 +10,48 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
-import simplebarkeeper.Ingredient;
-import simplebarkeeper.ListOfDrinks;
+import simplebarkeeper.States;
 
 public class AddDrinkIntentHandler implements RequestHandler {
-    public static final String NAME_KEY = "NEW_DRINK_NAME";
-    public static final String FLAVOUR_KEY = "NEW_DRINK_FLAVOUR";
-    public static final String DAYTIME_KEY = "NEW_DRINK_DAYTIME";
-    public static final String CONTAINS_ALCOHOL_KEY = "NEW_DRINK_CONTAINS_ALCOHOL";
-    public static final String INGREDIENTS_KEY = "NEW_DRINK_INGREDIENTS";
-
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("AddDrinkIntentHandler"));
+        AttributesManager attributesManager = input.getAttributesManager();
+        Map<String, Object> sessionAttributes = attributesManager.getSessionAttributes();
+        return input.matches(intentName("AddDrinkIntent"))
+                && sessionAttributes.get(States.STATE_KEY).equals(States.DEFAULT);
     }
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        ListOfDrinks drinkList = new ListOfDrinks();
-
         AttributesManager attributesManager = input.getAttributesManager();
         Map<String, Object> sessionAttributes = attributesManager.getSessionAttributes();
-
-        String newDrinkName = (String) sessionAttributes.get(NAME_KEY);
-        String newDrinkFlavour = (String) sessionAttributes.get(FLAVOUR_KEY);
-        String newDrinkDaytime = (String) sessionAttributes.get(DAYTIME_KEY);
-        String newDrinkContainsAlcohol = (String) sessionAttributes.get(CONTAINS_ALCOHOL_KEY);
-
-        @SuppressWarnings("unchecked")
-        List<Ingredient> newDrinkIngredients = (List<Ingredient>) sessionAttributes.get(INGREDIENTS_KEY);
-
-        String speechText = drinkList.addAndReplaceDrink(newDrinkName, newDrinkFlavour, newDrinkDaytime,
-            newDrinkContainsAlcohol, newDrinkIngredients).toString();
-
-        sessionAttributes.remove(NAME_KEY);
-        sessionAttributes.remove(FLAVOUR_KEY);
-        sessionAttributes.remove(DAYTIME_KEY);
-        sessionAttributes.remove(CONTAINS_ALCOHOL_KEY);
-        sessionAttributes.remove(INGREDIENTS_KEY);
-
+        sessionAttributes.put(States.STATE_KEY, States.ADD_DRINK_NAME);
         attributesManager.setSessionAttributes(sessionAttributes);
+
+        String speechText = "Wie heißt der Drink?";
+
+//            String newDrinkName = (String) sessionAttributes.get(Attributes.NEW_NAME_KEY);
+//            String newDrinkFlavour = (String) sessionAttributes.get(Attributes.NEW_FLAVOUR_KEY);
+//            String newDrinkDaytime = (String) sessionAttributes.get(Attributes.NEW_DAYTIME_KEY);
+//            String newDrinkContainsAlcohol = (String) sessionAttributes.get(Attributes.NEW_CONTAINS_ALCOHOL_KEY);
+//
+//            @SuppressWarnings("unchecked")
+//            List<Ingredient> newDrinkIngredients = (List<Ingredient>) sessionAttributes
+//                    .get(Attributes.NEW_INGREDIENTS_KEY);
+//
+//            ListOfDrinks drinkList = new ListOfDrinks();
+//
+//            speechText = drinkList.addAndReplaceDrink(newDrinkName, newDrinkFlavour, newDrinkDaytime,
+//                    newDrinkContainsAlcohol, newDrinkIngredients).toString();
+//
+//            drinkList.saveListAsJson();
+//
+//            sessionAttributes.remove(Attributes.NEW_NAME_KEY);
+//            sessionAttributes.remove(Attributes.NEW_FLAVOUR_KEY);
+//            sessionAttributes.remove(Attributes.NEW_DAYTIME_KEY);
+//            sessionAttributes.remove(Attributes.NEW_CONTAINS_ALCOHOL_KEY);
+//            sessionAttributes.remove(Attributes.NEW_INGREDIENTS_KEY);
+//        }
 
         return input.getResponseBuilder().withSpeech(speechText).withShouldEndSession(false).build();
     }

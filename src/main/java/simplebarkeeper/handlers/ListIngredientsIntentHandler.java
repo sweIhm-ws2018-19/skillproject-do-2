@@ -14,6 +14,7 @@ import com.amazon.ask.model.Response;
 import com.amazon.ask.model.Slot;
 
 import simplebarkeeper.ListOfDrinks;
+import simplebarkeeper.Slots;
 
 /**
  * Handler for the ListIngredientsIntent. Here you receive a Drink from the
@@ -22,7 +23,6 @@ import simplebarkeeper.ListOfDrinks;
  * @author Robin Grellner, Felix Haala, Alex Heinritzi
  */
 public class ListIngredientsIntentHandler implements RequestHandler {
-    public static final String DRINK_SLOT = "Drink";
 
     @Override
     public boolean canHandle(HandlerInput input) {
@@ -41,11 +41,11 @@ public class ListIngredientsIntentHandler implements RequestHandler {
         Intent intent = intentRequest.getIntent();
         Map<String, Slot> slots = intent.getSlots();
 
-        Slot requestedDrinkSlot = slots.get(DRINK_SLOT);
-        String requestedDrink = requestedDrinkSlot.getValue();
+        Slot slot = slots.get(Slots.NAME_SLOT);
+        String userInput = slot.getValue();
 
         ListOfDrinks drinkList = new ListOfDrinks();
-        String speechText = drinkList.listIngredients(requestedDrink);
+        String speechText = drinkList.listIngredients(userInput);
 
         return input.getResponseBuilder().withSpeech(speechText).withShouldEndSession(false).build();
     }
