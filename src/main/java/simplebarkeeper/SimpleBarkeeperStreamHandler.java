@@ -44,13 +44,7 @@ public class SimpleBarkeeperStreamHandler extends SkillStreamHandler {
                 new FallbackIntentHandler(),
                 new HelpIntentHandler(),
                 new SessionEndedRequestHandler(),
-                new ListIngredientsIntentHandler(),
-                new AddDrinkIntentHandler(),
-                new AddDrinkNameIntentHandler(),
-                new AddDrinkFlavourIntentHandler(),
-                new AddDrinkDaytimeIntentHandler(),
-                new AddDrinkContainsAlcoholIntentHandler(),
-                new AddDrinkIngredientsIntentHandler()
+                new ListIngredientsIntentHandler()
                 )
                 //.withTableName("simpleBarkeeperData")
                 //.withAutoCreateTable(true)
