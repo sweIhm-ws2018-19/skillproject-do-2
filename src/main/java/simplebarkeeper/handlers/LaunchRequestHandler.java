@@ -2,6 +2,7 @@ package simplebarkeeper.handlers;
 
 import static com.amazon.ask.request.Predicates.requestType;
 
+import java.util.Map;
 import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
@@ -31,7 +32,8 @@ public class LaunchRequestHandler implements RequestHandler {
     public Optional<Response> handle(HandlerInput input) {
         String welcome = "Hallo. Wie kann ich dir behilflich sein?";
         String repromptMessage = "Falls du Hilfe brauchst, sag einfach: hilf mir";
-
+        Map<String, Object> attributes = input.getAttributesManager().getSessionAttributes();
+        attributes.put("HelpState", "HelpStateDefault");
         return input.getResponseBuilder()
         		.withSimpleCard("Willkommen", welcome)
         		.withSpeech(welcome)

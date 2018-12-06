@@ -10,8 +10,23 @@
                 },
                 {
                     "name": "AMAZON.HelpIntent",
-                    "samples": []
-                },
+                    "slots": [
+            			{
+              			"name": "Help",
+              			"type": "LIST_OF_HELPS"
+            			}
+          			],
+          			"samples": [
+            			"{Help}",
+            			"Ja bei {Help}",
+            			"Ja bei Drink {Help}",
+            			"Ja bei Zutaten {Help}",
+            			"Bei Zutaten {Help}",
+            			"Bei Drink {Help}",
+            			"Drink {Help}",
+            			"Zutaten {Help}"
+         		 	]
+				},
                 {
                 	"name": "AMAZON.ResumeIntent",
                 	"samples":[]
@@ -180,6 +195,30 @@
 						{
               				"name": {
                 			"value": "rote schorle"
+              				}
+						}
+            		]
+            	}, {
+          	"name": "LIST_OF_HELPS",
+          		"values": [
+            			{
+              				"name": {
+                			"value": "abfragen"
+              				}
+            			},
+            			{
+              				"name": {
+                			"value": "eingeben"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "löschen"
+              				}
+						},
+						{
+              				"name": {
+                			"value": "nein"
               				}
 						}
             		]

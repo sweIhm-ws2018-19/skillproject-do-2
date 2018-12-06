@@ -30,7 +30,7 @@ public class FallbackIntentHandler implements RequestHandler {
    	 */
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String outputText = "Tut mir leid, ich habe dich nicht verstanden. Sage einfach Hilfe fÃ¼r mehr Informationen.";
+        String outputText = "Tut mir leid, ich habe dich nicht verstanden. Bei Fragen steht Ihnen die Hilfe gerne zur Verfügung";
         return input.getResponseBuilder().withSpeech(outputText).withSimpleCard("Barabend", outputText)
                 .withReprompt(outputText).build();
     }
