@@ -2,7 +2,6 @@ package simplebarkeeper.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
-import java.util.Map;
 import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
@@ -20,8 +19,7 @@ public class HelpDeleteIntentHandler implements RequestHandler {
 
 	@Override
 	public boolean canHandle(HandlerInput input) {
-		Map<String, Object> attributes = input.getAttributesManager().getSessionAttributes();
-		return input.matches(intentName("AMAZON.HelpIntent")) && attributes.get("HelpState").equals("HelpStateLoeschen");
+		return input.matches(intentName("HelpDeleteIntent"));
 	}
 
 	/**
@@ -30,12 +28,9 @@ public class HelpDeleteIntentHandler implements RequestHandler {
 	 */
 	@Override
 	public Optional<Response> handle(HandlerInput input) {
-		String outputText = "Das Löschen eines Drinks muss über folgenden Befehl ausgeführt werden ...";
-		Map<String, Object> attributes = input.getAttributesManager().getSessionAttributes();
-		attributes.put("HelpState", "HelpStateDefault");
-		input.getAttributesManager().setSessionAttributes(attributes);
-		
-		return input.getResponseBuilder().withSpeech(outputText).withShouldEndSession(false).build();
+		StringBuilder outputText = new StringBuilder();
+		outputText.append("Beispiel Delete");
+		return input.getResponseBuilder().withSpeech(outputText.toString()).withShouldEndSession(false).build();
 	}
 
 }

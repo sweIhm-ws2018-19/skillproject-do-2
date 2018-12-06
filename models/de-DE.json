@@ -10,22 +10,32 @@
                 },
                 {
                     "name": "AMAZON.HelpIntent",
-                    "slots": [
-            			{
-              			"name": "Help",
-              			"type": "LIST_OF_HELPS"
-            			}
-          			],
-          			"samples": [
-            			"{Help}",
-            			"Ja bei {Help}",
-            			"Ja bei Drink {Help}",
-            			"Ja bei Zutaten {Help}",
-            			"Bei Zutaten {Help}",
-            			"Bei Drink {Help}",
-            			"Drink {Help}",
-            			"Zutaten {Help}"
-         		 	]
+                    "slots": [],
+                    "samples": ["Ich brauche Hilfe"]
+				},
+				{
+                    "name": "HelpAddIntent",
+                    "slots": [],
+                    "samples": [
+                    	"Hilfe Drink eingeben",
+                    	"Hilfe beim eingeben eines Drinks"
+                   	]
+				},
+				{
+                    "name": "HelpDeleteIntent",
+                    "slots": [],
+                    "samples": [
+                    	"Hilfe Drink löschen",
+                    	"Hilfe beim löschen eines Drinks"
+                   	]
+				},
+				{
+                    "name": "HelpRequestIntent",
+                    "slots": [],
+                    "samples": [
+                    	"Hilfe Zutaten abfragen",
+                    	"Hilfe beim abfragen eines Drinks"
+                   	]
 				},
                 {
                 	"name": "AMAZON.ResumeIntent",
@@ -199,30 +209,6 @@
 						{
               				"name": {
                 			"value": "rote schorle"
-              				}
-						}
-            		]
-            	}, {
-          	"name": "LIST_OF_HELPS",
-          		"values": [
-            			{
-              				"name": {
-                			"value": "abfragen"
-              				}
-            			},
-            			{
-              				"name": {
-                			"value": "eingeben"
-              				}
-						},
-						{
-              				"name": {
-                			"value": "löschen"
-              				}
-						},
-						{
-              				"name": {
-                			"value": "nein"
               				}
 						}
             		]

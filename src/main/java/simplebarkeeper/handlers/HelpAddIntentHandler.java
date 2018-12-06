@@ -20,8 +20,7 @@ public class HelpAddIntentHandler implements RequestHandler {
 
 	@Override
 	public boolean canHandle(HandlerInput input) {
-		Map<String, Object> attributes = input.getAttributesManager().getSessionAttributes();
-		return input.matches(intentName("AMAZON.HelpIntent")) && attributes.get("HelpState").equals("HelpStateEingeben");
+		return input.matches(intentName("HelpAddIntent"));
 	}
 
 	/**
@@ -30,12 +29,9 @@ public class HelpAddIntentHandler implements RequestHandler {
 	 */
 	@Override
 	public Optional<Response> handle(HandlerInput input) {
-		String outputText = "Ein Beispiel für die Eingabe eines Drinks ist: ...";
-		Map<String, Object> attributes = input.getAttributesManager().getSessionAttributes();
-		attributes.put("HelpState", "HelpStateDefault");
-		input.getAttributesManager().setSessionAttributes(attributes);
-		
-		return input.getResponseBuilder().withSpeech(outputText).withShouldEndSession(false).build();
+		StringBuilder outputText = new StringBuilder();
+		outputText.append("Beispiel Add");
+		return input.getResponseBuilder().withSpeech(outputText.toString()).withShouldEndSession(false).build();
 	}
 
 }
