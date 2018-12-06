@@ -18,36 +18,35 @@ import simplebarkeeper.Attributes;
 import simplebarkeeper.Slots;
 import simplebarkeeper.States;
 
-public class AddDrinkNameIntentHandler implements RequestHandler {
+public class AddDrinkDaytimeIntentHandler implements RequestHandler{
     @Override
     public boolean canHandle(HandlerInput input) {
         AttributesManager attributesManager = input.getAttributesManager();
         Map<String, Object> sessionAttributes = attributesManager.getSessionAttributes();
         return input.matches(intentName("AddDrinkIntent"))
-                && sessionAttributes.get(States.STATE_KEY).equals(States.ADD_DRINK_NAME);
+                && sessionAttributes.get(States.STATE_KEY).equals(States.ADD_DRINK_DAYTIME);
     }
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
         AttributesManager attributesManager = input.getAttributesManager();
         Map<String, Object> sessionAttributes = attributesManager.getSessionAttributes();
-
+        
         Request request = input.getRequestEnvelope().getRequest();
         IntentRequest intentRequest = (IntentRequest) request;
         Intent intent = intentRequest.getIntent();
         Map<String, Slot> slots = intent.getSlots();
-
-        Slot slot = slots.get(Slots.NAME_SLOT);
+        
+        Slot slot = slots.get(Slots.DAYTIME_SLOT);
         String userInput = slot.getValue();
 
-        sessionAttributes.put(Attributes.NEW_NAME_KEY, userInput);
-        sessionAttributes.put(States.STATE_KEY, States.ADD_DRINK_FLAVOUR);
+        sessionAttributes.put(Attributes.NEW_DAYTIME_KEY, userInput);
+        sessionAttributes.put(States.STATE_KEY, States.ADD_DRINK_CONTAINS_ALCOHOL);
         attributesManager.setSessionAttributes(sessionAttributes);
 
         StringBuilder sb = new StringBuilder();
-        String speechText = sb.append("Ich habe ").append(userInput).append(" verstanden. Ist der Drink süß, sauer oder bitter?").toString();
+        String speechText = sb.append("Ich habe ").append(userInput).append(" verstanden? Enthält der Drink Alkohol?").toString();
 
         return input.getResponseBuilder().withSpeech(speechText).withShouldEndSession(false).build();
     }
-
 }

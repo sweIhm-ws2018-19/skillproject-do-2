@@ -18,13 +18,13 @@ import simplebarkeeper.Attributes;
 import simplebarkeeper.Slots;
 import simplebarkeeper.States;
 
-public class AddDrinkNameIntentHandler implements RequestHandler {
+public class AddDrinkContainsAlcoholIntentHandler implements RequestHandler {
     @Override
     public boolean canHandle(HandlerInput input) {
         AttributesManager attributesManager = input.getAttributesManager();
         Map<String, Object> sessionAttributes = attributesManager.getSessionAttributes();
         return input.matches(intentName("AddDrinkIntent"))
-                && sessionAttributes.get(States.STATE_KEY).equals(States.ADD_DRINK_NAME);
+                && sessionAttributes.get(States.STATE_KEY).equals(States.ADD_DRINK_CONTAINS_ALCOHOL);
     }
 
     @Override
@@ -37,17 +37,17 @@ public class AddDrinkNameIntentHandler implements RequestHandler {
         Intent intent = intentRequest.getIntent();
         Map<String, Slot> slots = intent.getSlots();
 
-        Slot slot = slots.get(Slots.NAME_SLOT);
+        Slot slot = slots.get(Slots.CONTAINS_ALCOHOL_SLOT);
         String userInput = slot.getValue();
 
-        sessionAttributes.put(Attributes.NEW_NAME_KEY, userInput);
-        sessionAttributes.put(States.STATE_KEY, States.ADD_DRINK_FLAVOUR);
+        sessionAttributes.put(Attributes.NEW_CONTAINS_ALCOHOL_KEY, userInput);
+        sessionAttributes.put(States.STATE_KEY, States.ADD_DRINK_INGREDIENTS);
         attributesManager.setSessionAttributes(sessionAttributes);
 
         StringBuilder sb = new StringBuilder();
-        String speechText = sb.append("Ich habe ").append(userInput).append(" verstanden. Ist der Drink süß, sauer oder bitter?").toString();
+        String speechText = sb.append("Ich habe ").append(userInput).append(" verstanden?")
+                .toString();
 
         return input.getResponseBuilder().withSpeech(speechText).withShouldEndSession(false).build();
     }
-
 }

@@ -4,6 +4,12 @@ import com.amazon.ask.Skill;
 import com.amazon.ask.SkillStreamHandler;
 import com.amazon.ask.Skills;
 
+import simplebarkeeper.handlers.AddDrinkContainsAlcoholIntentHandler;
+import simplebarkeeper.handlers.AddDrinkDaytimeIntentHandler;
+import simplebarkeeper.handlers.AddDrinkFlavourIntentHandler;
+import simplebarkeeper.handlers.AddDrinkIngredientsIntentHandler;
+import simplebarkeeper.handlers.AddDrinkIntentHandler;
+import simplebarkeeper.handlers.AddDrinkNameIntentHandler;
 import simplebarkeeper.handlers.CancelandStopIntentHandler;
 import simplebarkeeper.handlers.FallbackIntentHandler;
 import simplebarkeeper.handlers.HelpIntentHandler;
@@ -38,7 +44,14 @@ public class SimpleBarkeeperStreamHandler extends SkillStreamHandler {
                 new FallbackIntentHandler(),
                 new HelpIntentHandler(),
                 new SessionEndedRequestHandler(),
-                new ListIngredientsIntentHandler())
+                new ListIngredientsIntentHandler(),
+                new AddDrinkIntentHandler(),
+                new AddDrinkNameIntentHandler(),
+                new AddDrinkFlavourIntentHandler(),
+                new AddDrinkDaytimeIntentHandler(),
+                new AddDrinkContainsAlcoholIntentHandler(),
+                new AddDrinkIngredientsIntentHandler()
+                )
                 //.withTableName("simpleBarkeeperData")
                 //.withAutoCreateTable(true)
                 //.withSkillId("amzn1.ask.skill.ea7c7457-8321-4b3c-bf43-9a5d0069cd90")

@@ -45,6 +45,10 @@
                 	"samples": []
                 },
                 {
+                	"name": "AddDrinkIntent",
+                	"samples": ["Neuen Drink hinzufügen"]
+                },
+                {
           			"name": "ListIngredientsIntent",
           			"slots": [
             			{
