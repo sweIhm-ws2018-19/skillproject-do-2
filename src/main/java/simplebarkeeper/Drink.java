@@ -37,6 +37,7 @@ public class Drink {
         this.daytime = findDaytime(daytime);
         this.containsAlcohol = findContainsAlcohol(containsAlcohol);
         this.ingredients = ingredients;
+        this.steps = steps;
     }
 
 //    /**
@@ -56,113 +57,127 @@ public class Drink {
 //        this.ingredients = ingredients;
 //    }
 
-//    /**
-//     * Method gets information if drink contains alcohol as string and converts it
-//     * to boolean.
-//     * 
-//     * @param containsAlcohol True if drink contains alcohol.
-//     * @return Boolean representation of the string true/false.
-//     */
-//    private boolean findContainsAlcohol(String containsAlcohol) {
-//        boolean tmp;
-//        switch (containsAlcohol.toLowerCase()) {
-//        case "true":
-//            tmp = true;
-//            break;
-//        case "false":
-//            tmp = false;
-//            break;
-//        default:
-//            StringBuilder sb = new StringBuilder();
-//            sb.append("\"").append(containsAlcohol).append("\"")
-//                    .append("is not a valid boolean. Valid booleans are \"false\" or \"true\"");
-//            throw new IllegalArgumentException(sb.toString());
-//        }
-//        return tmp;
-//    }
-//
-//    /**
-//     * Method gets a flavor as string and converts it to Flavor(enum).
-//     * 
-//     * @param flavor as string
-//     * @return flavor as enum.
-//     */
-//    private Flavor findFlavor(String flavor) {
-//        Flavor tmp;
-//        switch (flavor.toUpperCase()) {
-//        case "SWEET":
-//            tmp = Flavor.SWEET;
-//            break;
-//        case "SOUR":
-//            tmp = Flavor.SOUR;
-//            break;
-//        case "BITTER":
-//            tmp = Flavor.BITTER;
-//            break;
-//        default:
-//            StringBuilder sb = new StringBuilder();
-//            sb.append("\"").append(flavor).append("\"")
-//                    .append("is not a valid flavour. Valid flavour are \"SWEET\", \"SOUR\" or \"BITTER\"");
-//            throw new IllegalArgumentException(sb.toString());
-//        }
-//        return tmp;
-//    }
-//
-//    /**
-//     * Method gets a daytime as string and converts it to Daytime(enum).
-//     * 
-//     * @param daytime as string
-//     * @return daytime as enum.
-//     */
-//    private Daytime findDaytime(String daytime) {
-//        Daytime tmp;
-//        switch (daytime.toUpperCase()) {
-//        case "MORNING":
-//            tmp = Daytime.MORNING;
-//            break;
-//        case "NOON":
-//            tmp = Daytime.NOON;
-//            break;
-//        case "EVENING":
-//            tmp = Daytime.EVENING;
-//            break;
-//        default:
-//            StringBuilder sb = new StringBuilder();
-//            sb.append("\"").append(daytime).append("\"")
-//                    .append("is not a valid daytime. Valid daytimes are \"MORNING\", \"NOON\" or \"EVENING\"");
-//            throw new IllegalArgumentException(sb.toString());
-//        }
-//        return tmp;
-//    }
-//
-//    /**
-//     * @return the name
-//     */
-//    public String getName() {
-//        return name;
-//    }
-//
-//    /**
-//     * @return the flavor
-//     */
-//    public Flavor getFlavor() {
-//        return flavor;
-//    }
-//
-//    /**
-//     * @return the daytime
-//     */
-//    public Daytime getDaytime() {
-//        return daytime;
-//    }
-//
-//    /**
-//     * @return the containsAlcohol
-//     */
-//    public boolean getContainsAlcohol() {
-//        return containsAlcohol;
-//    }
-//
+    /**
+     * Method gets information if drink contains alcohol as string and converts it
+     * to boolean.
+     * 
+     * @param containsAlcohol True if drink contains alcohol.
+     * @return Boolean representation of the string true/false.
+     */
+    private boolean findContainsAlcohol(String containsAlcohol) {
+        boolean tmp;
+        switch (containsAlcohol.toLowerCase()) {
+        case "true":
+            tmp = true;
+            break;
+        case "false":
+            tmp = false;
+            break;
+        default:
+            StringBuilder sb = new StringBuilder();
+            sb.append("\"").append(containsAlcohol).append("\"")
+                    .append("is not a valid boolean. Valid booleans are \"false\" or \"true\"");
+            throw new IllegalArgumentException(sb.toString());
+        }
+        return tmp;
+    }
+
+    /**
+     * Method gets a flavor as string and converts it to Flavor(enum).
+     * 
+     * @param flavor as string
+     * @return flavor as enum.
+     */
+    private Flavor findFlavor(String flavor) {
+        Flavor tmp;
+        switch (flavor.toUpperCase()) {
+        case "SWEET":
+            tmp = Flavor.SWEET;
+            break;
+        case "SOUR":
+            tmp = Flavor.SOUR;
+            break;
+        case "BITTER":
+            tmp = Flavor.BITTER;
+            break;
+        default:
+            StringBuilder sb = new StringBuilder();
+            sb.append("\"").append(flavor).append("\"")
+                    .append("is not a valid flavour. Valid flavour are \"SWEET\", \"SOUR\" or \"BITTER\"");
+            throw new IllegalArgumentException(sb.toString());
+        }
+        return tmp;
+    }
+
+    /**
+     * Method gets a daytime as string and converts it to Daytime(enum).
+     * 
+     * @param daytime as string
+     * @return daytime as enum.
+     */
+    private Daytime findDaytime(String daytime) {
+        Daytime tmp;
+        switch (daytime.toUpperCase()) {
+        case "MORNING":
+            tmp = Daytime.MORNING;
+            break;
+        case "NOON":
+            tmp = Daytime.NOON;
+            break;
+        case "EVENING":
+            tmp = Daytime.EVENING;
+            break;
+        default:
+            StringBuilder sb = new StringBuilder();
+            sb.append("\"").append(daytime).append("\"")
+                    .append("is not a valid daytime. Valid daytimes are \"MORNING\", \"NOON\" or \"EVENING\"");
+            throw new IllegalArgumentException(sb.toString());
+        }
+        return tmp;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @return the flavor
+     */
+    public Flavor getFlavor() {
+        return flavor;
+    }
+
+    /**
+     * @return the daytime
+     */
+    public Daytime getDaytime() {
+        return daytime;
+    }
+
+    /**
+     * @return the containsAlcohol
+     */
+    public boolean getContainsAlcohol() {
+        return containsAlcohol;
+    }
+
+    /**
+     * @return the ingredients
+     */
+    public String getIngredients() {
+        return this.ingredients;
+    }
+
+    /**
+     * @return the steps
+     */
+    public List<String> getSteps() {
+        return this.steps;
+    }
+
 ////    /**
 ////     * @return the ingredient
 ////     */

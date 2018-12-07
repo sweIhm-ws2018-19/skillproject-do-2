@@ -67,24 +67,8 @@ public class ListOfDrinks {
      * @param drinkName The name of the drink.
      * @return The requested drink.
      */
-    public Drink getDrinkByName(String drinkName) {
+    public Drink get(String drinkName) {
         return drinks.get(drinkName);
-    }
-
-    /**
-     * Gets the given drink if it exists and returns a string of a listing of
-     * ingredients for Alexa. Or a string that tells the user that the the drink
-     * doesn't exist.
-     * 
-     * @param drink The ingredients of this drink will be listed.
-     * @return String for Alexa
-     */
-    public String listIngredients(String drink) {
-        if (drinks.containsKey(drink)) {
-            return drinks.get(drink).listIngredients();
-
-        }
-        return "Der von Ihnen genannte Drink ist mir leider nicht bekannt.";
     }
 
     /**

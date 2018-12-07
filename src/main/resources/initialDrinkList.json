@@ -1,359 +1,218 @@
 {
-  "ginger Ale" : {
-    "name" : "ginger ale",
+  "Ginger Ale" : {
+    "name" : "Ginger Ale",
     "flavor" : "BITTER",
     "daytime" : "NOON",
     "containsAlcohol" : false,
-    "ingredients" : [ ]
+    "ingredients" : "",
+    "steps" : [ ]
   },
-  "johannisbeerschorle" : {
-    "name" : "johannisbeerschorle",
+  "Johannisbeerschorle" : {
+    "name" : "Johannisbeerschorle",
     "flavor" : "SOUR",
     "daytime" : "NOON",
     "containsAlcohol" : false,
-    "ingredients" : [ ]
+    "ingredients" : "",
+    "steps" : [ ]
   },
-  "sex on the beach" : {
-    "name" : "sex on the beach",
+  "Sex on the Beach" : {
+    "name" : "Sex on the Beach",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
-    "ingredients" : [ {
-      "name" : "granini Orange",
-      "amount" : "4 Zentiliter"
-    }, {
-      "name" : "granini Pfirsich",
-      "amount" : "3 Zentiliter"
-    }, {
-      "name" : "granini Ananas",
-      "amount" : "3 Zentiliter"
-    }, {
-      "name" : "granini Cranberry",
-      "amount" : "3 Zentiliter"
-    }, {
-      "name" : "Wodka",
-      "amount" : "4 Zentiliter"
-    } ]
+    "ingredients" : "4 Zentiliter granini Orange, 3 Zentiliter granini Pfirsich, 3 Zentiliter granini Ananas, 3 Zentiliter granini Cranberry, 4 Zentiliter Wodka",
+    "steps" : [ "1", "2", "3" ]
   },
-  "traubenschorle" : {
-    "name" : "traubenschorle",
+  "Traubenschorle" : {
+    "name" : "Traubenschorle",
     "flavor" : "SWEET",
     "daytime" : "NOON",
     "containsAlcohol" : false,
-    "ingredients" : [ ]
+    "ingredients" : "",
+    "steps" : [ ]
   },
-  "mango colada" : {
-    "name" : "mango colada",
+  "Mango Colada" : {
+    "name" : "Mango Colada",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
-    "ingredients" : [ {
-      "name" : "granini Mango",
-      "amount" : "12 Zentiliter"
-    }, {
-      "name" : "Rum weiß",
-      "amount" : "4 Zentiliter"
-    }, {
-      "name" : "Kokossirup",
-      "amount" : "2 Zentiliter"
-    }, {
-      "name" : "Flüssige Sahne",
-      "amount" : "4 Zentiliter"
-    } ]
+    "ingredients" : "12 Zentiliter granini Mango, 4 Zentiliter Rum weiß, 2 Zentiliter Kokossirup und 4 Zentiliter Flüssige Sahne",
+    "steps" : [ "1", "2", "3" ]
   },
-  "heiße schokolade" : {
-    "name" : "heiße schokolade",
+  "Heiße Schokolade" : {
+    "name" : "Heiße Schokolade",
     "flavor" : "SWEET",
     "daytime" : "MORNING",
     "containsAlcohol" : false,
-    "ingredients" : [ {
-      "name" : "Geschmolzene Schokolade",
-      "amount" : "50 Gramm"
-    }, {
-      "name" : "Milch",
-      "amount" : "0,5 Liter"
-    }, {
-      "name" : "Zimt",
-      "amount" : "0,25 Teelöffel"
-    }, {
-      "name" : "Kardamom",
-      "amount" : "1 Messerspitze"
-    } ]
+    "ingredients" : "50 Gramm Geschmolzene Schokolade, 0,5 Liter Milch, 0,25 Teelöffel Zimt, 1 Messerspitze Kardamom",
+    "steps" : [ "1", "2", "3" ]
   },
-  "bier" : {
-    "name" : "bier",
+  "Bier" : {
+    "name" : "Bier",
     "flavor" : "BITTER",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
-    "ingredients" : [ ]
+    "ingredients" : null,
+    "steps" : [ ]
   },
-  "energy-drink" : {
-    "name" : "energy-drink",
+  "Energy-Drink" : {
+    "name" : "Energy-Drink",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : false,
-    "ingredients" : [ ]
+    "ingredients" : "",
+    "steps" : [ ]
   },
-  "kaffee" : {
-    "name" : "kaffee",
+  "Kaffee" : {
+    "name" : "Kaffee",
     "flavor" : "BITTER",
     "daytime" : "MORNING",
     "containsAlcohol" : false,
-    "ingredients" : [ {
-      "name" : "Kaffeepulver",
-      "amount" : "1 Kaffeelöffel"
-    }, {
-      "name" : "Wasser",
-      "amount" : "250 Milliliter"
-    } ]
+    "ingredients" : "Wasser, Kaffeepulver",
+    "steps" : [ "Einen halben Löffel Kaffeepulver pro Tasse in den Filter geben", "Gewünschte Menge an Tassen Wasser in die Maschine geben" ]
   },
-  "swimmingpool" : {
-    "name" : "swimmingpool",
+  "Swimmingpool" : {
+    "name" : "Swimmingpool",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
-    "ingredients" : [ {
-      "name" : "granini Ananassaft",
-      "amount" : "14 Zentiliter"
-    }, {
-      "name" : "Vodka",
-      "amount" : "2 Zentiliter"
-    }, {
-      "name" : "Rum weiß",
-      "amount" : "2 Zentiliter"
-    }, {
-      "name" : "Blue Curaçao",
-      "amount" : "2 Zentiliter"
-    }, {
-      "name" : "Kokosnusscreme",
-      "amount" : "3 Zentiliter"
-    }, {
-      "name" : "Sahne",
-      "amount" : "4 Zentiliter"
-    } ]
+    "ingredients" : "14 Zentiliter granini Ananassaft, 2 Zentiliter Vodka, 2 Zentiliter Rum weiß, 2 Zentiliter Blue Curaçao, 3 Zentiliter Kokosnusscreme, 4 Zentiliter Sahne",
+    "steps" : [ "1", "2", "3" ]
   },
-  "piña colada" : {
-    "name" : "piña colada",
+  "Piña Colada" : {
+    "name" : "Piña Colada",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
-    "ingredients" : [ {
-      "name" : "granini Ananas",
-      "amount" : "12 Zentiliter"
-    }, {
-      "name" : "Flüssige Sahne",
-      "amount" : "5 Zentiliter"
-    }, {
-      "name" : "Kokossirup",
-      "amount" : "2 Zentiliter"
-    }, {
-      "name" : "Rum weiß",
-      "amount" : "4 Zentiliter"
-    } ]
+    "ingredients" : "12 Zentiliter granini Ananas, 5 Zentiliter Flüssige Sahne, 2 Zentiliter Kokossirup, 4 Zentiliter Rum weiß",
+    "steps" : [ "1", "2", "3" ]
   },
-  "sweet holly" : {
-    "name" : "sweet holly",
+  "Sweet Holly" : {
+    "name" : "Sweet Holly",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
-    "ingredients" : [ {
-      "name" : "granini Erdbeere",
-      "amount" : "8 Zentiliter"
-    }, {
-      "name" : "granini Ananas",
-      "amount" : "6 Zentiliter"
-    }, {
-      "name" : "granini Mango",
-      "amount" : "4 Zentiliter"
-    }, {
-      "name" : "Monin Holunderblüte",
-      "amount" : "1 Zentiliter"
-    }, {
-      "name" : "Rum Gold",
-      "amount" : "3 Zentiliter"
-    } ]
+    "ingredients" : "8 Zentiliter granini Erdbeere, 6 Zentiliter granini Ananas, 4 Zentiliter granini Mango, 1 Zentiliter Monin Holunderblüte, 3 Zentiliter Rum Gold",
+    "steps" : [ "1", "2", "3" ]
   },
-  "chocolada" : {
-    "name" : "chocolada",
+  "Chocolada" : {
+    "name" : "Chocolada",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
-    "ingredients" : [ {
-      "name" : "granini Ananassaft",
-      "amount" : "6 Zentiliter"
-    }, {
-      "name" : "granini Orangensaft",
-      "amount" : "2 Zentiliter"
-    }, {
-      "name" : "Sahne",
-      "amount" : "2 Zentiliter"
-    }, {
-      "name" : "Monin Chocolat - weiss",
-      "amount" : "2 Zentiliter"
-    }, {
-      "name" : "Cointreau",
-      "amount" : "2 Zentiliter"
-    }, {
-      "name" : "St. Etienne Rhum Agricole Eleve Sous Bois",
-      "amount" : "4 Zentiliter"
-    } ]
+    "ingredients" : "6 Zentiliter granini Ananassaft, 2 Zentiliter granini Orangensaft, 2 Zentiliter Sahne, 2 Zentiliter Monin Chocolat - weiss, 2 Zentiliter Cointreau, 4 Zentiliter St. Etienne Rhum Agricole Eleve Sous Bois",
+    "steps" : [ "1", "2", "3" ]
   },
-  "zitronenlimonade" : {
-    "name" : "zitronenlimonade",
+  "Zitronenlimonade" : {
+    "name" : "Zitronenlimonade",
     "flavor" : "SWEET",
     "daytime" : "NOON",
     "containsAlcohol" : false,
-    "ingredients" : [ ]
+    "ingredients" : "",
+    "steps" : [ ]
   },
-  "cola" : {
-    "name" : "cola",
+  "Cola" : {
+    "name" : "Cola",
     "flavor" : "SWEET",
     "daytime" : "NOON",
     "containsAlcohol" : false,
-    "ingredients" : [ ]
+    "ingredients" : "",
+    "steps" : [ ]
   },
-  "apfelschorle" : {
-    "name" : "apfelschorle",
+  "Apfelschorle" : {
+    "name" : "Apfelschorle",
     "flavor" : "SWEET",
     "daytime" : "NOON",
     "containsAlcohol" : false,
-    "ingredients" : [ ]
+    "ingredients" : "",
+    "steps" : [ ]
   },
-  "orangenlimonade" : {
-    "name" : "orangenlimonade",
+  "Orangenlimonade" : {
+    "name" : "Orangenlimonade",
     "flavor" : "SWEET",
     "daytime" : "NOON",
     "containsAlcohol" : false,
-    "ingredients" : [ ]
+    "ingredients" : "",
+    "steps" : [ ]
   },
-  "tonic water" : {
-    "name" : "tonic water",
+  "Tonic Water" : {
+    "name" : "Tonic Water",
     "flavor" : "BITTER",
     "daytime" : "NOON",
     "containsAlcohol" : false,
-    "ingredients" : [ ]
+    "ingredients" : "",
+    "steps" : [ ]
   },
-  "sweet baya" : {
-    "name" : "sweet baya",
+  "Sweet Baya" : {
+    "name" : "Sweet Baya",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
-    "ingredients" : [ {
-      "name" : "granini schwarze Johannisbeere",
-      "amount" : "4 Zentiliter"
-    }, {
-      "name" : "granini Pfirsich",
-      "amount" : "3 Zentiliter"
-    }, {
-      "name" : "granini Mango",
-      "amount" : "4 Zentiliter"
-    }, {
-      "name" : "granini Orange",
-      "amount" : "4 Zentiliter"
-    }, {
-      "name" : "granini Lemon Squash",
-      "amount" : "3 Zentiliter"
-    }, {
-      "name" : "Rum braun",
-      "amount" : "4 Zentiliter"
-    } ]
+    "ingredients" : "4 Zentiliter granini schwarze Johannisbeere, 3 Zentiliter granini Pfirsich, 4 Zentiliter granini Mango, 4 Zentiliter granini Orange, 3 Zentiliter granini Lemon Squash und 4 Zentiliter Rum braun",
+    "steps" : [ "1", "2", "3" ]
   },
-  "cola mix" : {
-    "name" : "cola mix",
+  "Cola Mix" : {
+    "name" : "Cola Mix",
     "flavor" : "SWEET",
     "daytime" : "NOON",
     "containsAlcohol" : false,
-    "ingredients" : [ ]
+    "ingredients" : "",
+    "steps" : [ ]
   },
-  "tequila sunrise" : {
-    "name" : "tequila sunrise",
+  "Tequila Sunrise" : {
+    "name" : "Tequila Sunrise",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
-    "ingredients" : [ {
-      "name" : "granini Zitrone",
-      "amount" : "1 Zentiliter"
-    }, {
-      "name" : "Grenadinesirup",
-      "amount" : "2 Zentiliter"
-    }, {
-      "name" : "Tequila",
-      "amount" : "4 Zentiliter"
-    }, {
-      "name" : "Orangensaft",
-      "amount" : "so viel, wie noch in das Glas passt"
-    } ]
+    "ingredients" : "1 Zentiliter granini Zitrone, 2 Zentiliter Grenadinesirup, 4 Zentiliter Tequila und so viel Orangensaft, wie noch in das Glas passt ",
+    "steps" : [ "1", "2", "3" ]
   },
-  "plain vanilla" : {
-    "name" : "plain vanilla",
+  "Plain Vanilla" : {
+    "name" : "Plain Vanilla",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : false,
-    "ingredients" : [ {
-      "name" : "granini Kirsche",
-      "amount" : "5 Zentiliter"
-    }, {
-      "name" : "granini Mango",
-      "amount" : "4 Zentiliter"
-    }, {
-      "name" : "granini Ananas",
-      "amount" : "3 Zentiliter"
-    }, {
-      "name" : "granini Lime Juice",
-      "amount" : "2 Zentiliter"
-    }, {
-      "name" : "Vanillesirup",
-      "amount" : "1 Zentiliter"
-    } ]
+    "ingredients" : "5 Zentiliter granini Kirsche, 4 Zentiliter granini Mango, 3 Zentiliter granini Ananas, 2 Zentiliter granini Lime Juice, 1 Zentiliter Vanillesirup",
+    "steps" : [ "1", "2", "3" ]
   },
-  "tee" : {
-    "name" : "tee",
+  "Tee" : {
+    "name" : "Tee",
     "flavor" : "SWEET",
     "daytime" : "MORNING",
     "containsAlcohol" : false,
-    "ingredients" : [ ]
+    "ingredients" : "",
+    "steps" : [ ]
   },
-  "planter's punch" : {
+  "Planter's Punch" : {
     "name" : "Planter's Punch",
     "flavor" : "SWEET",
     "daytime" : "EVENING",
     "containsAlcohol" : true,
-    "ingredients" : [ {
-      "name" : "granini Orange",
-      "amount" : "6 Zentiliter"
-    }, {
-      "name" : "granini Ananas",
-      "amount" : "3 Zentiliter"
-    }, {
-      "name" : "granini Zitrone",
-      "amount" : "2 Zentiliter"
-    }, {
-      "name" : "Grenadinesirup",
-      "amount" : "1 Zentiliter"
-    }, {
-      "name" : "Rum braun",
-      "amount" : "5 Zentiliter"
-    } ]
+    "ingredients" : "6 Zentiliter granini Orange, 3 Zentiliter granini Ananas, 2 Zentiliter granini Zitrone, 1 Zentiliter Grenadinesirup, 5 Zentiliter Rum braun",
+    "steps" : [ "1", "2", "3" ]
   },
-  "eistee" : {
-    "name" : "eistee",
+  "Eistee" : {
+    "name" : "Eistee",
     "flavor" : "SWEET",
     "daytime" : "NOON",
     "containsAlcohol" : false,
-    "ingredients" : [ ]
+    "ingredients" : "",
+    "steps" : [ ]
   },
-  "bitter lemon" : {
-    "name" : "bitter lemon",
+  "Bitter Lemon" : {
+    "name" : "Bitter Lemon",
     "flavor" : "BITTER",
     "daytime" : "NOON",
     "containsAlcohol" : false,
-    "ingredients" : [ ]
+    "ingredients" : "",
+    "steps" : [ ]
   },
-  "rote schorle" : {
-    "name" : "rote schorle",
+  "Rote Schorle" : {
+    "name" : "Rote Schorle",
     "flavor" : "SWEET",
     "daytime" : "NOON",
     "containsAlcohol" : false,
-    "ingredients" : [ ]
+    "ingredients" : "",
+    "steps" : [ ]
   }
 }
