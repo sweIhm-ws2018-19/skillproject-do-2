@@ -1,33 +1,35 @@
 package simplebarkeeper;
 
+import java.time.LocalTime;
+
 /**
  * Enum which represents Daytimes.
- * 
  * @author Alexander Heinritzi
- *
  */
 public enum Daytime {
+    MORNING(LocalTime.parse("08:00:00")), NOON(LocalTime.parse("12:00:00")), EVENING(LocalTime.parse("17:00:00")),
+    ALLDAY(null);
 
-    MORNING("morning"), NOON("noon"), EVENING("evening");
+    private final LocalTime startTime;
 
-    private final String daytimeName;
-
-    /**
-     * Ctor for Daytimes.
-     * 
-     * @param daytimeName The name of the daytime (morning, noon, evening).
-     */
-    Daytime(String daytimeName) {
-        this.daytimeName = daytimeName;
+    private Daytime(LocalTime startTime) {
+        this.startTime = startTime;
     }
 
-    /**
-     * Getter for the daytimeName.
-     * 
-     * @return The name of the daytime.
-     */
-    public String getDaytimeName() {
-        return daytimeName;
+    public LocalTime getStartTime() {
+        return startTime;
+    }
+
+    public LocalTime getEndTime() {
+        if (startTime == Daytime.MORNING.getStartTime()) {
+            return NOON.getStartTime();
+        } else if (startTime == Daytime.NOON.getStartTime()) {
+            return EVENING.getStartTime();
+        } else if (startTime == Daytime.EVENING.getStartTime()) {
+            return MORNING.getStartTime();
+        }
+
+        return null;
     }
 
 }

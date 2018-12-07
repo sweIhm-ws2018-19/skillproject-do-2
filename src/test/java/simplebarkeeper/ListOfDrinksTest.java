@@ -13,7 +13,7 @@ public class ListOfDrinksTest {
     public void getDrinkByNameTest() throws IOException {
         ListOfDrinks drinkList = new ListOfDrinks();
         Assert.assertEquals("rote schorle", drinkList.getDrinkByName("rote schorle").getName());
-        Assert.assertEquals(Flavor.SWEET, drinkList.getDrinkByName("rote schorle").getFlavor());
+        Assert.assertEquals(Flavour.SWEET, drinkList.getDrinkByName("rote schorle").getFlavor());
         Assert.assertEquals(Daytime.NOON, drinkList.getDrinkByName("rote schorle").getDaytime());
         Assert.assertFalse(drinkList.getDrinkByName("rote schorle").getContainsAlcohol());
         Assert.assertTrue(drinkList.getDrinkByName("rote schorle").getIngredients().isEmpty());

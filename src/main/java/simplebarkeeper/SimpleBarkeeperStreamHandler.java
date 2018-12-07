@@ -4,39 +4,32 @@ import com.amazon.ask.Skill;
 import com.amazon.ask.SkillStreamHandler;
 import com.amazon.ask.Skills;
 
-import simplebarkeeper.handlers.AddDrinkContainsAlcoholIntentHandler;
-import simplebarkeeper.handlers.AddDrinkDaytimeIntentHandler;
-import simplebarkeeper.handlers.AddDrinkFlavourIntentHandler;
-import simplebarkeeper.handlers.AddDrinkIngredientsIntentHandler;
-import simplebarkeeper.handlers.AddDrinkIntentHandler;
-import simplebarkeeper.handlers.AddDrinkNameIntentHandler;
 import simplebarkeeper.handlers.CancelandStopIntentHandler;
 import simplebarkeeper.handlers.FallbackIntentHandler;
 import simplebarkeeper.handlers.HelpIntentHandler;
 import simplebarkeeper.handlers.LaunchRequestHandler;
 import simplebarkeeper.handlers.ListIngredientsIntentHandler;
 import simplebarkeeper.handlers.SessionEndedRequestHandler;
+
 /**
- * Main Stream Handler for the "simple barkeeper" Alexa Skill.
- * Here the Skill itself is structured and built.
+ * Main Stream Handler for the "simple barkeeper" Alexa Skill. Here the Skill
+ * itself is structured and built.
  * @author Robin Grellner, Xaver Siodlazek
- *
  */
 public class SimpleBarkeeperStreamHandler extends SkillStreamHandler {
 
-	/*
-	 * Ctor for the SimpleBarkeeperStreamHandler.
-	 */
+    /*
+     * Ctor for the SimpleBarkeeperStreamHandler.
+     */
     public SimpleBarkeeperStreamHandler() {
         super(getSkill());
     }
 
     /**
-	 * Method that builts the Skill from all Intent and Reqeust Handlers.
-	 * 
-	 * @return The built Skill, that includes all the needed Intent Handlers and
-	 *         Request Handlers.
-	 */
+     * Method that builds the Skill from all Intent and Request Handlers.
+     * @return The built Skill, that includes all the needed Intent Handlers and
+     *         Request Handlers.
+     */
     private static Skill getSkill() {
         return Skills.standard().addRequestHandlers(
                 new CancelandStopIntentHandler(),
