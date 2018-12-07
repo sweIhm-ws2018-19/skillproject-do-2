@@ -68,6 +68,8 @@ public class ListOfDrinks {
      * @param name The drink which will be the new favorite.
      */
     public void setFavorite(String drinkName) {
+        drinkName = drinkName.toLowerCase();
+
         URL url = this.getClass().getResource(FAVOURITE_PATH);
         String pathWithoutPercents = url.getFile().replace("%20", " ");
         File file = new File(pathWithoutPercents);
@@ -105,6 +107,12 @@ public class ListOfDrinks {
     }
 
     public String getIngredients(String drinkName) {
+        drinkName = drinkName.toLowerCase();
+
+        if (!drinks.containsKey(drinkName)) {
+            return "Dieser Drink ist mir leider nicht bekannt.";
+        }
+
         if (drinks.get(drinkName).getIngredients().isEmpty()) {
             return "Dieser Drink enthält keine weiteren Zutaten.";
         }
@@ -115,6 +123,10 @@ public class ListOfDrinks {
     }
 
     public String getRandomDrinkByFlavour(String flavour, String containsAlcohol) {
+        if (Flavour.valueOf(flavour) == null) {
+            return "Dieser Geschmack ist mir leider nicht bekannt.";
+        }
+
         List<Drink> selectedDrinks = new ArrayList<>();
         Random random = new Random();
 
