@@ -21,11 +21,11 @@ public enum Daytime {
     }
 
     public LocalTime getEndTime() {
-        if (startTime == Daytime.MORNING.getStartTime()) {
+        if (startTime.equals(Daytime.MORNING.getStartTime())) {
             return NOON.getStartTime();
-        } else if (startTime == Daytime.NOON.getStartTime()) {
+        } else if (startTime.equals(Daytime.NOON.getStartTime())) {
             return EVENING.getStartTime();
-        } else if (startTime == Daytime.EVENING.getStartTime()) {
+        } else if (startTime.equals(Daytime.EVENING.getStartTime())) {
             return MORNING.getStartTime();
         }
 
