@@ -5,4 +5,7 @@ public class States {
     public static final String DEFAULT = "DEFAULT";
     public static final String REPROMPT_KEY = "REPROMT";
 
+    private States() {
+
+    }
 }

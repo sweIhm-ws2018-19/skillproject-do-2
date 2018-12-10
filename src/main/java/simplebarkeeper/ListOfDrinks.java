@@ -26,6 +26,7 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
  * @author Felix Haala
  */
 public class ListOfDrinks {
+    private static final String ALEXA_ANSWER_EMPFEHLUNG_BARKEEPER = "Dein Barkeeper empfiehlt dir: ";
     private static final String ALEXA_ANSWER_DRINK_AKTUELL_NICHT_BEKANNT = "Zu dieser Auswahl ist mir zur aktuellen Uhrzeit leider kein Drink bekannt";
     private static final String JSON_PATH = "/initialDrinkList.json";
     private static final String FAVOURITE_PATH = "/favourite.txt";
@@ -37,7 +38,7 @@ public class ListOfDrinks {
      * Ctor for ListOfDrinks with drinks from resources.
      */
     public ListOfDrinks() {
-        drinks = getListFromJson();
+        drinks = getListFromJson(JSON_PATH);
     }
 
     /**
@@ -46,8 +47,8 @@ public class ListOfDrinks {
      * @return The initialDrinkList from the repository. Empty list if file not
      *         present.
      */
-    private Map<String, Drink> getListFromJson() {
-        URL url = this.getClass().getResource(JSON_PATH);
+    private Map<String, Drink> getListFromJson(String path) {
+        URL url = this.getClass().getResource(path);
         String pathWithoutPercents = url.getFile().replace("%20", " ");
         File file = new File(pathWithoutPercents);
 
@@ -171,7 +172,7 @@ public class ListOfDrinks {
 
         StringBuilder sb = new StringBuilder();
 
-        return sb.append("Dein Barkeeper empfiehlt dir: ")
+        return sb.append(ALEXA_ANSWER_EMPFEHLUNG_BARKEEPER)
                 .append(selectedDrinks.get(random.nextInt(selectedDrinks.size())).getName()).toString();
     }
 
@@ -192,7 +193,7 @@ public class ListOfDrinks {
 
         StringBuilder sb = new StringBuilder();
 
-        return sb.append("Dein Barkeeper empfiehlt dir: ")
+        return sb.append(ALEXA_ANSWER_EMPFEHLUNG_BARKEEPER)
                 .append(selectedDrinks.get(random.nextInt(selectedDrinks.size())).getName()).toString();
     }
 
@@ -211,7 +212,7 @@ public class ListOfDrinks {
 
         StringBuilder sb = new StringBuilder();
 
-        return sb.append("Dein Barkeeper empfiehlt dir: ")
+        return sb.append(ALEXA_ANSWER_EMPFEHLUNG_BARKEEPER)
                 .append(selectedDrinks.get(random.nextInt(selectedDrinks.size())).getName()).toString();
     }
 
