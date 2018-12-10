@@ -11,121 +11,145 @@ public class DrinkTest {
 
     @Test
     public void getNameTest() {
-        List<Ingredient> ingredients = new ArrayList<>();
-        Flavour flavor = Flavour.SWEET;
+        String name = "TestDrinkName";
+        Flavour flavour = Flavour.BITTER;
         Daytime daytime = Daytime.MORNING;
-        Drink drink = new Drink("Test", flavor, daytime, true, ingredients);
-        Assert.assertEquals("Test", drink.getName());
+        Boolean containsAlcohol = true;
+        String ingredients = "1 ml Rum, 1ml Cola";
+
+        List<String> steps = new ArrayList<>();
+        String step1 = "Step 1: drink";
+        String step2 = "Step 2: something";
+        steps.add(step1);
+        steps.add(step2);
+
+        Drink drink = new Drink(name, flavour.toString(), daytime.toString(), containsAlcohol.toString(), ingredients,
+                steps);
+
+        Assert.assertEquals(name, drink.getName());
     }
 
     @Test
-    public void getFlavorTest() {
-        List<Ingredient> ingredients = new ArrayList<>();
-        Flavour flavor = Flavour.SWEET;
+    public void getFlavourTest() {
+        String name = "TestDrinkName";
+        Flavour flavour = Flavour.BITTER;
         Daytime daytime = Daytime.MORNING;
-        Drink drink = new Drink("Test", flavor, daytime, true, ingredients);
-        Assert.assertEquals(Flavour.SWEET, drink.getFlavor());
+        Boolean containsAlcohol = true;
+        String ingredients = "1 ml Rum, 1ml Cola";
 
+        List<String> steps = new ArrayList<>();
+        String step1 = "Step 1: drink";
+        String step2 = "Step 2: something";
+        steps.add(step1);
+        steps.add(step2);
+
+        Drink drink = new Drink(name, flavour.toString(), daytime.toString(), containsAlcohol.toString(), ingredients,
+                steps);
+
+        Assert.assertEquals(flavour, drink.getFlavour());
     }
 
     @Test
     public void getDaytimeTest() {
-        List<Ingredient> ingredients = new ArrayList<>();
-        Flavour flavor = Flavour.SWEET;
+        String name = "TestDrinkName";
+        Flavour flavour = Flavour.BITTER;
         Daytime daytime = Daytime.MORNING;
-        Drink drink = new Drink("Test", flavor, daytime, true, ingredients);
-        Assert.assertEquals(Daytime.MORNING, drink.getDaytime());
+        Boolean containsAlcohol = true;
+        String ingredients = "1 ml Rum, 1ml Cola";
 
+        List<String> steps = new ArrayList<>();
+        String step1 = "Step 1: drink";
+        String step2 = "Step 2: something";
+        steps.add(step1);
+        steps.add(step2);
+
+        Drink drink = new Drink(name, flavour.toString(), daytime.toString(), containsAlcohol.toString(), ingredients,
+                steps);
+
+        Assert.assertEquals(daytime, drink.getDaytime());
     }
 
     @Test
     public void getContainsAlcoholTest() {
-        List<Ingredient> ingredients = new ArrayList<>();
-        Flavour flavor = Flavour.SWEET;
+        String name = "TestDrinkName";
+        Flavour flavour = Flavour.BITTER;
         Daytime daytime = Daytime.MORNING;
-        Drink drink = new Drink("Test", flavor, daytime, true, ingredients);
+        Boolean containsAlcohol = true;
+        String ingredients = "1 ml Rum, 1ml Cola";
+
+        List<String> steps = new ArrayList<>();
+        String step1 = "Step 1: drink";
+        String step2 = "Step 2: something";
+        steps.add(step1);
+        steps.add(step2);
+
+        Drink drink = new Drink(name, flavour.toString(), daytime.toString(), containsAlcohol.toString(), ingredients,
+                steps);
+
         Assert.assertTrue(drink.getContainsAlcohol());
     }
 
     @Test
-    public void getIngredientsTest() {
-        List<Ingredient> ingredients = new ArrayList<>();
-        Ingredient cola = new Ingredient("Cola", "100 Milliliter");
-        ingredients.add(cola);
-        Flavour flavor = Flavour.SWEET;
+    public void getIngridientsTest() {
+        String name = "TestDrinkName";
+        Flavour flavour = Flavour.BITTER;
         Daytime daytime = Daytime.MORNING;
-        Drink drink = new Drink("Test", flavor, daytime, true, ingredients);
+        Boolean containsAlcohol = true;
+        String ingredients = "1 ml Rum, 1ml Cola";
 
-        List<Ingredient> test = new ArrayList<>();
-        test.add(cola);
+        List<String> steps = new ArrayList<>();
+        String step1 = "Step 1: drink";
+        String step2 = "Step 2: something";
+        steps.add(step1);
+        steps.add(step2);
 
-        Assert.assertEquals(test, drink.getIngredients());
+        Drink drink = new Drink(name, flavour.toString(), daytime.toString(), containsAlcohol.toString(), ingredients,
+                steps);
+
+        Assert.assertEquals(ingredients, drink.getIngredients());
     }
 
     @Test
-    public void listIngredientsTest() {
-        List<Ingredient> ingredients = new ArrayList<>();
-        Ingredient cola = new Ingredient("Cola", "100 Milliliter");
-        Ingredient fanta = new Ingredient("Fanta", "200 Milliliter");
-        Ingredient sprite = new Ingredient("Sprite", "300 Milliliter");
-        Flavour flavor = Flavour.SWEET;
+    public void getStepsTest() {
+        String name = "TestDrinkName";
+        Flavour flavour = Flavour.BITTER;
         Daytime daytime = Daytime.MORNING;
-        Drink drink = new Drink("Test", flavor, daytime, true, ingredients);
-        Assert.assertEquals("Für Test sind leider keine Zutaten gespeichert.", drink.listIngredients());
-        ingredients.add(cola);
-        Assert.assertEquals("Test enthält 100 Milliliter Cola", drink.listIngredients());
-        ingredients.add(fanta);
-        Assert.assertEquals("Test enthält folgende Zutaten: 100 Milliliter Cola und 200 Milliliter Fanta.",
-                drink.listIngredients());
-        ingredients.add(sprite);
-        Assert.assertEquals(
-                "Test enthält folgende Zutaten: 100 Milliliter Cola, 200 Milliliter Fanta und 300 Milliliter Sprite.",
-                drink.listIngredients());
+        Boolean containsAlcohol = true;
+        String ingredients = "1 ml Rum, 1ml Cola";
+
+        List<String> steps = new ArrayList<>();
+        String step1 = "Step 1: drink";
+        String step2 = "Step 2: something";
+        steps.add(step1);
+        steps.add(step2);
+
+        Drink drink = new Drink(name, flavour.toString(), daytime.toString(), containsAlcohol.toString(), ingredients,
+                steps);
+
+        Assert.assertEquals(step1, drink.getSteps().get(0));
+        Assert.assertEquals(step2, drink.getSteps().get(1));
     }
 
     @Test
     public void toStringTest() {
-        List<Ingredient> ingredients = new ArrayList<>();
-        Flavour flavor = Flavour.SWEET;
+        String name = "TestDrinkName";
+        Flavour flavour = Flavour.BITTER;
         Daytime daytime = Daytime.MORNING;
-        Drink drink = new Drink("Test", flavor, daytime, true, ingredients);
-        Assert.assertEquals("drinkName: Test; falvor: süß; daytime: morning; containsAlcohol: true", drink.toString());
+        Boolean containsAlcohol = true;
+        String ingredients = "1 ml Rum, 1ml Cola";
+
+        List<String> steps = new ArrayList<>();
+        String step1 = "Step 1: drink";
+        String step2 = "Step 2: something";
+        steps.add(step1);
+        steps.add(step2);
+
+        Drink drink = new Drink(name, flavour.toString(), daytime.toString(), containsAlcohol.toString(), ingredients,
+                steps);
+
+        Assert.assertEquals(
+                "drinkName: TestDrinkName; flavour: BITTER; daytime: MORNING; containsAlcohol: true\n# ingredients: 1 ml Rum, 1ml Cola\n## step 1: Step 1: drink\n## step 2: Step 2: something\n\n",
+                drink.toString());
     }
-    
-    
-    @Test
-    public void testStingConstructor() {
-        List<Ingredient> ingredients = new ArrayList<>();
-        Drink drink = new Drink("Test", "sweet", "morning", "true", ingredients);
-        Assert.assertEquals(Flavour.SWEET, drink.getFlavor());
-        Assert.assertEquals(Daytime.MORNING, drink.getDaytime());
-        Assert.assertTrue(drink.getContainsAlcohol());
-        drink = new Drink("Test", "sour", "noon", "false", ingredients);
-        Assert.assertEquals(Flavour.SOUR, drink.getFlavor());
-        Assert.assertEquals(Daytime.NOON, drink.getDaytime());
-        Assert.assertFalse(drink.getContainsAlcohol());
-        drink = new Drink("Test", "BiTtER", "EveNing", "false", ingredients);
-        Assert.assertEquals(Flavour.BITTER, drink.getFlavor());
-        Assert.assertEquals(Daytime.EVENING, drink.getDaytime());
-        Assert.assertFalse(drink.getContainsAlcohol());
-    }
-    
-    @Test(expected = IllegalArgumentException.class)
-    public void testFindFlavor() {
-        List<Ingredient> ingredients = new ArrayList<>();
-        new Drink("Test", "flavor", "morning", "true", ingredients);
-    }
-    
-    @Test(expected = IllegalArgumentException.class)
-    public void testFindDaytime() {
-        List<Ingredient> ingredients = new ArrayList<>();
-        new Drink("Test", "sweet", "daytime", "true", ingredients);
-    }
-    
-    @Test(expected = IllegalArgumentException.class)
-    public void testFindContainsAlcohol() {
-        List<Ingredient> ingredients = new ArrayList<>();
-        new Drink("Test", "sweet", "morning", "containsAlcohol", ingredients);
-    
-    }
+
 }

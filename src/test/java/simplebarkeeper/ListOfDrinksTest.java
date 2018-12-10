@@ -10,16 +10,6 @@ import org.junit.Test;
 public class ListOfDrinksTest {
 
     @Test
-    public void getDrinkByNameTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
-        Assert.assertEquals("rote schorle", drinkList.getDrinkByName("rote schorle").getName());
-        Assert.assertEquals(Flavour.SWEET, drinkList.getDrinkByName("rote schorle").getFlavor());
-        Assert.assertEquals(Daytime.NOON, drinkList.getDrinkByName("rote schorle").getDaytime());
-        Assert.assertFalse(drinkList.getDrinkByName("rote schorle").getContainsAlcohol());
-        Assert.assertTrue(drinkList.getDrinkByName("rote schorle").getIngredients().isEmpty());
-    }
-
-    @Test
     public void cTorWithoutInitialListInResourcesTest() throws IOException {
         URL url = this.getClass().getResource("/initialDrinkList.json");
         String pathWithoutPercents = url.getFile().replace("%20", " ");
@@ -27,52 +17,85 @@ public class ListOfDrinksTest {
 
         file.setReadable(false);
         ListOfDrinks drinkList = new ListOfDrinks();
-
-        Assert.assertEquals(0, drinkList.getSize());
-
+        int sizeOfDrinkList = drinkList.getSize();
         file.setReadable(true);
+
+        Assert.assertEquals(0, sizeOfDrinkList);
+
+    }
+
+//    @Test
+//    public void setFavoriteTest() throws IOException {
+//        ListOfDrinks drinkList = new ListOfDrinks();
+//
+//        Assert.assertEquals("cola wurde als dein neuer Lieblingsdrink gespeichert", drinkList.setFavorite());
+//    }
+
+//    @Test
+//    public void setAndGetFavoriteTest() throws IOException {
+//        ListOfDrinks drinkList = new ListOfDrinks();
+//        drinkList.setFavorite("cola");
+//
+//        Assert.assertEquals("Dein Lieblingsdrink ist cola", drinkList.getFavorite());
+//    }
+
+    @Test
+    public void setFavoriteButNotInListTest() throws IOException {
+        ListOfDrinks drinkList = new ListOfDrinks();
+
+        Assert.assertEquals("Dieser Drink ist mir leider nicht bekannt", drinkList.setFavorite("notInList"));
+    }
+
+//    @Test
+//    public void getFavoriteButNotSetTest() throws IOException {
+//        ListOfDrinks drinkList = new ListOfDrinks();
+//
+//        Assert.assertEquals("Tut mir leid, bisher wurde keine Favourit festgelegt", drinkList.getFavorite());
+//    }
+
+    @Test
+    public void getIngredientsButNotInListTest() throws IOException {
+        ListOfDrinks drinkList = new ListOfDrinks();
+
+        Assert.assertEquals("Dieser Drink ist mir leider nicht bekannt", drinkList.getIngredients("notInList"));
     }
 
     @Test
-    public void getFavoriteTest() throws IOException {
+    public void getIngredientsButHasNoneTest() throws IOException {
         ListOfDrinks drinkList = new ListOfDrinks();
-        Drink drink = drinkList.getDrinkByName("cola");
-        drinkList.setFavorite(drink);
-        Assert.assertEquals(drink, drinkList.getFavorite());
+
+        Assert.assertEquals("Dieser Drink enthält keine weiteren Zutaten", drinkList.getIngredients("cola"));
     }
 
     @Test
-    public void setFavoriteButNotSetTest() throws IOException {
+    public void getIngredientsTest() throws IOException {
         ListOfDrinks drinkList = new ListOfDrinks();
-        Assert.assertNull(drinkList.getFavorite());
-    }
 
-    @Test
-    public void listIngredientsTestButNotInList() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
-        Assert.assertEquals("Der von Ihnen genannte Drink ist mir leider nicht bekannt.",
-                drinkList.listIngredients("1"));
-    }
-
-    @Test
-    public void listIngredientsButNoIngredientsTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
-        Assert.assertEquals("Für cola sind leider keine Zutaten gespeichert.", drinkList.listIngredients("cola"));
-    }
-
-    @Test
-    public void listIngredientsWithTwoIngrediencesTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
-        Assert.assertEquals("kaffee enthält folgende Zutaten: 1 Kaffeelöffel Kaffeepulver und 250 Milliliter Wasser.",
-                drinkList.listIngredients("kaffee"));
-    }
-
-    @Test
-    public void listIngredientsWithMoreThanTwoIngrediencesTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
         Assert.assertEquals(
-                "swimmingpool enthält folgende Zutaten: 14 Zentiliter granini Ananassaft, 2 Zentiliter Vodka, 2 Zentiliter Rum weiß, 2 Zentiliter Blue Curaçao, 3 Zentiliter Kokosnusscreme und 4 Zentiliter Sahne.",
-                drinkList.listIngredients("swimmingpool"));
+                "sex on the beach enthält folgende Zutaten: 4 Zentiliter granini Orange, 3 Zentiliter granini Pfirsich, 3 Zentiliter granini Ananas, 3 Zentiliter granini Cranberry und 4 Zentiliter Wodka",
+                drinkList.getIngredients("sex on the beach"));
+    }
+
+    @Test
+    public void getRandomDrinkByFlavourTest() throws IOException {
+        ListOfDrinks drinkList = new ListOfDrinks();
+
+        String drinkWithAlcoholName = drinkList.getRandomDrinkByFlavour("SWEET", "true");
+        int positionLastSpace = drinkWithAlcoholName.lastIndexOf(": ");
+        drinkWithAlcoholName = drinkWithAlcoholName.substring(positionLastSpace + 2);
+        Drink drinkWithAlcohol = drinkList.getDrink(drinkWithAlcoholName);
+
+        Assert.assertTrue(drinkWithAlcohol.getContainsAlcohol());
+        Assert.assertEquals(Flavour.SWEET, drinkWithAlcohol.getFlavour());
+
+        String drinkWithoutAlcoholName = drinkList.getRandomDrinkByFlavour("BITTER", "false");
+        positionLastSpace = drinkWithoutAlcoholName.lastIndexOf(": ");
+        drinkWithoutAlcoholName = drinkWithoutAlcoholName.substring(positionLastSpace + 2);
+        Drink drinkWithoutAlcohol = drinkList.getDrink(drinkWithoutAlcoholName);
+
+        Assert.assertFalse(drinkWithoutAlcohol.getContainsAlcohol());
+        Assert.assertEquals(Flavour.BITTER, drinkWithoutAlcohol.getFlavour());
+
     }
 
 }

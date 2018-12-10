@@ -7,8 +7,8 @@ import java.time.LocalTime;
  * @author Alexander Heinritzi
  */
 public enum Daytime {
-    MORNING(LocalTime.parse("08:00:00")), NOON(LocalTime.parse("12:00:00")), EVENING(LocalTime.parse("17:00:00")),
-    ALLDAY(null);
+    MORNING(LocalTime.parse("08:00")), NOON(LocalTime.parse("12:00")), EVENING(LocalTime.parse("17:00")),
+    ALLDAY(LocalTime.parse("00:00"));
 
     private final LocalTime startTime;
 
@@ -29,7 +29,7 @@ public enum Daytime {
             return MORNING.getStartTime();
         }
 
-        return null;
+        return LocalTime.parse("00:00");
     }
 
 }
