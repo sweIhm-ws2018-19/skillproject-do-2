@@ -45,7 +45,8 @@ public class ListIngredientsIntentHandler implements RequestHandler {
         String userInput = slot.getValue();
 
         ListOfDrinks drinkList = new ListOfDrinks();
-        String speechText = drinkList.listIngredients(userInput);
+//        String speechText = drinkList.listIngredients(userInput);
+        String speechText = "";
 
         return input.getResponseBuilder().withSpeech(speechText).withShouldEndSession(false).build();
     }
