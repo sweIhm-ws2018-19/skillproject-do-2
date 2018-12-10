@@ -28,8 +28,6 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
 public class ListOfDrinks {
     private static final String ALEXA_ANSWER_EMPFEHLUNG_BARKEEPER = "Dein Barkeeper empfiehlt dir: ";
     private static final String ALEXA_ANSWER_DRINK_AKTUELL_NICHT_BEKANNT = "Zu dieser Auswahl ist mir zur aktuellen Uhrzeit leider kein Drink bekannt";
-    private static final String JSON_PATH = "/initialDrinkList.json";
-    private static final String FAVOURITE_PATH = "/favourite.txt";
 
     private final Map<String, Drink> drinks;
     private final Random random = new Random();
@@ -38,7 +36,7 @@ public class ListOfDrinks {
      * Ctor for ListOfDrinks with drinks from resources.
      */
     public ListOfDrinks() {
-        drinks = getListFromJson(JSON_PATH);
+        drinks = getListFromJson("/initialDrinkList.json");
     }
 
     /**
@@ -81,13 +79,11 @@ public class ListOfDrinks {
             return "Dieser Drink ist mir leider nicht bekannt";
         }
 
-        StringBuilder sb = new StringBuilder();
-
-        URL url = this.getClass().getResource(sb.append(FAVOURITE_PATH.charAt(0)).toString());
+        URL url = this.getClass().getResource("/");
         String pathWithoutPercents = url.getFile().replace("%20", " ");
 
-        sb = new StringBuilder();
-        File file = new File(sb.append(pathWithoutPercents).append(FAVOURITE_PATH.substring(1)).toString());
+        StringBuilder sb = new StringBuilder();
+        File file = new File(sb.append(pathWithoutPercents).append("favourite.txt").toString());
 
         try (FileWriterWithEncoding fw = new FileWriterWithEncoding(file, StandardCharsets.UTF_8)) {
             fw.write(drinkName + "\r\n");
@@ -107,7 +103,7 @@ public class ListOfDrinks {
      * @return The recent favorite drink.
      */
     public String getFavorite() {
-        URL url = this.getClass().getResource(FAVOURITE_PATH);
+        URL url = this.getClass().getResource("/favourite.txt");
 
         if (url == null) {
             return "Tut mir leid, bisher wurde keine Favourit festgelegt";
