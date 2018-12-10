@@ -77,10 +77,14 @@ public class ListOfDrinks {
         if (!drinks.containsKey(drinkName)) {
             return "Dieser Drink ist mir leider nicht bekannt";
         }
+        
+        StringBuilder sb = new StringBuilder();
 
-        URL url = this.getClass().getResource(FAVOURITE_PATH);
+        URL url = this.getClass().getResource(sb.append(FAVOURITE_PATH.charAt(0)).toString());
         String pathWithoutPercents = url.getFile().replace("%20", " ");
-        File file = new File(pathWithoutPercents);
+        
+        sb = new StringBuilder();
+        File file = new File(sb.append(pathWithoutPercents).append(FAVOURITE_PATH.substring(1)).toString());
 
         try (FileWriterWithEncoding fw = new FileWriterWithEncoding(file, StandardCharsets.UTF_8)) {
             fw.write(drinkName + "\r\n");
@@ -89,7 +93,7 @@ public class ListOfDrinks {
             e.printStackTrace();
         }
 
-        StringBuilder sb = new StringBuilder();
+        sb = new StringBuilder();
 
         return sb.append(drinkName).append(" wurde als dein neuer Lieblingsdrink gespeichert").toString();
     }
@@ -101,12 +105,13 @@ public class ListOfDrinks {
      */
     public String getFavorite() {
         URL url = this.getClass().getResource(FAVOURITE_PATH);
-        String pathWithoutPercents = url.getFile().replace("%20", " ");
-        File file = new File(pathWithoutPercents);
 
-        if (!file.exists()) {
+        if (url == null) {
             return "Tut mir leid, bisher wurde keine Favourit festgelegt";
         }
+
+        String pathWithoutPercents = url.getFile().replace("%20", " ");
+        File file = new File(pathWithoutPercents);
 
         StringBuilder sb = new StringBuilder();
 
@@ -136,7 +141,16 @@ public class ListOfDrinks {
     }
 
     public String getRandomDrinkByFlavour(String flavour, String containsAlcohol) {
-        if (Flavour.valueOf(flavour) == null) {
+        boolean isFlavourContained = false;
+
+        for (Flavour value : Flavour.values()) {
+            if (value.toString().toLowerCase().equals(flavour.toLowerCase())) {
+                isFlavourContained = true;
+            }
+
+        }
+
+        if (!isFlavourContained) {
             return "Dieser Geschmack ist mir leider nicht bekannt";
         }
 
@@ -157,7 +171,7 @@ public class ListOfDrinks {
         StringBuilder sb = new StringBuilder();
 
         return sb.append("Dein Barkeeper empfiehlt dir: ")
-                .append(selectedDrinks.get(random.nextInt(selectedDrinks.size()))).toString();
+                .append(selectedDrinks.get(random.nextInt(selectedDrinks.size())).getName()).toString();
     }
 
     public String getRandomDrinkByIngredient(String ingredient, String containsAlcohol) {
@@ -165,8 +179,9 @@ public class ListOfDrinks {
         Random random = new Random();
 
         for (Drink drink : drinks.values()) {
-            if ((drink.getContainsAlcohol() == Boolean.parseBoolean(containsAlcohol))
-                    && (drink.getIngredients().contains(ingredient)) && drinkFitsDaytime(drink)) {
+            if (drink.getIngredients() != null && (drink.getContainsAlcohol() == Boolean.parseBoolean(containsAlcohol))
+                    && (drink.getIngredients().toLowerCase().contains(ingredient.toLowerCase()))
+                    && drinkFitsDaytime(drink)) {
                 selectedDrinks.add(drink);
             }
         }
@@ -178,7 +193,7 @@ public class ListOfDrinks {
         StringBuilder sb = new StringBuilder();
 
         return sb.append("Dein Barkeeper empfiehlt dir: ")
-                .append(selectedDrinks.get(random.nextInt(selectedDrinks.size()))).toString();
+                .append(selectedDrinks.get(random.nextInt(selectedDrinks.size())).getName()).toString();
     }
 
     public String getRandomDrinkByAlcohol(String containsAlcohol) {
@@ -198,7 +213,7 @@ public class ListOfDrinks {
         StringBuilder sb = new StringBuilder();
 
         return sb.append("Dein Barkeeper empfiehlt dir: ")
-                .append(selectedDrinks.get(random.nextInt(selectedDrinks.size()))).toString();
+                .append(selectedDrinks.get(random.nextInt(selectedDrinks.size())).getName()).toString();
     }
 
     private boolean drinkFitsDaytime(Drink drink) {
@@ -218,11 +233,11 @@ public class ListOfDrinks {
         return false;
     }
 
-    public int getSize() {
+    int getSize() {
         return drinks.size();
     }
 
-    public Drink getDrink(String drinkName) {
+    Drink getDrink(String drinkName) {
         return drinks.get(drinkName);
     }
 

@@ -18,10 +18,10 @@
   "cola mix" : {
     "name" : "cola mix",
     "flavour" : "SWEET",
-    "daytime" : "NOON",
+    "daytime" : "ALLDAY",
     "containsAlcohol" : false,
-    "ingredients" : "",
-    "steps" : [ ]
+    "ingredients" : "cola und orangenlimonade",
+    "steps" : ["Ein Glas halb mit Cola füllen", "dann mit Orangenlimonade auffüllen" ]
   },
   "chocolada" : {
     "name" : "chocolada",
@@ -82,7 +82,7 @@
   "bier" : {
     "name" : "bier",
     "flavour" : "BITTER",
-    "daytime" : "EVENING",
+    "daytime" : "ALLDAY",
     "containsAlcohol" : true,
     "ingredients" : null,
     "steps" : [ ]
@@ -214,5 +214,13 @@
     "containsAlcohol" : false,
     "ingredients" : "",
     "steps" : [ ]
+  },
+    "grog" : {
+    "name" : "grog",
+    "flavour" : "BITTER",
+    "daytime" : "ALLDAY",
+    "containsAlcohol" : true,
+    "ingredients" : "Wasser, Rum und Zucker",
+    "steps" : ["Zucker und Rum in ein Glas geben","Wasser für den Tee aufkochen","Umrühren" ]
   }
 }
