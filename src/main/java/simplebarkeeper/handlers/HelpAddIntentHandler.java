@@ -2,7 +2,6 @@ package simplebarkeeper.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
-import java.util.Map;
 import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
@@ -18,20 +17,20 @@ import com.amazon.ask.model.Response;
  */
 public class HelpAddIntentHandler implements RequestHandler {
 
-	@Override
-	public boolean canHandle(HandlerInput input) {
-		return input.matches(intentName("HelpAddIntent"));
-	}
+    @Override
+    public boolean canHandle(HandlerInput input) {
+        return input.matches(intentName("HelpAddIntent"));
+    }
 
-	/**
-	 * {@inheritDoc}} Method that implements the logic on how the HelpIntent has to
-	 * be handled. Here, it simply returns a TextOutput.
-	 */
-	@Override
-	public Optional<Response> handle(HandlerInput input) {
-		StringBuilder outputText = new StringBuilder();
-		outputText.append("Beispiel Add");
-		return input.getResponseBuilder().withSpeech(outputText.toString()).withShouldEndSession(false).build();
-	}
+    /**
+     * {@inheritDoc}} Method that implements the logic on how the HelpIntent has to
+     * be handled. Here, it simply returns a TextOutput.
+     */
+    @Override
+    public Optional<Response> handle(HandlerInput input) {
+        StringBuilder outputText = new StringBuilder();
+        outputText.append("Beispiel Add");
+        return input.getResponseBuilder().withSpeech(outputText.toString()).withShouldEndSession(false).build();
+    }
 
 }

@@ -26,10 +26,12 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
  * @author Felix Haala
  */
 public class ListOfDrinks {
-    private final static String JSON_PATH = "/initialDrinkList.json";
-    private final static String FAVOURITE_PATH = "/favourite.txt";
+    private static final String ALEXA_ANSWER_DRINK_AKTUELL_NICHT_BEKANNT = "Zu dieser Auswahl ist mir zur aktuellen Uhrzeit leider kein Drink bekannt";
+    private static final String JSON_PATH = "/initialDrinkList.json";
+    private static final String FAVOURITE_PATH = "/favourite.txt";
 
     private final Map<String, Drink> drinks;
+    private final Random random = new Random();
 
     /**
      * Ctor for ListOfDrinks with drinks from resources.
@@ -77,12 +79,12 @@ public class ListOfDrinks {
         if (!drinks.containsKey(drinkName)) {
             return "Dieser Drink ist mir leider nicht bekannt";
         }
-        
+
         StringBuilder sb = new StringBuilder();
 
         URL url = this.getClass().getResource(sb.append(FAVOURITE_PATH.charAt(0)).toString());
         String pathWithoutPercents = url.getFile().replace("%20", " ");
-        
+
         sb = new StringBuilder();
         File file = new File(sb.append(pathWithoutPercents).append(FAVOURITE_PATH.substring(1)).toString());
 
@@ -144,7 +146,7 @@ public class ListOfDrinks {
         boolean isFlavourContained = false;
 
         for (Flavour value : Flavour.values()) {
-            if (value.toString().toLowerCase().equals(flavour.toLowerCase())) {
+            if (value.toString().equalsIgnoreCase(flavour)) {
                 isFlavourContained = true;
             }
 
@@ -155,7 +157,6 @@ public class ListOfDrinks {
         }
 
         List<Drink> selectedDrinks = new ArrayList<>();
-        Random random = new Random();
 
         for (Drink drink : drinks.values()) {
             if ((drink.getContainsAlcohol() == Boolean.parseBoolean(containsAlcohol))
@@ -164,8 +165,8 @@ public class ListOfDrinks {
             }
         }
 
-        if (selectedDrinks.size() == 0) {
-            return "Zu dieser Auswahl ist mir zur aktuellen Uhrzeit leider kein Drink bekannt";
+        if (selectedDrinks.isEmpty()) {
+            return ALEXA_ANSWER_DRINK_AKTUELL_NICHT_BEKANNT;
         }
 
         StringBuilder sb = new StringBuilder();
@@ -176,7 +177,6 @@ public class ListOfDrinks {
 
     public String getRandomDrinkByIngredient(String ingredient, String containsAlcohol) {
         List<Drink> selectedDrinks = new ArrayList<>();
-        Random random = new Random();
 
         for (Drink drink : drinks.values()) {
             if (drink.getIngredients() != null && (drink.getContainsAlcohol() == Boolean.parseBoolean(containsAlcohol))
@@ -186,8 +186,8 @@ public class ListOfDrinks {
             }
         }
 
-        if (selectedDrinks.size() == 0) {
-            return "Zu dieser Auswahl ist mir zur aktuellen Uhrzeit leider kein Drink bekannt";
+        if (selectedDrinks.isEmpty()) {
+            return ALEXA_ANSWER_DRINK_AKTUELL_NICHT_BEKANNT;
         }
 
         StringBuilder sb = new StringBuilder();
@@ -198,7 +198,6 @@ public class ListOfDrinks {
 
     public String getRandomDrinkByAlcohol(String containsAlcohol) {
         List<Drink> selectedDrinks = new ArrayList<>();
-        Random random = new Random();
 
         for (Drink drink : drinks.values()) {
             if ((drink.getContainsAlcohol() == Boolean.parseBoolean(containsAlcohol)) && drinkFitsDaytime(drink)) {
@@ -206,8 +205,8 @@ public class ListOfDrinks {
             }
         }
 
-        if (selectedDrinks.size() == 0) {
-            return "Zu dieser Auswahl ist mir zur aktuellen Uhrzeit leider kein Drink bekannt";
+        if (selectedDrinks.isEmpty()) {
+            return ALEXA_ANSWER_DRINK_AKTUELL_NICHT_BEKANNT;
         }
 
         StringBuilder sb = new StringBuilder();
@@ -226,11 +225,7 @@ public class ListOfDrinks {
         LocalTime now = LocalTime.now();
         LocalTime drinkEndTime = drink.getDaytime().getEndTime();
 
-        if (now.isAfter(drinkStartTime) && now.isBefore(drinkEndTime)) {
-            return true;
-        }
-
-        return false;
+        return now.isAfter(drinkStartTime) && now.isBefore(drinkEndTime);
     }
 
     int getSize() {
