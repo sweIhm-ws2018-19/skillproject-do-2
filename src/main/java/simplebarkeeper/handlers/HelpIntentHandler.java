@@ -2,7 +2,6 @@ package simplebarkeeper.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
-import java.util.Map;
 import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
@@ -20,8 +19,7 @@ public class HelpIntentHandler implements RequestHandler {
 
 	@Override
 	public boolean canHandle(HandlerInput input) {
-		Map<String, Object> attributes = input.getAttributesManager().getSessionAttributes();
-		return input.matches(intentName("AMAZON.HelpIntent")) && attributes.get("HelpState").equals("HelpStateDefault");
+		return input.matches(intentName("AMAZON.HelpIntent"));
 	}
 
 	/**
@@ -41,9 +39,6 @@ public class HelpIntentHandler implements RequestHandler {
 				.append("Um die Zutaten eines Drinks abzufragen, sagen sie Was ist in einem Beispieldrink.")
 				.toString();
 
-		Map<String, Object> attributes = input.getAttributesManager().getSessionAttributes();
-		attributes.put("HelpState", "HelpStateWait");
-		input.getAttributesManager().setSessionAttributes(attributes);
 
 		return input.getResponseBuilder().withSpeech(speechText).withShouldEndSession(false).build();
 	}
