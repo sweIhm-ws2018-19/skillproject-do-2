@@ -11,31 +11,54 @@
                 {
                     "name": "AMAZON.HelpIntent",
                     "slots": [],
-                    "samples": ["Ich brauche Hilfe"]
+                    "samples": [
+                    "Ich brauche Hilfe",
+                    "Gib mir Hilfe",
+                    "Hilfe"
+                    ]
 				},
 				{
-                    "name": "HelpAddIntent",
+                    "name": "HelpGetFavouriteIntent",
                     "slots": [],
                     "samples": [
-                    	"Hilfe Drink eingeben",
-                    	"Hilfe beim eingeben eines Drinks"
-                   	]
+                    "Ich brauche Hilfe bezüglich Favorit abrufen",
+                    "Gib mir Hilfe zu Favorit abrufen",
+                    "Hilfe zu Favorit abrufen",
+                    "Hilfe Favorit abrufen"
+                    ]
 				},
 				{
-                    "name": "HelpDeleteIntent",
+                    "name": "HelpGetRecipeIntent",
                     "slots": [],
                     "samples": [
-                    	"Hilfe Drink l�schen",
-                    	"Hilfe beim l�schen eines Drinks"
-                   	]
+                    "Ich brauche Hilfe bezüglich Rezept aufrufen",
+                    "Gib mir Hilfe zu Rezept abrufen",
+                    "Hilfe zu Rezept abrufen",
+                    "Hilfe Rezept abrufen",
+                    "Hilfe zu Rezept aufrufen"
+                    ]
 				},
 				{
-                    "name": "HelpRequestIntent",
+                    "name": "HelpSetFavouriteIntent",
                     "slots": [],
                     "samples": [
-                    	"Hilfe Zutaten abfragen",
-                    	"Hilfe beim abfragen eines Drinks"
-                   	]
+                    "Ich brauche Hilfe bezüglich Favorit festlegen",
+                    "Gib mir Hilfe zu Favorit festlegen",
+                    "Hilfe zu Favorit festlegen",
+                    "Hilfe Favorit festlegen",
+                    "Hilfe zu Favorit einpeichern"
+                    ]
+				},
+				{
+                    "name": "HelpListIngredientIntent",
+                    "slots": [],
+                    "samples": [
+                    "Ich brauche Hilfe bezüglich Zutaten ausgeben",
+                    "Gib mir Hilfe zu Zutaten asugeben",
+                    "Hilfe zu Zutaten ausgeben",
+                    "Hilfe Zutaten ausgeben",
+                    "Hilfe zu Zutaten anzeigen"
+                    ]
 				},
                 {
                 	"name": "AMAZON.ResumeIntent",
@@ -54,10 +77,7 @@
                 	"name": "RemoveDrinkIntent",
                 	"samples": []
                 },
-                {
-                	"name": "AddDrinkIntent",
-                	"samples": ["Neuen Drink hinzufügen"]
-                },
+      
                 {
           			"name": "ListIngredientsIntent",
           			"slots": [
