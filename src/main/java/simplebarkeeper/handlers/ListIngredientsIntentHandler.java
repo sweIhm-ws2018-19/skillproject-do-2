@@ -40,12 +40,15 @@ public class ListIngredientsIntentHandler implements RequestHandler {
         IntentRequest intentRequest = (IntentRequest) request;
         Intent intent = intentRequest.getIntent();
         Map<String, Slot> slots = intent.getSlots();
-
+        String speechText;
         Slot slot = slots.get(Slots.NAME_SLOT);
         String userInput = slot.getValue();
-
+        StringBuilder sb = new StringBuilder();
+        
         ListOfDrinks drinkList = new ListOfDrinks();
-        String speechText = drinkList.listIngredients(userInput);
+        String ingredients = drinkList.get(userInput).getIngredients();
+        String message = "Your Drink has the following ingredients:";
+        speechText = sb.append(message).append(ingredients).toString();
 
         return input.getResponseBuilder().withSpeech(speechText).withShouldEndSession(false).build();
     }

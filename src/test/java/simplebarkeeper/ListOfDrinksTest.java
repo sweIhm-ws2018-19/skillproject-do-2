@@ -25,12 +25,12 @@ public class ListOfDrinksTest {
         String pathWithoutPercents = url.getFile().replace("%20", " ");
         File file = new File(pathWithoutPercents);
 
-        file.setReadable(false);
+        file.setReadable(false, false);
         ListOfDrinks drinkList = new ListOfDrinks();
 
         Assert.assertEquals(0, drinkList.getSize());
 
-        file.setReadable(true);
+        file.setReadable(true, false);
     }
 
     @Test

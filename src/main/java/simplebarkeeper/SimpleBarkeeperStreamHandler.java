@@ -4,12 +4,6 @@ import com.amazon.ask.Skill;
 import com.amazon.ask.SkillStreamHandler;
 import com.amazon.ask.Skills;
 
-import simplebarkeeper.handlers.AddDrinkContainsAlcoholIntentHandler;
-import simplebarkeeper.handlers.AddDrinkDaytimeIntentHandler;
-import simplebarkeeper.handlers.AddDrinkFlavourIntentHandler;
-import simplebarkeeper.handlers.AddDrinkIngredientsIntentHandler;
-import simplebarkeeper.handlers.AddDrinkIntentHandler;
-import simplebarkeeper.handlers.AddDrinkNameIntentHandler;
 import simplebarkeeper.handlers.CancelandStopIntentHandler;
 import simplebarkeeper.handlers.FallbackIntentHandler;
 import simplebarkeeper.handlers.HelpIntentHandler;

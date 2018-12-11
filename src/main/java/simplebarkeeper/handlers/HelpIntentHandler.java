@@ -30,19 +30,22 @@ public class HelpIntentHandler implements RequestHandler {
 	 */
 	@Override
 	public Optional<Response> handle(HandlerInput input) {
-		String outputText = "Ich freue mich Ihnen weiterhelfen zu d�rfen. Um diesen Skill nutzen zu k�nnen, sollten Sie "
-				+ "mit den Funktionalit�ten des Skills vertraut sein."
-				+ "Diese sind: Drink eingeben, Drink l�schen, und Zutaten abfragen."
-				+ "Um einen neuen Drink einzugeben sagen Sie im Hauptmen� Drink eingeben."
-				+ "Um einen Drink zu l�schen, sagen Sie Drink l�schen."
-				+ "Um die Zutaten eines Drinks abzufragen, sagen Sie beispielsweise Was ist in einem Radler";
-		
-		
+		StringBuilder sr = new StringBuilder();
+		String speechText = sr
+				.append("Ich freue mich Ihnen weiterhelfen zu dürfen. Um diesen Skill nutzen zu können, sollten Sie ")
+				.append("mit den Funktionalitäten des Skills vertraut sein.")
+				.append("Diese sind: Favorit hinzufügen, Favorit abfragen, Rezept vorlesen und Zutaten abfragen.")
+				.append("Um ein Rezept zu einem Drink abzurufen, sagen sie Rezept vorlesen.")
+				.append("Um ihren Favoriten abzurufen, sagen sie was ist mein Favorit.")
+				.append("Um einene Drink als favoriten abzuspeichern, sagen sie, Mein Favorit ist Beispieldrink.")
+				.append("Um die Zutaten eines Drinks abzufragen, sagen sie Was ist in einem Beispieldrink.")
+				.toString();
+
 		Map<String, Object> attributes = input.getAttributesManager().getSessionAttributes();
 		attributes.put("HelpState", "HelpStateWait");
 		input.getAttributesManager().setSessionAttributes(attributes);
-		
-		return input.getResponseBuilder().withSpeech(outputText).withShouldEndSession(false).build();
+
+		return input.getResponseBuilder().withSpeech(speechText).withShouldEndSession(false).build();
 	}
 
 }
