@@ -10,6 +10,10 @@ import simplebarkeeper.handlers.HelpIntentHandler;
 import simplebarkeeper.handlers.LaunchRequestHandler;
 import simplebarkeeper.handlers.ListIngredientsIntentHandler;
 import simplebarkeeper.handlers.SessionEndedRequestHandler;
+import simplebarkeeper.handlers.help.HelpGetFavouriteIntentHandler;
+import simplebarkeeper.handlers.help.HelpGetRecipeIntentHandler;
+import simplebarkeeper.handlers.help.HelpListIngredientsIntentHandler;
+import simplebarkeeper.handlers.help.HelpSetFavouriteIntentHandler;
 
 /**
  * Main Stream Handler for the "simple barkeeper" Alexa Skill. Here the Skill
@@ -37,7 +41,11 @@ public class SimpleBarkeeperStreamHandler extends SkillStreamHandler {
                 new FallbackIntentHandler(),
                 new HelpIntentHandler(),
                 new SessionEndedRequestHandler(),
-                new ListIngredientsIntentHandler()
+                new ListIngredientsIntentHandler(),
+                new HelpGetFavouriteIntentHandler(),
+                new HelpGetRecipeIntentHandler(),
+                new HelpListIngredientsIntentHandler(),
+                new HelpSetFavouriteIntentHandler()
                 )
                 //.withTableName("simpleBarkeeperData")
                 //.withAutoCreateTable(true)
