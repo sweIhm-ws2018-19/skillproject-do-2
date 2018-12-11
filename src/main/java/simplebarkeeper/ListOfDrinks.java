@@ -3,6 +3,7 @@ package simplebarkeeper;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -45,7 +46,7 @@ public class ListOfDrinks {
      * @return The initialDrinkList from the repository. Empty list if file not
      *         present.
      */
-    private Map<String, Drink> getListFromJson(String path) {
+    Map<String, Drink> getListFromJson(String path) {
         URL url = this.getClass().getResource(path);
         String pathWithoutPercents = url.getFile().replace("%20", " ");
         File file = new File(pathWithoutPercents);
@@ -139,7 +140,7 @@ public class ListOfDrinks {
                 .toString();
     }
 
-    public String getRandomDrinkByFlavour(String flavour, String containsAlcohol) {
+    public String getRandomDrinkByFlavour(String flavour, String containsAlcohol, LocalTime time) {
         boolean isFlavourContained = false;
 
         for (Flavour value : Flavour.values()) {
@@ -157,7 +158,7 @@ public class ListOfDrinks {
 
         for (Drink drink : drinks.values()) {
             if ((drink.getContainsAlcohol() == Boolean.parseBoolean(containsAlcohol))
-                    && (drink.getFlavour() == Flavour.valueOf(flavour)) && drinkFitsDaytime(drink)) {
+                    && (drink.getFlavour() == Flavour.valueOf(flavour)) && drinkFitsDaytime(drink, time)) {
                 selectedDrinks.add(drink);
             }
         }
@@ -172,13 +173,13 @@ public class ListOfDrinks {
                 .append(selectedDrinks.get(random.nextInt(selectedDrinks.size())).getName()).toString();
     }
 
-    public String getRandomDrinkByIngredient(String ingredient, String containsAlcohol) {
+    public String getRandomDrinkByIngredient(String ingredient, String containsAlcohol, LocalTime time) {
         List<Drink> selectedDrinks = new ArrayList<>();
 
         for (Drink drink : drinks.values()) {
             if (drink.getIngredients() != null && (drink.getContainsAlcohol() == Boolean.parseBoolean(containsAlcohol))
                     && (drink.getIngredients().toLowerCase().contains(ingredient.toLowerCase()))
-                    && drinkFitsDaytime(drink)) {
+                    && drinkFitsDaytime(drink, time)) {
                 selectedDrinks.add(drink);
             }
         }
@@ -193,11 +194,12 @@ public class ListOfDrinks {
                 .append(selectedDrinks.get(random.nextInt(selectedDrinks.size())).getName()).toString();
     }
 
-    public String getRandomDrinkByAlcohol(String containsAlcohol) {
+    public String getRandomDrinkByAlcohol(String containsAlcohol, LocalTime time) {
         List<Drink> selectedDrinks = new ArrayList<>();
 
         for (Drink drink : drinks.values()) {
-            if ((drink.getContainsAlcohol() == Boolean.parseBoolean(containsAlcohol)) && drinkFitsDaytime(drink)) {
+            if ((drink.getContainsAlcohol() == Boolean.parseBoolean(containsAlcohol))
+                    && drinkFitsDaytime(drink, time)) {
                 selectedDrinks.add(drink);
             }
         }
@@ -212,17 +214,21 @@ public class ListOfDrinks {
                 .append(selectedDrinks.get(random.nextInt(selectedDrinks.size())).getName()).toString();
     }
 
-    private boolean drinkFitsDaytime(Drink drink) {
-        LocalTime drinkStartTime = drink.getDaytime().getStartTime();
+    boolean drinkFitsDaytime(Drink drink, LocalTime time) {
+        Daytime drinkDayTime = drink.getDaytime();
 
-        if (drinkStartTime.equals(LocalTime.parse("00:00"))) {
+        if (drinkDayTime.equals(Daytime.ALLDAY)) {
             return true;
         }
 
-        LocalTime now = LocalTime.now();
-        LocalTime drinkEndTime = drink.getDaytime().getEndTime();
+        LocalTime drinkStartTime = drinkDayTime.getStartTime();
+        LocalTime drinkEndTime = drinkDayTime.getEndTime();
 
-        return now.isAfter(drinkStartTime) && now.isBefore(drinkEndTime);
+        if (drinkDayTime.equals(Daytime.EVENING)) {
+            return (time.isAfter(drinkStartTime) || time.isBefore(drinkEndTime));
+        }
+
+        return time.isAfter(drinkStartTime) && time.isBefore(drinkEndTime);
     }
 
     int getSize() {

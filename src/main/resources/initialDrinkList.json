@@ -34,7 +34,7 @@
   "zitronenlimonade" : {
     "name" : "zitronenlimonade",
     "flavour" : "SWEET",
-    "daytime" : "NOON",
+    "daytime" : "ALLDAY",
     "containsAlcohol" : false,
     "ingredients" : "",
     "steps" : [ ]
@@ -42,7 +42,7 @@
   "cola" : {
     "name" : "cola",
     "flavour" : "SWEET",
-    "daytime" : "NOON",
+    "daytime" : "ALLDAY",
     "containsAlcohol" : false,
     "ingredients" : "",
     "steps" : [ ]
