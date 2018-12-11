@@ -10,27 +10,30 @@ import simplebarkeeper.handlers.HelpIntentHandler;
 import simplebarkeeper.handlers.LaunchRequestHandler;
 import simplebarkeeper.handlers.ListIngredientsIntentHandler;
 import simplebarkeeper.handlers.SessionEndedRequestHandler;
+import simplebarkeeper.handlers.help.HelpGetFavouriteIntentHandler;
+import simplebarkeeper.handlers.help.HelpGetRecipeIntentHandler;
+import simplebarkeeper.handlers.help.HelpListIngredientsIntentHandler;
+import simplebarkeeper.handlers.help.HelpSetFavouriteIntentHandler;
+
 /**
- * Main Stream Handler for the "simple barkeeper" Alexa Skill.
- * Here the Skill itself is structured and built.
+ * Main Stream Handler for the "simple barkeeper" Alexa Skill. Here the Skill
+ * itself is structured and built.
  * @author Robin Grellner, Xaver Siodlazek
- *
  */
 public class SimpleBarkeeperStreamHandler extends SkillStreamHandler {
 
-	/*
-	 * Ctor for the SimpleBarkeeperStreamHandler.
-	 */
+    /*
+     * Ctor for the SimpleBarkeeperStreamHandler.
+     */
     public SimpleBarkeeperStreamHandler() {
         super(getSkill());
     }
 
     /**
-	 * Method that builts the Skill from all Intent and Reqeust Handlers.
-	 * 
-	 * @return The built Skill, that includes all the needed Intent Handlers and
-	 *         Request Handlers.
-	 */
+     * Method that builds the Skill from all Intent and Request Handlers.
+     * @return The built Skill, that includes all the needed Intent Handlers and
+     *         Request Handlers.
+     */
     private static Skill getSkill() {
         return Skills.standard().addRequestHandlers(
                 new CancelandStopIntentHandler(),
@@ -38,7 +41,11 @@ public class SimpleBarkeeperStreamHandler extends SkillStreamHandler {
                 new FallbackIntentHandler(),
                 new HelpIntentHandler(),
                 new SessionEndedRequestHandler(),
-                new ListIngredientsIntentHandler()
+                new ListIngredientsIntentHandler(),
+                new HelpGetFavouriteIntentHandler(),
+                new HelpGetRecipeIntentHandler(),
+                new HelpListIngredientsIntentHandler(),
+                new HelpSetFavouriteIntentHandler()
                 )
                 //.withTableName("simpleBarkeeperData")
                 //.withAutoCreateTable(true)
