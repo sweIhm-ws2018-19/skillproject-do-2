@@ -36,7 +36,7 @@ public class TestLaunchRequestIntentHandler {
 
 		assertTrue(res.isPresent());
 		final Response response = res.get();
-		assertTrue(response.getOutputSpeech().toString().contains("Hallo. Wie kann ich dir behilflich sein?"));
-		assertTrue(response.getReprompt().toString().contains("Falls du Hilfe brauchst, sag einfach: hilf mir"));
+		assertTrue(response.getOutputSpeech().toString().contains("Dein Barkeeper heißt dich herzlich Wilkommen! Wie kann ich dir behilflich sein?"));
+		assertTrue(response.getReprompt().toString().contains("Falls du Hilfe brauchen solltest, sag einfach: Hilf mir"));
 	}
 }
