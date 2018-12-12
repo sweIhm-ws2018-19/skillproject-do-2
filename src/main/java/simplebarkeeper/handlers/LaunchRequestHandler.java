@@ -30,8 +30,8 @@ public class LaunchRequestHandler implements RequestHandler {
     @Override
     public Optional<Response> handle(HandlerInput input) {
         
-        String welcome = "Hallo. Wie kann ich dir behilflich sein?";
-        String repromptMessage = "Falls du Hilfe brauchst, sag einfach: hilf mir";
+        String welcome = "Dein Barkeeper heißt dich herzlich Wilkommen! Wie kann ich dir behilflich sein?";
+        String repromptMessage = "Falls du Hilfe brauchen solltest, sag einfach: Hilf mir";
       
         return input.getResponseBuilder()
         		.withSpeech(welcome)
