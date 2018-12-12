@@ -27,8 +27,8 @@ public class TestUtil {
 		final RequestEnvelope mockRequestEnvelope = RequestEnvelope.builder()
 				.withRequest(IntentRequest.builder()
 						.withIntent(Intent.builder()
-								.putSlotsItem("UserInput",
-										Slot.builder().withName("UserInput").withValue(input).build())
+								.putSlotsItem("Drink",
+										Slot.builder().withName("Drink").withValue(input).build())
 								.build())
 						.build())
 				.build();
