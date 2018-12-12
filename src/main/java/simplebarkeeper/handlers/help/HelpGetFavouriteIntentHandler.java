@@ -20,7 +20,7 @@ public class HelpGetFavouriteIntentHandler implements RequestHandler {
 	 */
 	@Override
 	public boolean canHandle(HandlerInput input) {
-		return input.matches(intentName("GetFavouriteIntent"));
+		return input.matches(intentName("HelpGetFavouriteIntent"));
 	}
 
 	/**

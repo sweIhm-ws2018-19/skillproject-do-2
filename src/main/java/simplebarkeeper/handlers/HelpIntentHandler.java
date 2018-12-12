@@ -30,8 +30,8 @@ public class HelpIntentHandler implements RequestHandler {
 	public Optional<Response> handle(HandlerInput input) {
 		StringBuilder sr = new StringBuilder();
 		String speechText = sr
-				.append("Ich freue mich Ihnen weiterhelfen zu dürfen. Um diesen Skill nutzen zu können, sollten Sie ")
-				.append("mit den Funktionalitäten des Skills vertraut sein.")
+				.append("Ich freue mich Ihnen weiterhelfen zu dürfen. Um diesen Skill nutzen zu können, sollten sie ")
+				.append("mit den Funktionalitäten des Skills vertraut sein. ")
 				.append("Diese sind: Favorit hinzufügen, Favorit abfragen, Rezept vorlesen und Zutaten abfragen.")
 				.append("Um ein Rezept zu einem Drink abzurufen, sagen sie Rezept vorlesen.")
 				.append("Um ihren Favoriten abzurufen, sagen sie was ist mein Favorit.")

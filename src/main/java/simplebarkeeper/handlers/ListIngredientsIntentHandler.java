@@ -37,10 +37,12 @@ public class ListIngredientsIntentHandler implements RequestHandler {
 	 */
 	@Override
 	public Optional<Response> handle(HandlerInput input) {
+
 		Request request = input.getRequestEnvelope().getRequest();
 		IntentRequest intentRequest = (IntentRequest) request;
 		Intent intent = intentRequest.getIntent();
 		Map<String, Slot> slots = intent.getSlots();
+
 		Slot slot = slots.get(Slots.NAME_SLOT);
 		String userInput = slot.getValue();
 
