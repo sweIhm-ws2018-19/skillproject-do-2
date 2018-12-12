@@ -13,6 +13,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.apache.commons.io.output.FileWriterWithEncoding;
 
@@ -59,7 +61,8 @@ public class ListOfDrinks {
         try {
             initialDrinkList = om.readValue(file, mapType);
         } catch (IOException e) {
-            e.printStackTrace();
+        	Logger LOGGER = Logger.getLogger(ListOfDrinks.class.getName());
+        	LOGGER.log(Level.INFO, "Something went kinda wrong...", e);
             initialDrinkList = new HashMap<>();
         }
 
