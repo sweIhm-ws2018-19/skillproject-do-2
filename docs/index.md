@@ -17,8 +17,8 @@ Beta Test für Simple Barkeeper: ... hier Link zur Betatestseite
 ## Klassendiagramm des AWS Lambda Funktion
 <img src="images/LieblingsfarbeSkillKlassenmodell.png" alt="Klassenmodell" class="inline"/>
 
-## Aktivitätsdiagramm Lieblingsfarbe eingeben
+## Aktivitätsdiagramm Drink vorschlagen
 <img src="images/AlexaSkill_Aktivitätsdiagramm.png" alt="Lieblingsfarbe eingeben" class="inline"/>
 
 ## Sonstiges
-Was ich gelernt habe: viel!
+Nothing
