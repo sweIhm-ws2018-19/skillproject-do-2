@@ -1,17 +1,11 @@
-# Demoprojekt skillproject-test: Lieblingsfarbe
-
-Ein Beispiel Skill basierend auf [Github: https://github.com/alexa/alexa-skills-kit-sdk-for-java/tree/2.0.x/samples/colorpicker](https://github.com/alexa/alexa-skills-kit-sdk-for-java/tree/2.0.x/samples/colorpicker)
+# Simple Barkeeper
 
 ## Status
-![](https://travis-ci.org/sweIhm-ws2018-19/skillproject-test.svg?branch=master)
+![](https://travis-ci.org/sweIhm-ws2018-19/sweIhm-ws2018-19/skillproject-do-2.svg?branch=master)
 
-[![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=sweIhm_ws2018_19:lieblingsfarbe&metric=alert_status)](https://sonarcloud.io/dashboard?id=sweIhm_ws2018_19:lieblingsfarbe)
+[![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=skillproject%3AsimpleBarkeeper&metric=alert_status)](https://sonarcloud.io/dashboard?id=skillproject%3AsimpleBarkeeper)
 
-
-Der Skill wurde auf Deutsch übersetzt, es wurden Tests hinzugefügt und eine eigene Model-Klasse implementiert. 
-
-
-Beta Test für Lieblingsfarbe: ... hier Link zur Betatestseite 
+Beta Test für Simple Barkeeper: ... hier Link zur Betatestseite 
 
 ## Systemarchitektur
 <img src="images/SystemkontextAlexaSkill.png" alt="Systemkontext" class="inline"/>
