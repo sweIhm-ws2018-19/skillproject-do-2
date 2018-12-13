@@ -39,7 +39,7 @@ public class TestFallbackIntentHandler {
 
 		StringBuilder sr = new StringBuilder();
 		String responseMessage = sr.append(
-				"Tut mir leid, ich habe dich nicht verstanden. Bei Fragen steht Ihnen die Hilfe gerne zur Verfügung")
+				"Tut mir leid, ich habe dich nicht verstanden. Bei Fragen steht dir die Hilfe gerne zur Verfügung")
 				.toString();
 		assertTrue(response.getOutputSpeech().toString().contains(responseMessage));
 	}

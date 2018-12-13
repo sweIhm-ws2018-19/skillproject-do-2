@@ -41,9 +41,9 @@ public class TestHelpGetRecipeIntentHandler {
 
 		StringBuilder sr = new StringBuilder();
 		String responseMessage = sr.append("Um das Rezept eines Drinks abzurufen, sag einfach: ")
-				.append("Wie lautet das Rezept eines BeispielDrinks?")
-				.append("Um zum nächsten Schritt zu gelangen, sage einfach weiter.")
-				.append(" Um zum vorigen Schritt zu gelangen, sage zurück. Um einen schritt zu wiederholen, sag: nochmal").toString();
+                .append("Wie lautet das Rezept eines BeispielDrinks? ")
+                .append("Um zum nächsten Schritt zu gelangen, sage einfach weiter. ")
+                .append(" Um zum vorigen Schritt zu gelangen, sage zurück. Um einen schritt zu wiederholen, sag: nochmal").toString();
 
 		assertTrue(response.getOutputSpeech().toString().contains(responseMessage));
 	}

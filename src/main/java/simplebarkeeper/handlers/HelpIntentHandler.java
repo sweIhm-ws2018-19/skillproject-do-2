@@ -36,7 +36,7 @@ public class HelpIntentHandler implements RequestHandler {
 				.append("Um ein Rezept zu einem Drink abzurufen, sagen sie: Rezept vorlesen. ")
 				.append("Um ihren Favoriten abzurufen, sagen sie: was ist mein Favorit. ")
 				.append("Um einene Drink als favoriten abzuspeichern, sagen sie: Mein Favorit ist Beispieldrink. ")
-				.append("Um die Zutaten eines Drinks abzufragen, sagen sie: Was ist in einem Beispieldrink. ")
+				.append("Um die Zutaten eines Drinks abzufragen, sagen sie: Was ist in einem Beispieldrink")
 				.toString();
 
 		return input.getResponseBuilder().withSpeech(speechText).withShouldEndSession(false).build();
