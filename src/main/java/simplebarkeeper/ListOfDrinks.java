@@ -28,8 +28,10 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
  * @author Felix Haala
  */
 public class ListOfDrinks {
-	private static final String ALEXA_ANSWER_EMPFEHLUNG_BARKEEPER = "Dein Barkeeper empfiehlt dir: ";
+	private static final String LOGGER_MESSAGE = "Something went wrong...";
+    private static final String ALEXA_ANSWER_EMPFEHLUNG_BARKEEPER = "Dein Barkeeper empfiehlt dir: ";
 	private static final String ALEXA_ANSWER_DRINK_AKTUELL_NICHT_BEKANNT = "Zu dieser Auswahl ist mir zur aktuellen Uhrzeit leider kein Drink bekannt";
+	Logger LOGGER = Logger.getLogger(ListOfDrinks.class.getName());
 
 	private final Map<String, Drink> drinks;
 	private final Random random = new Random();
@@ -61,8 +63,7 @@ public class ListOfDrinks {
 		try {
 			initialDrinkList = om.readValue(file, mapType);
 		} catch (IOException e) {
-			Logger LOGGER = Logger.getLogger(ListOfDrinks.class.getName());
-			LOGGER.log(Level.INFO, "Something went kinda wrong...", e);
+			LOGGER.log(Level.INFO, LOGGER_MESSAGE, e);
 			initialDrinkList = new HashMap<>();
 		}
 
@@ -93,8 +94,7 @@ public class ListOfDrinks {
 			fw.write(drinkName + "\r\n");
 			fw.flush();
 		} catch (IOException e) {
-			Logger LOGGER = Logger.getLogger(ListOfDrinks.class.getName());
-			LOGGER.log(Level.INFO, "Something went kinda wrong...", e);
+			LOGGER.log(Level.INFO, LOGGER_MESSAGE, e);
 		}
 
 		sb = new StringBuilder();
@@ -123,8 +123,7 @@ public class ListOfDrinks {
 			String drink = drinks.get(isr.readLine()).getName();
 			sb.append("Dein Lieblingsdrink ist ").append(drink);
 		} catch (IOException e) {
-			Logger LOGGER = Logger.getLogger(ListOfDrinks.class.getName());
-			LOGGER.log(Level.INFO, "Something went kinda wrong...", e);
+			LOGGER.log(Level.INFO, LOGGER_MESSAGE, e);
 		}
 		return sb.toString();
 	}

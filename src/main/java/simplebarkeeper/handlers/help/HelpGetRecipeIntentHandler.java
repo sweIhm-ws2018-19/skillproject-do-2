@@ -31,8 +31,8 @@ public class HelpGetRecipeIntentHandler implements RequestHandler {
 	public Optional<Response> handle(HandlerInput input) {
 		StringBuilder outputText = new StringBuilder();
 		outputText.append("Um das Rezept eines Drinks abzurufen, sag einfach: ")
-				.append("Wie lautet das Rezept eines BeispielDrinks?")
-				.append("Um zum nächsten Schritt zu gelangen, sage einfach weiter.")
+				.append("Wie lautet das Rezept eines BeispielDrinks? ")
+				.append("Um zum nächsten Schritt zu gelangen, sage einfach weiter. ")
 				.append(" Um zum vorigen Schritt zu gelangen, sage zurück. Um einen schritt zu wiederholen, sag: nochmal");
 		return input.getResponseBuilder().withSpeech(outputText.toString()).withShouldEndSession(false).build();
 	}

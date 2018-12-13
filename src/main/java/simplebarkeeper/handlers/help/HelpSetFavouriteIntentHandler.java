@@ -30,7 +30,7 @@ public class HelpSetFavouriteIntentHandler implements RequestHandler {
 	public Optional<Response> handle(HandlerInput input) {
 		StringBuilder outputText = new StringBuilder();
 		outputText.append("Um einen Drink als Favoriten abzuspeichern, sag einfach: ").append(
-				"Speicher bitte den Drink BeispielDrink als Favoriten ab!");
+				"Speichere bitte den Drink BeispielDrink als Favoriten ab!");
 		return input.getResponseBuilder().withSpeech(outputText.toString()).withShouldEndSession(false).build();
 	}
 

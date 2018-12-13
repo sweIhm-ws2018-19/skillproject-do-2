@@ -29,8 +29,8 @@ public class HelpListIngredientsIntentHandler implements RequestHandler {
 	@Override
 	public Optional<Response> handle(HandlerInput input) {
 		StringBuilder outputText = new StringBuilder();
-		outputText.append("Um die Zutaten eines Drinks zu erfahren, sage einfach:").append(
-				"Gib mir die Zutaten von ... und dann den Namen des Drinks zu dem du die Zutaten haben möchtest!");
+		outputText.append("Um die Zutaten eines Drinks zu erfahren, sage einfach: ").append(
+				"Gib mir die Zutaten von ... und dann den Namen des Drinks zu dem du die Zutaten haben möchtest");
 		return input.getResponseBuilder().withSpeech(outputText.toString()).withShouldEndSession(false).build();
 	}
 
