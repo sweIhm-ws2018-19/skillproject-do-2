@@ -1,7 +1,8 @@
 # Simple Barkeeper
 
 ## Status
-![](https://travis-ci.org/sweIhm-ws2018-19/sweIhm-ws2018-19/skillproject-do-2.svg?branch=master)
+
+![](https://travis-ci.org/sweIhm-ws2018-19/skillproject-do-2.svg?branch=master)
 
 [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=skillproject%3AsimpleBarkeeper&metric=alert_status)](https://sonarcloud.io/dashboard?id=skillproject%3AsimpleBarkeeper)
 
