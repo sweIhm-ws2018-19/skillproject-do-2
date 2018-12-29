@@ -10,42 +10,7 @@ import org.junit.Test;
 
 public class ListOfDrinksTest {
 
-	@Test
-	public void setFavoriteTest() throws IOException {
-		ListOfDrinks drinkList = new ListOfDrinks();
 
-		Assert.assertEquals("cola wurde als dein neuer Lieblingsdrink gespeichert", drinkList.setFavorite("cola"));
-	}
-
-	@Test
-	public void setAndGetFavoriteTest() throws IOException {
-		ListOfDrinks drinkList = new ListOfDrinks();
-		drinkList.setFavorite("cola");
-		ListOfDrinks drinkList2 = new ListOfDrinks();
-		Assert.assertEquals("Dein Lieblingsdrink ist cola", drinkList2.getFavorite());
-	}
-
-	@Test
-	public void setFavoriteButNotInListTest() throws IOException {
-		ListOfDrinks drinkList = new ListOfDrinks();
-
-		Assert.assertEquals("Dieser Drink ist mir leider nicht bekannt", drinkList.setFavorite("notInList"));
-	}
-
-	@Test
-	public void getFavoriteButNotSetTest() throws IOException {
-		URL url = this.getClass().getResource("/favourite.txt");
-
-		if (url != null) {
-			String pathWithoutPercents = url.getFile().replace("%20", " ");
-			File file = new File(pathWithoutPercents);
-			file.delete();
-		}
-
-		ListOfDrinks drinkList = new ListOfDrinks();
-
-		Assert.assertEquals("Tut mir leid, bisher wurde kein Favorit festgelegt", drinkList.getFavorite());
-	}
 
 	@Test
 	public void getIngredientsButNotInListTest() throws IOException {
