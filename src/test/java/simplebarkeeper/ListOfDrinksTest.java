@@ -10,233 +10,233 @@ import org.junit.Test;
 
 public class ListOfDrinksTest {
 
-    @Test
-    public void setFavoriteTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+	@Test
+	public void setFavoriteTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-        Assert.assertEquals("cola wurde als dein neuer Lieblingsdrink gespeichert", drinkList.setFavorite("cola"));
-    }
+		Assert.assertEquals("cola wurde als dein neuer Lieblingsdrink gespeichert", drinkList.setFavorite("cola"));
+	}
 
-    @Test
-    public void setAndGetFavoriteTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
-        drinkList.setFavorite("cola");
+	@Test
+	public void setAndGetFavoriteTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
+		drinkList.setFavorite("cola");
+		ListOfDrinks drinkList2 = new ListOfDrinks();
+		Assert.assertEquals("Dein Lieblingsdrink ist cola", drinkList2.getFavorite());
+	}
 
-        Assert.assertEquals("Dein Lieblingsdrink ist cola", drinkList.getFavorite());
-    }
+	@Test
+	public void setFavoriteButNotInListTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void setFavoriteButNotInListTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		Assert.assertEquals("Dieser Drink ist mir leider nicht bekannt", drinkList.setFavorite("notInList"));
+	}
 
-        Assert.assertEquals("Dieser Drink ist mir leider nicht bekannt", drinkList.setFavorite("notInList"));
-    }
+	@Test
+	public void getFavoriteButNotSetTest() throws IOException {
+		URL url = this.getClass().getResource("/favourite.txt");
 
-    @Test
-    public void getFavoriteButNotSetTest() throws IOException {
-        URL url = this.getClass().getResource("/favourite.txt");
+		if (url != null) {
+			String pathWithoutPercents = url.getFile().replace("%20", " ");
+			File file = new File(pathWithoutPercents);
+			file.delete();
+		}
 
-        if (url != null) {
-            String pathWithoutPercents = url.getFile().replace("%20", " ");
-            File file = new File(pathWithoutPercents);
-            file.delete();
-        }
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-        ListOfDrinks drinkList = new ListOfDrinks();
+		Assert.assertEquals("Tut mir leid, bisher wurde kein Favorit festgelegt", drinkList.getFavorite());
+	}
 
-        Assert.assertEquals("Tut mir leid, bisher wurde keine Favourit festgelegt", drinkList.getFavorite());
-    }
+	@Test
+	public void getIngredientsButNotInListTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void getIngredientsButNotInListTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		Assert.assertEquals("Dieser Drink ist mir leider nicht bekannt", drinkList.getIngredients("notInList"));
+	}
 
-        Assert.assertEquals("Dieser Drink ist mir leider nicht bekannt", drinkList.getIngredients("notInList"));
-    }
+	@Test
+	public void getIngredientsButHasNoneTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void getIngredientsButHasNoneTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		Assert.assertEquals("Dieser Drink enthält keine weiteren Zutaten", drinkList.getIngredients("cola"));
+	}
 
-        Assert.assertEquals("Dieser Drink enthält keine weiteren Zutaten", drinkList.getIngredients("cola"));
-    }
+	@Test
+	public void getIngredientsTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void getIngredientsTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		Assert.assertEquals(
+				"sex on the beach enthält folgende Zutaten: 4 Zentiliter granini Orange, 3 Zentiliter granini Pfirsich, 3 Zentiliter granini Ananas, 3 Zentiliter granini Cranberry und 4 Zentiliter Wodka",
+				drinkList.getIngredients("sex on the beach"));
+	}
 
-        Assert.assertEquals(
-                "sex on the beach enthält folgende Zutaten: 4 Zentiliter granini Orange, 3 Zentiliter granini Pfirsich, 3 Zentiliter granini Ananas, 3 Zentiliter granini Cranberry und 4 Zentiliter Wodka",
-                drinkList.getIngredients("sex on the beach"));
-    }
+	@Test
+	public void getRandomDrinkByFlavourButFlavourDoesNotExistTest() {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void getRandomDrinkByFlavourButFlavourDoesNotExistTest() {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		Assert.assertEquals("Dieser Geschmack ist mir leider nicht bekannt",
+				drinkList.getRandomDrinkByFlavour("HONEY", "true", LocalTime.parse("08:00:00")));
+	}
 
-        Assert.assertEquals("Dieser Geschmack ist mir leider nicht bekannt",
-                drinkList.getRandomDrinkByFlavour("HONEY", "true", LocalTime.parse("08:00:00")));
-    }
+	@Test
+	public void getRandomDrinkByFlavourWithAlcoholTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void getRandomDrinkByFlavourWithAlcoholTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		String drinkWithAlcoholName = drinkList.getRandomDrinkByFlavour("BITTER", "true", LocalTime.parse("08:00:00"));
+		int positionLastSpace = drinkWithAlcoholName.lastIndexOf(": ");
+		drinkWithAlcoholName = drinkWithAlcoholName.substring(positionLastSpace + 2);
+		Drink drinkWithAlcohol = drinkList.getDrink(drinkWithAlcoholName);
 
-        String drinkWithAlcoholName = drinkList.getRandomDrinkByFlavour("BITTER", "true", LocalTime.parse("08:00:00"));
-        int positionLastSpace = drinkWithAlcoholName.lastIndexOf(": ");
-        drinkWithAlcoholName = drinkWithAlcoholName.substring(positionLastSpace + 2);
-        Drink drinkWithAlcohol = drinkList.getDrink(drinkWithAlcoholName);
+		Assert.assertTrue(drinkWithAlcohol.getContainsAlcohol());
+		Assert.assertEquals(Flavour.BITTER, drinkWithAlcohol.getFlavour());
+	}
 
-        Assert.assertTrue(drinkWithAlcohol.getContainsAlcohol());
-        Assert.assertEquals(Flavour.BITTER, drinkWithAlcohol.getFlavour());
-    }
+	@Test
+	public void getRandomDrinkByFlavourWithoutAlcoholTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void getRandomDrinkByFlavourWithoutAlcoholTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		String drinkWithoutAlcoholName = drinkList.getRandomDrinkByFlavour("SWEET", "false",
+				LocalTime.parse("08:00:00"));
+		int positionLastSpace = drinkWithoutAlcoholName.lastIndexOf(": ");
+		drinkWithoutAlcoholName = drinkWithoutAlcoholName.substring(positionLastSpace + 2);
+		Drink drinkWithoutAlcohol = drinkList.getDrink(drinkWithoutAlcoholName);
 
-        String drinkWithoutAlcoholName = drinkList.getRandomDrinkByFlavour("SWEET", "false",
-                LocalTime.parse("08:00:00"));
-        int positionLastSpace = drinkWithoutAlcoholName.lastIndexOf(": ");
-        drinkWithoutAlcoholName = drinkWithoutAlcoholName.substring(positionLastSpace + 2);
-        Drink drinkWithoutAlcohol = drinkList.getDrink(drinkWithoutAlcoholName);
+		Assert.assertFalse(drinkWithoutAlcohol.getContainsAlcohol());
+		Assert.assertEquals(Flavour.SWEET, drinkWithoutAlcohol.getFlavour());
+	}
 
-        Assert.assertFalse(drinkWithoutAlcohol.getContainsAlcohol());
-        Assert.assertEquals(Flavour.SWEET, drinkWithoutAlcohol.getFlavour());
-    }
+	@Test
+	public void getRandomDrinkByFlavourWithAlcoholButHasNoneAtThisTimeTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void getRandomDrinkByFlavourWithAlcoholButHasNoneAtThisTimeTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		Assert.assertEquals("Zu dieser Auswahl ist mir zur aktuellen Uhrzeit leider kein Drink bekannt",
+				drinkList.getRandomDrinkByFlavour("SOUR", "true", LocalTime.parse("08:00:00")));
+	}
 
-        Assert.assertEquals("Zu dieser Auswahl ist mir zur aktuellen Uhrzeit leider kein Drink bekannt",
-                drinkList.getRandomDrinkByFlavour("SOUR", "true", LocalTime.parse("08:00:00")));
-    }
+	@Test
+	public void getRandomDrinkByAlcoholTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void getRandomDrinkByAlcoholTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		String drinkWithAlcoholName = drinkList.getRandomDrinkByAlcohol("true", LocalTime.parse("08:00:00"));
+		int positionLastSpace = drinkWithAlcoholName.lastIndexOf(": ");
+		drinkWithAlcoholName = drinkWithAlcoholName.substring(positionLastSpace + 2);
+		Drink drinkWithAlcohol = drinkList.getDrink(drinkWithAlcoholName);
 
-        String drinkWithAlcoholName = drinkList.getRandomDrinkByAlcohol("true", LocalTime.parse("08:00:00"));
-        int positionLastSpace = drinkWithAlcoholName.lastIndexOf(": ");
-        drinkWithAlcoholName = drinkWithAlcoholName.substring(positionLastSpace + 2);
-        Drink drinkWithAlcohol = drinkList.getDrink(drinkWithAlcoholName);
+		Assert.assertTrue(drinkWithAlcohol.getContainsAlcohol());
+	}
 
-        Assert.assertTrue(drinkWithAlcohol.getContainsAlcohol());
-    }
+	@Test
+	public void getRandomDrinkByAlcoholWithoutAlcoholTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void getRandomDrinkByAlcoholWithoutAlcoholTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		String drinkWithoutAlcoholName = drinkList.getRandomDrinkByAlcohol("false", LocalTime.parse("08:00:00"));
+		int positionLastSpace = drinkWithoutAlcoholName.lastIndexOf(": ");
+		drinkWithoutAlcoholName = drinkWithoutAlcoholName.substring(positionLastSpace + 2);
+		Drink drinkWithoutAlcohol = drinkList.getDrink(drinkWithoutAlcoholName);
 
-        String drinkWithoutAlcoholName = drinkList.getRandomDrinkByAlcohol("false", LocalTime.parse("08:00:00"));
-        int positionLastSpace = drinkWithoutAlcoholName.lastIndexOf(": ");
-        drinkWithoutAlcoholName = drinkWithoutAlcoholName.substring(positionLastSpace + 2);
-        Drink drinkWithoutAlcohol = drinkList.getDrink(drinkWithoutAlcoholName);
+		Assert.assertFalse(drinkWithoutAlcohol.getContainsAlcohol());
+	}
 
-        Assert.assertFalse(drinkWithoutAlcohol.getContainsAlcohol());
-    }
+	@Test
+	public void getRandomDrinkByIngredientWithAlcoholTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void getRandomDrinkByIngredientWithAlcoholTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		String drinkWithAlcoholName = drinkList.getRandomDrinkByIngredient("rum", "true", LocalTime.parse("08:00:00"));
+		int positionLastSpace = drinkWithAlcoholName.lastIndexOf(": ");
+		drinkWithAlcoholName = drinkWithAlcoholName.substring(positionLastSpace + 2);
+		Drink drinkWithAlcohol = drinkList.getDrink(drinkWithAlcoholName);
 
-        String drinkWithAlcoholName = drinkList.getRandomDrinkByIngredient("rum", "true", LocalTime.parse("08:00:00"));
-        int positionLastSpace = drinkWithAlcoholName.lastIndexOf(": ");
-        drinkWithAlcoholName = drinkWithAlcoholName.substring(positionLastSpace + 2);
-        Drink drinkWithAlcohol = drinkList.getDrink(drinkWithAlcoholName);
+		Assert.assertTrue(drinkWithAlcohol.getContainsAlcohol());
+		Assert.assertTrue(drinkWithAlcohol.getIngredients().toLowerCase().contains("rum"));
+	}
 
-        Assert.assertTrue(drinkWithAlcohol.getContainsAlcohol());
-        Assert.assertTrue(drinkWithAlcohol.getIngredients().toLowerCase().contains("rum"));
-    }
+	@Test
+	public void getRandomDrinkByIngredientWithoutAlcoholTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void getRandomDrinkByIngredientWithoutAlcoholTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		String drinkWithAlcoholName = drinkList.getRandomDrinkByIngredient("cola", "false",
+				LocalTime.parse("08:00:00"));
+		int positionLastSpace = drinkWithAlcoholName.lastIndexOf(": ");
+		drinkWithAlcoholName = drinkWithAlcoholName.substring(positionLastSpace + 2);
+		Drink drinkWithAlcohol = drinkList.getDrink(drinkWithAlcoholName);
 
-        String drinkWithAlcoholName = drinkList.getRandomDrinkByIngredient("cola", "false",
-                LocalTime.parse("08:00:00"));
-        int positionLastSpace = drinkWithAlcoholName.lastIndexOf(": ");
-        drinkWithAlcoholName = drinkWithAlcoholName.substring(positionLastSpace + 2);
-        Drink drinkWithAlcohol = drinkList.getDrink(drinkWithAlcoholName);
+		Assert.assertFalse(drinkWithAlcohol.getContainsAlcohol());
+		Assert.assertTrue(drinkWithAlcohol.getIngredients().toLowerCase().contains("cola"));
+	}
 
-        Assert.assertFalse(drinkWithAlcohol.getContainsAlcohol());
-        Assert.assertTrue(drinkWithAlcohol.getIngredients().toLowerCase().contains("cola"));
-    }
+	@Test
+	public void getRandomDrinkByIngredientWithAlcoholButHasNoneAtThisTimeTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void getRandomDrinkByIngredientWithAlcoholButHasNoneAtThisTimeTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		Assert.assertEquals("Zu dieser Auswahl ist mir zur aktuellen Uhrzeit leider kein Drink bekannt",
+				drinkList.getRandomDrinkByIngredient("kaffee", "true", LocalTime.parse("08:00:00")));
+	}
 
-        Assert.assertEquals("Zu dieser Auswahl ist mir zur aktuellen Uhrzeit leider kein Drink bekannt",
-                drinkList.getRandomDrinkByIngredient("kaffee", "true", LocalTime.parse("08:00:00")));
-    }
+	@Test
+	public void drinkFitsDaytimeMorningTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void drinkFitsDaytimeMorningTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		Assert.assertTrue(drinkList.drinkFitsDaytime(drinkList.getDrink("kaffee"), LocalTime.parse("08:00:01")));
+	}
 
-        Assert.assertTrue(drinkList.drinkFitsDaytime(drinkList.getDrink("kaffee"), LocalTime.parse("08:00:01")));
-    }
+	@Test
+	public void drinkFitsDaytimeMorningButDoesNotFitTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void drinkFitsDaytimeMorningButDoesNotFitTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		Assert.assertFalse(drinkList.drinkFitsDaytime(drinkList.getDrink("kaffee"), LocalTime.parse("12:00:01")));
+	}
 
-        Assert.assertFalse(drinkList.drinkFitsDaytime(drinkList.getDrink("kaffee"), LocalTime.parse("12:00:01")));
-    }
+	@Test
+	public void drinkFitsDaytimeNoonTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void drinkFitsDaytimeNoonTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		Assert.assertTrue(drinkList.drinkFitsDaytime(drinkList.getDrink("rote schorle"), LocalTime.parse("12:00:01")));
+	}
 
-        Assert.assertTrue(drinkList.drinkFitsDaytime(drinkList.getDrink("rote schorle"), LocalTime.parse("12:00:01")));
-    }
+	@Test
+	public void drinkFitsDaytimeNoonButDoesNotFitTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void drinkFitsDaytimeNoonButDoesNotFitTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		Assert.assertFalse(drinkList.drinkFitsDaytime(drinkList.getDrink("rote schorle"), LocalTime.parse("17:00:01")));
+	}
 
-        Assert.assertFalse(drinkList.drinkFitsDaytime(drinkList.getDrink("rote schorle"), LocalTime.parse("17:00:01")));
-    }
+	@Test
+	public void drinkFitsDaytimeEveningBeforeMidnightTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void drinkFitsDaytimeEveningBeforeMidnightTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		Assert.assertTrue(
+				drinkList.drinkFitsDaytime(drinkList.getDrink("sex on the beach"), LocalTime.parse("23:59:59")));
+	}
 
-        Assert.assertTrue(
-                drinkList.drinkFitsDaytime(drinkList.getDrink("sex on the beach"), LocalTime.parse("23:59:59")));
-    }
+	@Test
+	public void drinkFitsDaytimeEveningAfterMidnightTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void drinkFitsDaytimeEveningAfterMidnightTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		Assert.assertTrue(
+				drinkList.drinkFitsDaytime(drinkList.getDrink("sex on the beach"), LocalTime.parse("00:00:01")));
+	}
 
-        Assert.assertTrue(
-                drinkList.drinkFitsDaytime(drinkList.getDrink("sex on the beach"), LocalTime.parse("00:00:01")));
-    }
+	@Test
+	public void drinkFitsDaytimeEveningAtMidnightTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void drinkFitsDaytimeEveningAtMidnightTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		Assert.assertTrue(
+				drinkList.drinkFitsDaytime(drinkList.getDrink("sex on the beach"), LocalTime.parse("00:00:00")));
+	}
 
-        Assert.assertTrue(
-                drinkList.drinkFitsDaytime(drinkList.getDrink("sex on the beach"), LocalTime.parse("00:00:00")));
-    }
+	@Test
+	public void drinkFitsDaytimeEveningButDoesNotFitTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void drinkFitsDaytimeEveningButDoesNotFitTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
+		Assert.assertFalse(
+				drinkList.drinkFitsDaytime(drinkList.getDrink("sex on the beach"), LocalTime.parse("08:00:00")));
+	}
 
-        Assert.assertFalse(
-                drinkList.drinkFitsDaytime(drinkList.getDrink("sex on the beach"), LocalTime.parse("08:00:00")));
-    }
+	@Test
+	public void getSizeTest() throws IOException {
+		ListOfDrinks drinkList = new ListOfDrinks();
 
-    @Test
-    public void getSizeTest() throws IOException {
-        ListOfDrinks drinkList = new ListOfDrinks();
-
-        Assert.assertEquals(28, drinkList.getSize());
-    }
+		Assert.assertEquals(28, drinkList.getSize());
+	}
 
 }

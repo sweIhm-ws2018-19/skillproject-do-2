@@ -6,10 +6,12 @@ import com.amazon.ask.Skills;
 
 import simplebarkeeper.handlers.CancelandStopIntentHandler;
 import simplebarkeeper.handlers.FallbackIntentHandler;
+import simplebarkeeper.handlers.GetFavouriteIntentHandler;
 import simplebarkeeper.handlers.HelpIntentHandler;
 import simplebarkeeper.handlers.LaunchRequestHandler;
 import simplebarkeeper.handlers.ListIngredientsIntentHandler;
 import simplebarkeeper.handlers.SessionEndedRequestHandler;
+import simplebarkeeper.handlers.SetFavouriteIntentHandler;
 import simplebarkeeper.handlers.help.HelpGetFavouriteIntentHandler;
 import simplebarkeeper.handlers.help.HelpGetRecipeIntentHandler;
 import simplebarkeeper.handlers.help.HelpListIngredientsIntentHandler;
@@ -45,7 +47,9 @@ public class SimpleBarkeeperStreamHandler extends SkillStreamHandler {
                 new HelpGetFavouriteIntentHandler(),
                 new HelpGetRecipeIntentHandler(),
                 new HelpListIngredientsIntentHandler(),
-                new HelpSetFavouriteIntentHandler()
+                new HelpSetFavouriteIntentHandler(),
+                new SetFavouriteIntentHandler(),
+                new GetFavouriteIntentHandler()
                 )
                // .withSkillId("amzn1.ask.skill.ea7c7457-8321-4b3c-bf43-9a5d0069cd90")
                 .build();

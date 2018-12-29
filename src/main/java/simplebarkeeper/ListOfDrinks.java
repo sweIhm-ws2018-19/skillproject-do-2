@@ -88,8 +88,9 @@ public class ListOfDrinks {
 
         StringBuilder sb = new StringBuilder();
         File file = new File(sb.append(pathWithoutPercents).append("favourite.txt").toString());
-
-        try (FileWriterWithEncoding fw = new FileWriterWithEncoding(file, StandardCharsets.UTF_8)) {
+        file.delete();
+        file = new File(sb.toString());
+        try (FileWriterWithEncoding fw = new FileWriterWithEncoding(file, StandardCharsets.UTF_8, false)) {
             fw.write(drinkName + "\r\n");
             fw.flush();
         } catch (IOException e) {
@@ -109,17 +110,19 @@ public class ListOfDrinks {
     public String getFavorite() {
         URL url = this.getClass().getResource("/favourite.txt");
 
-        if (url == null) {
-            return "Tut mir leid, bisher wurde keine Favourit festgelegt";
-        }
-
         String pathWithoutPercents = url.getFile().replace("%20", " ");
         File file = new File(pathWithoutPercents);
 
         StringBuilder sb = new StringBuilder();
 
         try (BufferedReader isr = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {
-            String drink = drinks.get(isr.readLine()).getName();
+        	String name = isr.readLine();
+        	 if(name.equals("nothing")) {
+             	return "Tut mir leid, bisher wurde kein Favorit festgelegt";
+             }
+            String drink = drinks.get(name).getName();
+            
+           
             sb.append("Dein Lieblingsdrink ist ").append(drink);
         } catch (IOException e) {
             LOGGER.log(Level.INFO, LOGGER_MESSAGE, e);

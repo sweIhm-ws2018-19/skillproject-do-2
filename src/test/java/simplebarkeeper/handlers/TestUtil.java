@@ -14,6 +14,8 @@ import com.amazon.ask.model.RequestEnvelope;
 import com.amazon.ask.model.Slot;
 import com.amazon.ask.response.ResponseBuilder;
 
+import simplebarkeeper.Slots;
+
 public class TestUtil {
 
 	public static HandlerInput mockHandlerInput(String input, Map<String, Object> sessionAttributes,
@@ -24,11 +26,35 @@ public class TestUtil {
 		when(mockAttributesManager.getPersistentAttributes()).thenReturn(persistentAttributes);
 		when(mockAttributesManager.getRequestAttributes()).thenReturn(requestAttributes);
 
+		final RequestEnvelope mockRequestEnvelope = RequestEnvelope.builder().withRequest(IntentRequest.builder()
+				.withIntent(Intent.builder()
+						.putSlotsItem(Slots.NAME_SLOT,
+								Slot.builder().withName(Slots.NAME_SLOT).withValue(input).build())
+						.build())
+				.build()).build();
+
+		final HandlerInput mockHandlerInput = Mockito.mock(HandlerInput.class);
+		when(mockHandlerInput.getAttributesManager()).thenReturn(mockAttributesManager);
+		when(mockHandlerInput.getResponseBuilder()).thenReturn(new ResponseBuilder());
+		when(mockHandlerInput.getRequestEnvelope()).thenReturn(mockRequestEnvelope);
+
+		return mockHandlerInput;
+
+	}
+
+	public static HandlerInput mockHandlerInputFavourite(String input, Map<String, Object> sessionAttributes,
+			Map<String, Object> persistentAttributes, Map<String, Object> requestAttributes) {
+
+		final AttributesManager mockAttributesManager = Mockito.mock(AttributesManager.class);
+		when(mockAttributesManager.getSessionAttributes()).thenReturn(sessionAttributes);
+		when(mockAttributesManager.getPersistentAttributes()).thenReturn(persistentAttributes);
+		when(mockAttributesManager.getRequestAttributes()).thenReturn(requestAttributes);
+
 		final RequestEnvelope mockRequestEnvelope = RequestEnvelope.builder()
 				.withRequest(IntentRequest.builder()
 						.withIntent(Intent.builder()
-								.putSlotsItem("Drink",
-										Slot.builder().withName("Drink").withValue(input).build())
+								.putSlotsItem(Slots.FAVOURITE_SLOT,
+										Slot.builder().withName(Slots.FAVOURITE_SLOT).withValue(input).build())
 								.build())
 						.build())
 				.build();
