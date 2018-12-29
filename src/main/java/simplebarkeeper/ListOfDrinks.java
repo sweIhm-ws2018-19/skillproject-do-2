@@ -70,6 +70,10 @@ public class ListOfDrinks {
         return initialDrinkList;
     }
 
+    
+    public boolean containsDrink(String drinkName) {
+    	return drinks.containsKey(drinkName);
+    }
     /**
      * Setter for a favourite drink.
      * 

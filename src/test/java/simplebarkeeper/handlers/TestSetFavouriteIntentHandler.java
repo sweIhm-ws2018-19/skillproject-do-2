@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
+import java.util.HashMap;
 import java.util.Optional;
 
 import org.junit.Before;
@@ -32,21 +33,23 @@ public class TestSetFavouriteIntentHandler {
 	@Test
 	public void testHandleKnownDrink() {
 		String mockDrink = "sex on the beach";
-		final HandlerInput mockInput = TestUtil.mockHandlerInputFavourite(mockDrink, null, null, null);
+		final HandlerInput mockInput = TestUtil.mockHandlerInputFavourite(mockDrink, null, new HashMap<String, Object>(), null);
 
 		final Optional<Response> res = testHandler.handle(mockInput);
 
 		assertTrue(res.isPresent());
 		final Response response = res.get();
 		assertTrue(response.getOutputSpeech().toString()
-				.contains("sex on the beach wurde als dein neuer Lieblingsdrink gespeichert"));
+				.contains("Der Drink sex on the beach wurde als dein neuer Lieblingsdrink gespeichert"));
 
 	}
 
 	@Test
 	public void testHandleUnknownDrink() {
 		String mockDrink = "unbekannter Drink";
-		final HandlerInput mockInput = TestUtil.mockHandlerInputFavourite(mockDrink, null, null, null);
+		
+		
+		final HandlerInput mockInput = TestUtil.mockHandlerInputFavourite(mockDrink, null, new HashMap<String, Object>(), null);
 
 		final Optional<Response> res = testHandler.handle(mockInput);
 

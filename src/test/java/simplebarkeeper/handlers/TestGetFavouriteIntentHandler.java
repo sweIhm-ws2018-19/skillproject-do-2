@@ -4,6 +4,8 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import org.junit.Before;
@@ -34,9 +36,10 @@ public class TestGetFavouriteIntentHandler {
 	@Test
 	public void testHandleKnownDrink() {
 		String mockDrink = "sex on the beach";
-		final HandlerInput mockInputSetter = TestUtil.mockHandlerInputFavourite(mockDrink, null, null, null);
+		Map<String, Object> persAtt = new HashMap<String, Object>();
+		final HandlerInput mockInputSetter = TestUtil.mockHandlerInputFavourite(mockDrink, null, persAtt, null);
 		testSetter.handle(mockInputSetter);
-		final HandlerInput mockInput = TestUtil.mockHandlerInputFavourite(null, null, null, null);
+		final HandlerInput mockInput = TestUtil.mockHandlerInputFavourite(null, null, persAtt, null);
 
 		final Optional<Response> res = testHandler.handle(mockInput);
 
