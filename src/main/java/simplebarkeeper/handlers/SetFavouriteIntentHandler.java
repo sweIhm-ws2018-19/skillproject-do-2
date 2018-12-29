@@ -5,6 +5,7 @@ import static com.amazon.ask.request.Predicates.intentName;
 import java.util.Map;
 import java.util.Optional;
 
+import com.amazon.ask.attributes.AttributesManager;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Intent;
@@ -25,7 +26,8 @@ public class SetFavouriteIntentHandler implements RequestHandler {
 
 	@Override
 	public Optional<Response> handle(HandlerInput input) {
-
+		ListOfDrinks drinkList = new ListOfDrinks();
+		AttributesManager attributesManager = input.getAttributesManager();
 		Request request = input.getRequestEnvelope().getRequest();
 		IntentRequest intentRequest = (IntentRequest) request;
 		Intent intent = intentRequest.getIntent();
@@ -34,9 +36,16 @@ public class SetFavouriteIntentHandler implements RequestHandler {
 		Slot slot = slots.get(Slots.FAVOURITE_SLOT);
 
 		String userInput = slot.getValue();
-		ListOfDrinks drinkList = new ListOfDrinks();
-		
-		String response = drinkList.setFavorite(userInput);
+		Map<String, Object> persistentAttributes = attributesManager.getPersistentAttributes();
+		String response = "Dieser Drink ist mir leider nicht bekannt.";
+		if (drinkList.containsDrink(userInput)) {
+			persistentAttributes.put(Slots.FAVOURITE_SLOT, userInput);
+			attributesManager.setPersistentAttributes(persistentAttributes);
+			attributesManager.savePersistentAttributes();
+
+			StringBuilder sb = new StringBuilder();
+			response = sb.append("Der Drink ").append(userInput).append(" wurde als dein neuer Lieblingsdrink gespeichert").toString();
+		}
 
 		return input.getResponseBuilder().withSpeech(response).withShouldEndSession(false).build();
 	}
