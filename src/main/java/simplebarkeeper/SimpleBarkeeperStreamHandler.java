@@ -6,6 +6,14 @@ import com.amazon.ask.Skills;
 
 import simplebarkeeper.handlers.CancelandStopIntentHandler;
 import simplebarkeeper.handlers.FallbackIntentHandler;
+import simplebarkeeper.handlers.GetDrinkChooseAlcoholIntentHandler;
+import simplebarkeeper.handlers.GetDrinkChooseFlavourIntentHandler;
+import simplebarkeeper.handlers.GetDrinkChooseIngredientIntentHandler;
+import simplebarkeeper.handlers.GetDrinkChooseOptionIntentHandler;
+import simplebarkeeper.handlers.GetDrinkIntentHandler;
+import simplebarkeeper.handlers.GetDrinkRepromptFlavourIntentHandler;
+import simplebarkeeper.handlers.GetDrinkRepromptIngredientIntentHandler;
+import simplebarkeeper.handlers.GetDrinkRepromptRandomIntentHandler;
 import simplebarkeeper.handlers.GetFavouriteIntentHandler;
 import simplebarkeeper.handlers.HelpIntentHandler;
 import simplebarkeeper.handlers.LaunchRequestHandler;
@@ -49,7 +57,15 @@ public class SimpleBarkeeperStreamHandler extends SkillStreamHandler {
                 new HelpListIngredientsIntentHandler(),
                 new HelpSetFavouriteIntentHandler(),
                 new SetFavouriteIntentHandler(),
-                new GetFavouriteIntentHandler()
+                new GetFavouriteIntentHandler(),
+                new GetDrinkIntentHandler(),
+                new GetDrinkChooseAlcoholIntentHandler(),
+                new GetDrinkChooseOptionIntentHandler(),
+                new GetDrinkChooseFlavourIntentHandler(),
+                new GetDrinkChooseIngredientIntentHandler(),
+                new GetDrinkRepromptFlavourIntentHandler(),
+                new GetDrinkRepromptIngredientIntentHandler(),
+                new GetDrinkRepromptRandomIntentHandler()
                 )
         		.withTableName("simpleBarkeeperData")
                 .withAutoCreateTable(true)

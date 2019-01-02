@@ -1,262 +1,416 @@
 {
-    "interactionModel": {
-        "languageModel": {
-            "invocationName": "simple barkeeper",
-            "intents": [
-                {
-                    "name": "AMAZON.CancelIntent",
-                    "samples": []
-                },
-                {
-                	"name": "QAIntent",
-                	"samples":[]
-                },
-                {
-                    "name": "AMAZON.HelpIntent",
-                    "samples": [
-                        "Ich brauche Hilfe",
-                        "Gib mir Hilfe",
-                        "Hilfe"
-                    ]
-                },
-                {
-                    "name": "HelpGetFavouriteIntent",
-                    "slots": [],
-                    "samples": [
-                        "Ich brauche Hilfe bezüglich Favorit abrufen",
-                        "Gib mir Hilfe zu Favorit abrufen",
-                        "Hilfe zu Favorit abrufen",
-                        "Hilfe Favorit abrufen"
-                    ]
-                },
-                {
-                    "name": "HelpGetRecipeIntent",
-                    "slots": [],
-                    "samples": [
-                        "Ich brauche Hilfe bezüglich Rezept aufrufen",
-                        "Gib mir Hilfe zu Rezept abrufen",
-                        "Hilfe zu Rezept abrufen",
-                        "Hilfe Rezept abrufen",
-                        "Hilfe zu Rezept aufrufen"
-                    ]
-                },
-                {
-                    "name": "HelpSetFavouriteIntent",
-                    "slots": [],
-                    "samples": [
-                        "Ich brauche Hilfe bezüglich Favorit festlegen",
-                        "Gib mir Hilfe zu Favorit festlegen",
-                        "Hilfe zu Favorit festlegen",
-                        "Hilfe Favorit festlegen",
-                        "Hilfe zu Favorit einpeichern"
-                    ]
-                },
-                {
-                    "name": "HelpListIngredientIntent",
-                    "slots": [],
-                    "samples": [
-                        "Ich brauche Hilfe bezüglich Zutaten ausgeben",
-                        "Gib mir Hilfe zu Zutaten asugeben",
-                        "Hilfe zu Zutaten ausgeben",
-                        "Hilfe Zutaten ausgeben",
-                        "Hilfe zu Zutaten anzeigen"
-                    ]
-                },
-                {
-                    "name": "AMAZON.ResumeIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.PauseIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.FallbackIntent",
-                    "samples": []
-                },
-                {
-                    "name": "RemoveDrinkIntent",
-                    "slots": [],
-                    "samples": []
-                },
-                {
-                    "name": "ListIngredientsIntent",
-                    "slots": [
-                        {
-                            "name": "Drink",
-                            "type": "LIST_OF_DRINKS"
-                        }
-                    ],
-                    "samples": [
-                        "Welche Zutaten enthält ein {Drink}",
-                        "Welche Zutaten enthält eine {Drink}",
-                        "Was ist in einem {Drink}",
-                        "Was ist in einer {Drink}"
-                    ]
-                },
-                {
-                    "name": "SetFavouriteIntent",
-                    "slots": [
-                        {
-                            "name": "Favourite",
-                            "type": "LIST_OF_DRINKS"
-                        }
-                    ],
-                    "samples": [
-                        "Füge den Drink {Favourite} als Favoriten hinzu",
-                        "Neuer Favorit {Favourite}",
-                        "Mein Favorit ist {Favourite}"
-                    ]
-                },
-                {
-                    "name": "GetFavouriteIntent",
-                    "slots": [],
-                    "samples": [
-                        "Was ist mein Favorit",
-                        "Wie heißt mein Lieblings drink",
-                        "Welchen Drink mag ich am meisten"
-                    ]
-                },
-                {
-                    "name": "AMAZON.StopIntent",
-                    "samples": [
-                        "Beende Anwendung",
-                        "Ich will doch keinen Drink"
-                    ]
-                }
-            ],
-            "types": [
-                {
-                    "name": "LIST_OF_DRINKS",
-                    "values": [
-                        {
-                            "name": {
-                                "value": "ginger ale"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "johannisbeerschorle"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "sex on the beach"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "traubenschorle"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "heiße schokolade"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "bier"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "energy-drink"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "swimmingpool"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "piña colada"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "sweet holy"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "chocolada"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "zitronenlimonade"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "cola"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "apfel"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "arangenlimonade"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "tonic water"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "sweet baya"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "cola mix"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "tequila sunrise"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "plain vanilla"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "tee"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "panter's punch"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "eistee"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "bitter lemon"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "rote schorle"
-                            }
-                        }
-                    ]
-                }
-            ]
-        }
-    }
+	"interactionModel": {
+		"languageModel": {
+			"invocationName": "simple barkeeper",
+			"intents": [
+				{
+					"name": "AMAZON.CancelIntent",
+					"samples": [
+					]
+				},
+				{
+					"name": "QAIntent",
+					"slots": [
+					],
+					"samples": [
+					]
+				},
+				{
+					"name": "AMAZON.HelpIntent",
+					"samples": [
+						"Ich brauche Hilfe",
+						"Gib mir Hilfe",
+						"Hilfe"
+					]
+				},
+				{
+					"name": "HelpGetFavouriteIntent",
+					"slots": [
+					],
+					"samples": [
+						"Ich brauche Hilfe bezüglich Favorit abrufen",
+						"Gib mir Hilfe zu Favorit abrufen",
+						"Hilfe zu Favorit abrufen",
+						"Hilfe Favorit abrufen"
+					]
+				},
+				{
+					"name": "HelpGetRecipeIntent",
+					"slots": [
+					],
+					"samples": [
+						"Ich brauche Hilfe bezüglich Rezept aufrufen",
+						"Gib mir Hilfe zu Rezept abrufen",
+						"Hilfe zu Rezept abrufen",
+						"Hilfe Rezept abrufen",
+						"Hilfe zu Rezept aufrufen"
+					]
+				},
+				{
+					"name": "HelpSetFavouriteIntent",
+					"slots": [
+					],
+					"samples": [
+						"Ich brauche Hilfe bezüglich Favorit festlegen",
+						"Gib mir Hilfe zu Favorit festlegen",
+						"Hilfe zu Favorit festlegen",
+						"Hilfe Favorit festlegen",
+						"Hilfe zu Favorit einpeichern"
+					]
+				},
+				{
+					"name": "HelpListIngredientIntent",
+					"slots": [
+					],
+					"samples": [
+						"Ich brauche Hilfe bezüglich Zutaten ausgeben",
+						"Gib mir Hilfe zu Zutaten asugeben",
+						"Hilfe zu Zutaten ausgeben",
+						"Hilfe Zutaten ausgeben",
+						"Hilfe zu Zutaten anzeigen"
+					]
+				},
+				{
+					"name": "AMAZON.ResumeIntent",
+					"samples": [
+					]
+				},
+				{
+					"name": "AMAZON.PauseIntent",
+					"samples": [
+					]
+				},
+				{
+					"name": "AMAZON.FallbackIntent",
+					"samples": [
+					]
+				},
+				{
+					"name": "RemoveDrinkIntent",
+					"slots": [
+					],
+					"samples": [
+					]
+				},
+				{
+					"name": "ListIngredientsIntent",
+					"slots": [
+						{
+							"name": "Drink",
+							"type": "LIST_OF_DRINKS"
+						}
+					],
+					"samples": [
+						"Welche Zutaten enthält ein {Drink}",
+						"Welche Zutaten enthält eine {Drink}",
+						"Was ist in einem {Drink}",
+						"Was ist in einer {Drink}"
+					]
+				},
+				{
+					"name": "SetFavouriteIntent",
+					"slots": [
+						{
+							"name": "Favourite",
+							"type": "LIST_OF_DRINKS"
+						}
+					],
+					"samples": [
+						"Füge den Drink {Favourite} als Favoriten hinzu",
+						"Neuer Favorit {Favourite}",
+						"Mein Favorit ist {Favourite}"
+					]
+				},
+				{
+					"name": "GetFavouriteIntent",
+					"slots": [
+					],
+					"samples": [
+						"Was ist mein Favorit",
+						"Wie heißt mein Lieblings drink",
+						"Welchen Drink mag ich am meisten"
+					]
+				},
+				{
+					"name": "AMAZON.StopIntent",
+					"samples": [
+						"Beende Anwendung",
+						"Ich will doch keinen Drink"
+					]
+				},
+				{
+					"name": "GetDrinkIntent",
+					"slots": [
+						{
+							"name": "ContainsAlcoholSlot",
+							"type": "LIST_OF_ANSWERS_ALCOHOL"
+						},
+						{
+							"name": "ChooseOptionSlot",
+							"type": "LIST_OF_ANSWERS_OPTION"
+						},
+						{
+							"name": "StopSlot",
+							"type": "LIST_OF_STOPS"
+						},
+						{
+							"name": "FlavourSlot",
+							"type": "LIST_OF_FLAVOURS"
+						},
+						{
+							"name": "IngredientsSlot",
+							"type": "LIST_OF_INGREDIENTS"
+						}
+					],
+					"samples": [
+						"Drink vorschlagen",
+						"Schlage mir einen drink vor",
+						"Ich will einen Drink",
+						"{ContainsAlcoholSlot}",
+						"{ChooseOptionSlot}",
+						"{StopSlot}",
+						"{FlavourSlot}",
+						"{IngredientsSlot}"
+					]
+				},
+				{
+					"name": "AMAZON.NavigateHomeIntent",
+					"samples": [
+					]
+				}
+			],
+			"types": [
+				{
+					"name": "LIST_OF_DRINKS",
+					"values": [
+						{
+							"name": {
+								"value": "ginger ale"
+							}
+						},
+						{
+							"name": {
+								"value": "johannisbeerschorle"
+							}
+						},
+						{
+							"name": {
+								"value": "sex on the beach"
+							}
+						},
+						{
+							"name": {
+								"value": "traubenschorle"
+							}
+						},
+						{
+							"name": {
+								"value": "heiße schokolade"
+							}
+						},
+						{
+							"name": {
+								"value": "bier"
+							}
+						},
+						{
+							"name": {
+								"value": "energy-drink"
+							}
+						},
+						{
+							"name": {
+								"value": "swimmingpool"
+							}
+						},
+						{
+							"name": {
+								"value": "piña colada"
+							}
+						},
+						{
+							"name": {
+								"value": "sweet holy"
+							}
+						},
+						{
+							"name": {
+								"value": "chocolada"
+							}
+						},
+						{
+							"name": {
+								"value": "zitronenlimonade"
+							}
+						},
+						{
+							"name": {
+								"value": "cola"
+							}
+						},
+						{
+							"name": {
+								"value": "apfel"
+							}
+						},
+						{
+							"name": {
+								"value": "arangenlimonade"
+							}
+						},
+						{
+							"name": {
+								"value": "tonic water"
+							}
+						},
+						{
+							"name": {
+								"value": "sweet baya"
+							}
+						},
+						{
+							"name": {
+								"value": "cola mix"
+							}
+						},
+						{
+							"name": {
+								"value": "tequila sunrise"
+							}
+						},
+						{
+							"name": {
+								"value": "plain vanilla"
+							}
+						},
+						{
+							"name": {
+								"value": "tee"
+							}
+						},
+						{
+							"name": {
+								"value": "panter's punch"
+							}
+						},
+						{
+							"name": {
+								"value": "eistee"
+							}
+						},
+						{
+							"name": {
+								"value": "bitter lemon"
+							}
+						},
+						{
+							"name": {
+								"value": "rote schorle"
+							}
+						}
+					]
+				},
+				{
+					"name": "LIST_OF_ANSWERS_ALCOHOL",
+					"values": [
+						{
+							"name": {
+								"value": "der drink enthält alkohol"
+							}
+						},
+						{
+							"name": {
+								"value": "ja"
+							}
+						},
+						{
+							"name": {
+								"value": "der drink enthält keinen alkohol"
+							}
+						},
+						{
+							"name": {
+								"value": "nein"
+							}
+						}
+					]
+				},
+				{
+					"name": "LIST_OF_ANSWERS_OPTION",
+					"values": [
+						{
+							"name": {
+								"value": "Geschmack"
+							}
+						},
+						{
+							"name": {
+								"value": "Zutat"
+							}
+						},
+						{
+							"name": {
+								"value": "Zufall"
+							}
+						}
+					]
+				},
+				{
+					"name": "LIST_OF_STOPS",
+					"values": [
+						{
+							"name": {
+								"value": "stop"
+							}
+						},
+						{
+							"name": {
+								"value": "abbrechen"
+							}
+						}
+					]
+				},
+				{
+					"name": "LIST_OF_FLAVOURS",
+					"values": [
+						{
+							"name": {
+								"value": "süß"
+							}
+						},
+						{
+							"name": {
+								"value": "sauer"
+							}
+						},
+						{
+							"name": {
+								"value": "bitter"
+							}
+						}
+					]
+				},
+				{
+					"name": "LIST_OF_INGREDIENTS",
+					"values": [
+						{
+							"name": {
+								"value": "rum"
+							}
+						},
+						{
+							"name": {
+								"value": "cola"
+							}
+						},
+						{
+							"name": {
+								"value": "orangensaft"
+							}
+						}
+					]
+				}
+			]
+		}
+	}
 }
