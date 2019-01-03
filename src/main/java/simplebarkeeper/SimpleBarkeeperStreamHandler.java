@@ -15,6 +15,9 @@ import simplebarkeeper.handlers.GetDrinkRepromptFlavourIntentHandler;
 import simplebarkeeper.handlers.GetDrinkRepromptIngredientIntentHandler;
 import simplebarkeeper.handlers.GetDrinkRepromptRandomIntentHandler;
 import simplebarkeeper.handlers.GetFavouriteIntentHandler;
+import simplebarkeeper.handlers.GetRecipeFetchDrinkIntentHandler;
+import simplebarkeeper.handlers.GetRecipeIntentHandler;
+import simplebarkeeper.handlers.GetRecipeMenuIntentHandler;
 import simplebarkeeper.handlers.HelpIntentHandler;
 import simplebarkeeper.handlers.LaunchRequestHandler;
 import simplebarkeeper.handlers.ListIngredientsIntentHandler;
@@ -65,7 +68,10 @@ public class SimpleBarkeeperStreamHandler extends SkillStreamHandler {
                 new GetDrinkChooseIngredientIntentHandler(),
                 new GetDrinkRepromptFlavourIntentHandler(),
                 new GetDrinkRepromptIngredientIntentHandler(),
-                new GetDrinkRepromptRandomIntentHandler()
+                new GetDrinkRepromptRandomIntentHandler(),
+                new GetRecipeFetchDrinkIntentHandler(),
+                new GetRecipeIntentHandler(),
+                new GetRecipeMenuIntentHandler()
                 )
         		.withTableName("simpleBarkeeperData")
                 .withAutoCreateTable(true)

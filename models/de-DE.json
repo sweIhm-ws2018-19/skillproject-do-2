@@ -139,6 +139,25 @@
 					]
 				},
 				{
+					"name": "GetRecipeIntent",
+					"slots": [
+						{
+							"name": "Drink",
+							"type": "LIST_OF_DRINKS"
+						},
+						{
+							"name": "getRecipeMenuSlot",
+							"type": "GET_RECIPE_MENU_OPTIONS"
+						}
+					],
+					"samples": [
+						"Gib mir das rezept zu einem Drink",
+						"Sag mir das rezept",
+						"{Drink}",
+						"{getRecipeMenuSlot}"
+					]
+				},
+				{
 					"name": "GetDrinkIntent",
 					"slots": [
 						{
@@ -406,6 +425,46 @@
 						{
 							"name": {
 								"value": "orangensaft"
+							}
+						}
+					]
+				},
+				{
+					"name": "GET_RECIPE_MENU_OPTIONS",
+					"values": [
+						{
+							"name": {
+								"value": "weiter"
+							}
+						},
+						{
+							"name": {
+								"value": "zurück"
+							}
+						},
+						{
+							"name": {
+								"value": "nochmal"
+							}
+						},
+						{
+							"name": {
+								"value": "nocheinmal"
+							}
+						},
+						{
+							"name": {
+								"value": "wiederholen"
+							}
+						},
+						{
+							"name": {
+								"value": "stop"
+							}
+						},
+						{
+							"name": {
+								"value": "beenden"
 							}
 						}
 					]

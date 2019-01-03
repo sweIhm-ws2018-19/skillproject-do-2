@@ -80,7 +80,6 @@ public class TestGetDrinkChooseFlavourIntentHandler {
 
 		assertTrue(res.isPresent());
 		final Response response = res.get();
-		System.out.println(response.toString());
 		assertTrue(response.toString().contains("Dein Barkeeper empfiehlt dir:") || response.toString()
 				.contains("Zu dieser Auswahl ist mir zur aktuellen Uhrzeit leider kein Drink bekannt"));
 	}

@@ -9,6 +9,7 @@ public class Slots {
 	public static final String FLAVOURS_SLOT = "FlavourSlot";
 	public static final String INGREDIENTS_SLOT = "IngredientsSlot";
 	public static final String GET_DRINK_REPROMPT_SLOT = "getDrinkRepromptSlot";
+	public static final String GET_RECIPE_MENU_SLOT = "getRecipeMenuSlot";
 
     private Slots() {
 

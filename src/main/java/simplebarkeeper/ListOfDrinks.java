@@ -186,7 +186,7 @@ public class ListOfDrinks {
 		return drinks.size();
 	}
 
-	Drink getDrink(String drinkName) {
+	public Drink getDrink(String drinkName) {
 		return drinks.get(drinkName);
 	}
 

@@ -165,4 +165,28 @@ public class TestUtil {
 		return mockHandlerInput;
 
 	}
+	public static HandlerInput mockHandlerInputRecipeMenu(String input, Map<String, Object> sessionAttributes,
+			Map<String, Object> persistentAttributes, Map<String, Object> requestAttributes) {
+
+		final AttributesManager mockAttributesManager = Mockito.mock(AttributesManager.class);
+		when(mockAttributesManager.getSessionAttributes()).thenReturn(sessionAttributes);
+		when(mockAttributesManager.getPersistentAttributes()).thenReturn(persistentAttributes);
+		when(mockAttributesManager.getRequestAttributes()).thenReturn(requestAttributes);
+
+		final RequestEnvelope mockRequestEnvelope = RequestEnvelope.builder().withRequest(IntentRequest.builder()
+				.withIntent(Intent.builder()
+						.putSlotsItem(Slots.GET_RECIPE_MENU_SLOT,
+								Slot.builder().withName(Slots.GET_RECIPE_MENU_SLOT).withValue(input).build())
+						.build())
+				.build()).build();
+
+		final HandlerInput mockHandlerInput = Mockito.mock(HandlerInput.class);
+		when(mockHandlerInput.getAttributesManager()).thenReturn(mockAttributesManager);
+		when(mockHandlerInput.getResponseBuilder()).thenReturn(new ResponseBuilder());
+		when(mockHandlerInput.getRequestEnvelope()).thenReturn(mockRequestEnvelope);
+		
+
+		return mockHandlerInput;
+
+	}
 }
