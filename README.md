@@ -1,13 +1,12 @@
 ﻿# Alexa Skill - The Simple Barkeeper
 
 Unser Amazon Alexa Skill basiert auf der Funktionalität eines Barkeepers. 
-Er soll eine Entscheidungshilfe bzgl. der Getränkewahl bieten, die Zutaten von Rezepten wiedergeben, sowie es ermöglichen, 
-eigene Drinks einzugeben und aus allen Drinks einen persönlichen Favoriten festzulegen. 
+Er soll eine Entscheidungshilfe bzgl. der Getränkewahl bieten, die Zutaten von Rezepten wiedergeben und die Möglichkeit bieten, aus allen Drinks einen persönlichen Favoriten festzulegen. 
 
 ### Key Features
 
 - Zutaten eines Drinks abrufen
-- Eigenen Drink eingeben
+- Rezept eines Drinks abrufen
 - Favoriten festlegen
 - Drink vorschlagen lassen 
 
