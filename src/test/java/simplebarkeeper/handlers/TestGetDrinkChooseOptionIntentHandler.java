@@ -1,6 +1,7 @@
 package simplebarkeeper.handlers;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -36,6 +37,18 @@ public class TestGetDrinkChooseOptionIntentHandler {
 		when(mockInput.matches(any())).thenReturn(true);
 		assertTrue(testHandler.canHandle(mockInput));
 	}
+	
+	@Test
+	public void testCannotHandle() {
+		Map<String, Object> sessAtt = new HashMap<String, Object>();
+		sessAtt.put(States.GET_DRINK_STATE_KEY, States.GET_DRINK_DEFAULT);
+
+		final HandlerInput mockInput = TestUtil.mockHandlerInputChooseAlcohol(null, sessAtt, null, null);
+
+		when(mockInput.matches(any())).thenReturn(true);
+		assertFalse(testHandler.canHandle(mockInput));
+	}
+
 
 	@Test
 	public void testHandleFlavour() {
@@ -93,5 +106,19 @@ public class TestGetDrinkChooseOptionIntentHandler {
 		final Response response = res.get();
 		assertTrue(response.getOutputSpeech().toString().contains("Ich habe dich leider nicht verstanden."));
 	}
-	// TODO Implement missing test classes
+	
+	@Test
+	public void testHandleAnswerNull() {
+		String answer = null;
+		Map<String, Object> sessAtt = new HashMap<String, Object>();
+		sessAtt.put(States.GET_DRINK_STATE_KEY, States.GET_DRINK_CONTAINS_ALCOHOL);
+		final HandlerInput mockInput = TestUtil.mockHandlerInputChooseOption(answer, sessAtt, null, null);
+
+		final Optional<Response> res = testHandler.handle(mockInput);
+
+		assertTrue(res.isPresent());
+		final Response response = res.get();
+		assertTrue(response.getOutputSpeech().toString().contains("Tut mir leid, ich habe dich nicht verstanden!"));
+
+	}
 }

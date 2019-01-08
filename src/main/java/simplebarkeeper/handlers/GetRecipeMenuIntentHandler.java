@@ -33,7 +33,7 @@ public class GetRecipeMenuIntentHandler implements RequestHandler {
 	public Optional<Response> handle(HandlerInput input) {
 		AttributesManager attributesManager = input.getAttributesManager();
 		Map<String, Object> sessionAttributes = attributesManager.getSessionAttributes();
-		String speechText = "Da ist wohl etwas falsch gelaufen";
+		String speechText = "Ich habe dich leider nicht verstanden. ";
 		int counter = (int) sessionAttributes.get(States.GET_RECIPE_STEP_COUNTER_KEY);
 		Drink drink = (Drink) sessionAttributes.get(States.GET_RECIPE_DRINK_KEY);
 		List<String> steps = drink.getSteps();
@@ -44,11 +44,11 @@ public class GetRecipeMenuIntentHandler implements RequestHandler {
 		Map<String, Slot> slots = intent.getSlots();
 
 		Slot slot = slots.get(Slots.GET_RECIPE_MENU_SLOT);
-
+		
 		String userInput = slot.getValue();
 
 		if (userInput == null) {
-			speechText = "Ich habe dich leider nicht verstanden.";
+			speechText = "Da ist wohl etwas falsch gelaufen";
 			return input.getResponseBuilder().withSpeech(speechText).withShouldEndSession(false).build();
 		}
 

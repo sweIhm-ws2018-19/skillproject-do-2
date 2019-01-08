@@ -1,5 +1,6 @@
 package simplebarkeeper.handlers;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -34,6 +35,17 @@ public class TestGetDrinkIntentHandler {
 
 		when(mockInput.matches(any())).thenReturn(true);
 		assertTrue(testHandler.canHandle(mockInput));
+	}
+	
+	@Test
+	public void testCannotHandle() {
+		Map<String, Object> sessAtt = new HashMap<String, Object>();
+		sessAtt.put(States.GET_DRINK_STATE_KEY, States.GET_DRINK_CHOOSE_INGREDIENT);
+
+		final HandlerInput mockInput = TestUtil.mockHandlerInput(null, sessAtt, null, null);
+
+		when(mockInput.matches(any())).thenReturn(true);
+		assertFalse(testHandler.canHandle(mockInput));
 	}
 
 	@Test

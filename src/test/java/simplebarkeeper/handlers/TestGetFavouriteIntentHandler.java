@@ -49,4 +49,19 @@ public class TestGetFavouriteIntentHandler {
 				.contains("Dein Lieblingsdrink ist"));
 
 	}
+	
+	@Test
+	public void testHandleNoneSavedYet() {
+
+		Map<String, Object> persAtt = new HashMap<String, Object>();
+		final HandlerInput mockInput = TestUtil.mockHandlerInputFavourite(null, null, persAtt, null);
+
+		final Optional<Response> res = testHandler.handle(mockInput);
+
+		assertTrue(res.isPresent());
+		final Response response = res.get();
+		assertTrue(response.getOutputSpeech().toString()
+				.contains("Es ist noch kein Favorit abgespeichert"));
+
+	}
 }

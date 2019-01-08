@@ -43,8 +43,17 @@ public class GetDrinkRepromptRandomIntentHandler implements RequestHandler {
 		Slot slot = slots.get(Slots.GET_DRINK_CONTAINS_ALCOHOL_SLOT);
 
 		String userInput = slot.getValue();
+		if (userInput == null) {
+			String speechText = "Tut mir leid, ich habe dich nicht verstanden! Möchtest du noch einen weiteren Drink?";
+			sessionAttributes.put(States.GET_DRINK_STATE_KEY, States.GET_DRINK_REPROMPT_RANDOM);
+			attributesManager.setSessionAttributes(sessionAttributes);
+
+			return input.getResponseBuilder().withSpeech(speechText).withShouldEndSession(false).build();
+		}
 		userInput = userInput.toLowerCase();
-		String speechText = "seems like something went wrong!";
+		String speechText = "Tut mir leid, ich habe dich nicht verstanden! Möchtest du noch einen weiteren Drink?";
+		sessionAttributes.put(States.GET_DRINK_STATE_KEY, States.GET_DRINK_REPROMPT_RANDOM);
+		attributesManager.setSessionAttributes(sessionAttributes);
 
 		if (userInput.contains("ja")) {
 			StringBuilder sb = new StringBuilder();
@@ -53,7 +62,7 @@ public class GetDrinkRepromptRandomIntentHandler implements RequestHandler {
 							(String) sessionAttributes.get(States.GET_DRINK_CONTAINS_ALCOHOL_KEY), LocalTime.now()))
 					.append(". Möchtest du noch einen Vorschlag?").toString();
 		} else if (userInput.contains("nein")) {
-			speechText = "na Dann bis zum nächsten Mal!";
+			speechText = "Na dann bis zum nächsten Mal!";
 			sessionAttributes.put(States.GET_DRINK_STATE_KEY, States.GET_DRINK_DEFAULT);
 			attributesManager.setSessionAttributes(sessionAttributes);
 		}

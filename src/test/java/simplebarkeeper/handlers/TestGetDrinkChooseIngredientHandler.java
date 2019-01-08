@@ -1,5 +1,6 @@
 package simplebarkeeper.handlers;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -35,6 +36,17 @@ public class TestGetDrinkChooseIngredientHandler {
 		when(mockInput.matches(any())).thenReturn(true);
 		assertTrue(testHandler.canHandle(mockInput));
 	}
+	
+	@Test
+	public void testCannotHandle() {
+		Map<String, Object> sessAtt = new HashMap<String, Object>();
+		sessAtt.put(States.GET_DRINK_STATE_KEY, States.GET_DRINK_DEFAULT);
+
+		final HandlerInput mockInput = TestUtil.mockHandlerInputChooseAlcohol(null, sessAtt, null, null);
+
+		when(mockInput.matches(any())).thenReturn(true);
+		assertFalse(testHandler.canHandle(mockInput));
+	}
 
 	@Test
 	public void testHandleKnownIngredient() {
@@ -67,4 +79,19 @@ public class TestGetDrinkChooseIngredientHandler {
 		assertTrue(response.toString().contains("kein Drink bekannt"));
 	}
 
+	@Test
+	public void testHandleAnswerNull() {
+		String answer = null;
+		Map<String, Object> sessAtt = new HashMap<String, Object>();
+		sessAtt.put(States.GET_DRINK_STATE_KEY, States.GET_DRINK_CONTAINS_ALCOHOL);
+		final HandlerInput mockInput = TestUtil.mockHandlerInputChooseIngredient(answer, sessAtt, null, null);
+
+		final Optional<Response> res = testHandler.handle(mockInput);
+
+		assertTrue(res.isPresent());
+		final Response response = res.get();
+		assertTrue(response.getOutputSpeech().toString().contains("Tut mir leid, ich habe dich nicht verstanden!"));
+
+	}
+	
 }

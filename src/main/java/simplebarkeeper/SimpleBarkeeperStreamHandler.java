@@ -49,6 +49,7 @@ public class SimpleBarkeeperStreamHandler extends SkillStreamHandler {
      */
     private static Skill getSkill() {
         return Skills.standard().addRequestHandlers(
+        		new GetRecipeMenuIntentHandler(),
                 new CancelandStopIntentHandler(),
                 new LaunchRequestHandler(),
                 new FallbackIntentHandler(),
@@ -70,8 +71,7 @@ public class SimpleBarkeeperStreamHandler extends SkillStreamHandler {
                 new GetDrinkRepromptIngredientIntentHandler(),
                 new GetDrinkRepromptRandomIntentHandler(),
                 new GetRecipeFetchDrinkIntentHandler(),
-                new GetRecipeIntentHandler(),
-                new GetRecipeMenuIntentHandler()
+                new GetRecipeIntentHandler()
                 )
         		.withTableName("simpleBarkeeperData")
                 .withAutoCreateTable(true)
