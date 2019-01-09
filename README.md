@@ -22,7 +22,7 @@ Er soll eine Entscheidungshilfe bzgl. der Getränkewahl bieten, die Zutaten von 
 [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=skillproject%3AsimpleBarkeeper&metric=alert_status)](https://sonarcloud.io/dashboard?id=skillproject%3AsimpleBarkeeper)
 
 
-Die Entwicklung des Skills stützt sich auf eine agile Methode der Softwareentwicklung.
-Für ein genaueres Bild des Skills und allen Informationen rundherum, möchten wir sie auf unsere [GithubPage](https://sweihm-ws2018-19.github.io/skillproject-do-2/) verweisen. 
+Die Entwicklung des Skills stützt sich auf eine agile Methode der Softwareentwicklung. <br>
+Für ein genaueres Bild des Skills und allen Informationen rundherum, möchten wir sie auf unsere [GithubPage](https://sweihm-ws2018-19.github.io/skillproject-do-2/) verweisen. <br>
 Eine genauere Dokumentation des Projekts finden Sie in unserem [Wiki](https://github.com/sweIhm-ws2018-19/skillproject-do-2/wiki).
 
