@@ -23,6 +23,6 @@ Bei genaueren Fragen zu Entwicklungsstand, Code etc. kann Ihnen unser Wiki siche
 [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=skillproject%3AsimpleBarkeeper&metric=alert_status)](https://sonarcloud.io/dashboard?id=skillproject%3AsimpleBarkeeper)
 
 
-Für ein genaueres Bild des Skills und allen Informationen rundherum, möchten wir sie auf unsere [https://sweihm-ws2018-19.github.io/skillproject-do-2/](GithubPage) verweisen. 
-Eine genauere Dokumentation des Projekts finden Sie in unserem [https://github.com/sweIhm-ws2018-19/skillproject-do-2/wiki](Wiki).
+Für ein genaueres Bild des Skills und allen Informationen rundherum, möchten wir sie auf unsere [GithubPage](https://sweihm-ws2018-19.github.io/skillproject-do-2/) verweisen. 
+Eine genauere Dokumentation des Projekts finden Sie in unserem [Wiki](https://github.com/sweIhm-ws2018-19/skillproject-do-2/wiki).
 
