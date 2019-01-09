@@ -31,7 +31,7 @@ Bei genaueren Fragen zu Entwicklungsstand, Code etc. kann Ihnen unser Wiki siche
 
 ## Klassendiagramm des AWS Lambda Funktion
 <img src="https://raw.githubusercontent.com/sweIhm-ws2018-19/skillproject-do-2/master/Alexa-Skill/Sprint_3/Klassendiagramm.png" alt="Klassenmodell" class="inline"/>
-
+<br><br>
 ## Highlight - Drink vorschlagen
 
 ### User Story
@@ -39,7 +39,7 @@ Bei genaueren Fragen zu Entwicklungsstand, Code etc. kann Ihnen unser Wiki siche
 | User Story | Akzeptanzkriterien |
 | --- | --- |
 |Als User möchte ich vom Simple Barkeeper tageszeitabhängig einen Drink vorgeschlagen bekommen - anhand einer genannten Zutat, eines Geschmacks oder per Zufall und unter der Angabe ob Alkohol erwünscht ist. Ich will mir keine eigenen Gedanken zu einem Getränkewunsch machen und eventuell vorhandene Zutaten aufzubrauchen.| • User ruft Funktion per Ausruf "Drink vorschlagen auf" und wird vom SB gefragt, ob Alkohol erlaubt ist.<br>• Nach seiner Antwort wird er vom SB gefragt, ob nach Zutat/Geschmack/Zufall.<br>• Bei der Wahl "Zutat" wird vom SB eine gewünschte Zutat erfragt, bei der Wahl "Geschmack" ein Geschmack. Bei “Zufall“ wird der Drink random aber auf Basis der Tageszeit ausgesucht.<br>• User nennt Zutat/Geschmack und erhält, einen entsprechenden Vorschlag vom SB (Drinkname).<br>• Danach erfolgt Frage, ob weiterer Vorschlag erfolgen soll.<br>• Falls ja, neuer Vorschlag nach bekannten Vorgaben.<br>• Falls nein, Rückkehr zum Hauptmenü.<br>• Möglichkeit abzubrechen und in Hauptmenü zurückzukehren.
-
+<br><br>
 ### Sequenzdiagramm
 <img src="https://raw.githubusercontent.com/sweIhm-ws2018-19/skillproject-do-2/master/Alexa-Skill/Sprint_3/DrinkVorschlagen.png" alt="Drink vorschlagen" class="inline"/>
 
