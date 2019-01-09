@@ -32,6 +32,7 @@ Bei genaueren Fragen zu Entwicklungsstand, Code etc. kann Ihnen unser Wiki siche
 ## Klassendiagramm des AWS Lambda Funktion
 <img src="https://raw.githubusercontent.com/sweIhm-ws2018-19/skillproject-do-2/master/Alexa-Skill/Sprint_3/Klassendiagramm.png" alt="Klassenmodell" class="inline"/>
 <br><br>
+
 ## Highlight - Drink vorschlagen
 
 ### User Story
