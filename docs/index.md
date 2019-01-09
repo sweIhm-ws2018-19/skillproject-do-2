@@ -6,7 +6,6 @@
 
 [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=skillproject%3AsimpleBarkeeper&metric=alert_status)](https://sonarcloud.io/dashboard?id=skillproject%3AsimpleBarkeeper)
 
-Beta Test für Simple Barkeeper: ... hier Link zur Betatestseite 
 
 ## Systemidee
 ### Alexa Skill - The Simple Barkeeper
